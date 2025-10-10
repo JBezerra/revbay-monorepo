@@ -48,11 +48,11 @@ export const CheckoutStatusDisplayTitle: Record<
   schemas['CheckoutStatus'],
   string
 > = {
-  open: 'Open',
-  confirmed: 'Confirmed',
-  succeeded: 'Succeeded',
-  expired: 'Expired',
-  failed: 'Failed',
+  open: 'Aberto',
+  confirmed: 'Confirmado',
+  succeeded: 'Sucesso',
+  expired: 'Expirado',
+  failed: 'Falhou',
 }
 
 export const CheckoutStatusDisplayColor: Record<

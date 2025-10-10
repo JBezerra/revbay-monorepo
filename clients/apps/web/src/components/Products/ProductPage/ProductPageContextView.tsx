@@ -1,17 +1,12 @@
-import {
-  useBenefits,
-  useUpdateProduct,
-  useUpdateProductBenefits,
-} from '@/hooks/queries'
+import { useUpdateProduct, useUpdateProductBenefits } from '@/hooks/queries'
 import { setValidationErrors } from '@/utils/api/errors'
 import { isValidationError, schemas } from '@polar-sh/client'
 import Button from '@polar-sh/ui/components/atoms/Button'
 import { Form } from '@polar-sh/ui/components/ui/form'
 import { useRouter } from 'next/navigation'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { getStatusRedirect } from '../../Toast/utils'
-import ProductBenefitsForm from '../ProductBenefitsForm'
 import ProductForm, { ProductFullMediasMixin } from '../ProductForm/ProductForm'
 
 type ProductUpdateForm = Omit<schemas['ProductUpdate'], 'metadata'> &
@@ -29,17 +24,10 @@ export const ProductPageContextView = ({
   product,
 }: ProductPageContextViewProps) => {
   const router = useRouter()
-  const benefits = useBenefits(organization.id, {
-    limit: 200,
-  })
-  const organizationBenefits = useMemo(
-    () => benefits.data?.items ?? [],
-    [benefits],
-  )
 
-  const [enabledBenefitIds, setEnabledBenefitIds] = useState<
-    schemas['Benefit']['id'][]
-  >(product.benefits.map((benefit) => benefit.id) ?? [])
+  const [enabledBenefitIds] = useState<schemas['Benefit']['id'][]>(
+    product.benefits.map((benefit) => benefit.id) ?? [],
+  )
 
   const form = useForm<ProductUpdateForm>({
     defaultValues: {
@@ -106,46 +94,6 @@ export const ProductPageContextView = ({
     ],
   )
 
-  const onSelectBenefit = useCallback(
-    (benefit: schemas['Benefit']) => {
-      setEnabledBenefitIds((benefitIds) => [...benefitIds, benefit.id])
-    },
-    [setEnabledBenefitIds],
-  )
-
-  const onRemoveBenefit = useCallback(
-    (benefit: schemas['Benefit']) => {
-      setEnabledBenefitIds((benefits) =>
-        benefits.filter((b) => b !== benefit.id),
-      )
-    },
-    [setEnabledBenefitIds],
-  )
-
-  const enabledBenefits = useMemo(
-    () =>
-      organizationBenefits.filter((benefit) =>
-        enabledBenefitIds.includes(benefit.id),
-      ),
-    [organizationBenefits, enabledBenefitIds],
-  )
-
-  const benefitsAdded = useMemo(
-    () =>
-      enabledBenefits.filter(
-        (benefit) => !product.benefits.some(({ id }) => id === benefit.id),
-      ),
-    [enabledBenefits, product],
-  )
-
-  const benefitsRemoved = useMemo(
-    () =>
-      product.benefits.filter(
-        (benefit) => !enabledBenefits.some(({ id }) => id === benefit.id),
-      ),
-    [enabledBenefits, product],
-  )
-
   return (
     <div className="flex h-full flex-col justify-between pt-4">
       <div className="dark:divide-polar-700 flex h-full flex-col divide-y overflow-y-auto">
@@ -161,39 +109,7 @@ export const ProductPageContextView = ({
             />
           </form>
         </Form>
-        <ProductBenefitsForm
-          organization={organization}
-          organizationBenefits={organizationBenefits.filter(
-            (benefit) =>
-              // Hide not selectable benefits unless they are already enabled
-              benefit.selectable ||
-              enabledBenefits.some((b) => b.id === benefit.id),
-          )}
-          benefits={enabledBenefits}
-          onSelectBenefit={onSelectBenefit}
-          onRemoveBenefit={onRemoveBenefit}
-          compact={true}
-        />
-        {(benefitsAdded.length > 0 || benefitsRemoved.length > 0) && (
-          <div className="mx-8 mb-8 rounded-2xl bg-yellow-50 p-8 px-4 py-3 text-sm text-yellow-500 dark:bg-yellow-950">
-            Existing customers will immediately{' '}
-            {benefitsAdded.length > 0 && (
-              <>
-                get access to{' '}
-                {benefitsAdded.map((benefit) => benefit.description).join(', ')}
-              </>
-            )}
-            {benefitsRemoved.length > 0 && (
-              <>
-                {benefitsAdded.length > 0 && ' and '}lose access to{' '}
-                {benefitsRemoved
-                  .map((benefit) => benefit.description)
-                  .join(', ')}
-              </>
-            )}
-            .
-          </div>
-        )}
+
         <div className="flex flex-row items-center gap-4 p-8">
           <Button
             onClick={handleSubmit(onSubmit)}

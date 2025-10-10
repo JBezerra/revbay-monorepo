@@ -25,15 +25,15 @@ const AGGREGATION_FUNCTIONS = [
   ...enums.propertyAggregationFuncValues,
 ]
 
-const AGGREGATION_FUNCTION_DISPLAY_NAMES: Record<
+export const AGGREGATION_FUNCTION_DISPLAY_NAMES: Record<
   (typeof AGGREGATION_FUNCTIONS)[number],
   string
 > = {
-  count: 'Count',
-  sum: 'Sum',
-  avg: 'Average',
-  min: 'Minimum',
-  max: 'Maximum',
+  count: 'Contagem',
+  sum: 'Soma',
+  avg: 'Média',
+  min: 'Mínimo',
+  max: 'Máximo',
 }
 
 const MeterForm = ({ eventNames }: { eventNames?: schemas['EventName'][] }) => {
@@ -49,16 +49,16 @@ const MeterForm = ({ eventNames }: { eventNames?: schemas['EventName'][] }) => {
         rules={{
           minLength: {
             value: 3,
-            message: 'This field must be at least 3 characters long',
+            message: 'Este campo deve ter pelo menos 3 caracteres',
           },
-          required: 'This field is required',
+          required: 'Este campo é obrigatório',
         }}
         render={({ field }) => {
           return (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Nome</FormLabel>
               <FormDescription>
-                Will be shown on customer&apos;s invoices and usage.
+                Será mostrado nas faturas e no uso do cliente.
               </FormDescription>
               <FormControl>
                 <Input
@@ -74,24 +74,24 @@ const MeterForm = ({ eventNames }: { eventNames?: schemas['EventName'][] }) => {
       />
 
       <FormItem>
-        <FormLabel>Filters</FormLabel>
+        <FormLabel>Filtros</FormLabel>
         <FormDescription>
-          Specify how events are filtered before they are aggregated.
+          Especifique como eventos são filtrados antes de serem agregados.
         </FormDescription>
         <MeterFilterInput eventNames={eventNames} prefix="filter" />
         <FormMessage />
       </FormItem>
       <FormItem>
-        <FormLabel>Aggregation</FormLabel>
+        <FormLabel>Agregação</FormLabel>
         <FormDescription>
-          The function that will turn the filtered events into a unit values.
+          A função que transformará os eventos filtrados em valores de unidade.
         </FormDescription>
         <div className="flex flex-row items-center gap-x-4">
           <FormField
             control={control}
             name="aggregation.func"
             rules={{
-              required: 'This field is required',
+              required: 'Este campo é obrigatório',
             }}
             render={({ field }) => {
               return (
@@ -101,7 +101,7 @@ const MeterForm = ({ eventNames }: { eventNames?: schemas['EventName'][] }) => {
                     defaultValue={field.value || undefined}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select aggregation function" />
+                      <SelectValue placeholder="Selecione uma função de agregação" />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(AGGREGATION_FUNCTION_DISPLAY_NAMES).map(
@@ -122,7 +122,7 @@ const MeterForm = ({ eventNames }: { eventNames?: schemas['EventName'][] }) => {
               control={control}
               name="aggregation.property"
               rules={{
-                required: 'This field is required',
+                required: 'Este campo é obrigatório',
               }}
               render={({ field }) => {
                 return (
@@ -131,7 +131,7 @@ const MeterForm = ({ eventNames }: { eventNames?: schemas['EventName'][] }) => {
                       <Input
                         {...field}
                         value={field.value || ''}
-                        placeholder="Over property"
+                        placeholder="Propriedade"
                       />
                     </FormControl>
                     <FormMessage />

@@ -65,7 +65,7 @@ const CustomerPortalSubscription = ({
 
       <div className="flex flex-col text-sm">
         <DetailRow
-          label="Amount"
+          label="Valor"
           value={
             subscription.amount && subscription.currency ? (
               <AmountLabel
@@ -74,20 +74,20 @@ const CustomerPortalSubscription = ({
                 interval={subscription.recurring_interval}
               />
             ) : (
-              'Free'
+                'Gratuito'
             )
           }
         />
         <DetailRow
-          label="Status"
+          label="Status da Assinatura"
           value={<SubscriptionStatusLabel subscription={subscription} />}
         />
         {subscription.started_at && (
           <DetailRow
-            label="Start Date"
+            label="Data de Início"
             value={
               <span>
-                {new Date(subscription.started_at).toLocaleDateString('en-US', {
+                  {new Date(subscription.started_at).toLocaleDateString('pt-BR', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
@@ -99,12 +99,12 @@ const CustomerPortalSubscription = ({
         {!subscription.ended_at && subscription.current_period_end && (
           <DetailRow
             label={
-              subscription.cancel_at_period_end ? 'Expiry Date' : 'Renewal Date'
+              subscription.cancel_at_period_end ? 'Data de Expiração' : 'Data de Renovação'
             }
             value={
               <span>
                 {new Date(subscription.current_period_end).toLocaleDateString(
-                  'en-US',
+                  'pt-BR',
                   {
                     year: 'numeric',
                     month: 'long',
@@ -117,10 +117,10 @@ const CustomerPortalSubscription = ({
         )}
         {subscription.ended_at && (
           <DetailRow
-            label="Expired"
+            label="Expirado"
             value={
               <span>
-                {new Date(subscription.ended_at).toLocaleDateString('en-US', {
+                {new Date(subscription.ended_at).toLocaleDateString('pt-BR', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
@@ -136,15 +136,15 @@ const CustomerPortalSubscription = ({
           variant="secondary"
           fullWidth
           onClick={showCancelModal}
-          aria-label="Cancel subscription"
+          aria-label="Cancelar assinatura"
           className={themingPreset.polar.buttonSecondary}
         >
-          Cancel Subscription
+          Cancelar Assinatura
         </Button>
       )}
 
       <div className="flex w-full flex-col gap-4">
-        <h3 className="text-lg">Benefit Grants</h3>
+        <h3 className="text-lg">Benefícios Concedidos</h3>
         {(benefitGrants?.items.length ?? 0) > 0 ? (
           <div className="flex flex-col gap-4">
             <List className={themingPreset.polar.list}>
@@ -161,7 +161,7 @@ const CustomerPortalSubscription = ({
         ) : (
           <div className="dark:border-polar-700 flex flex-col items-center justify-center gap-4 rounded-2xl border border-gray-200 p-6">
             <span className="dark:text-polar-500 text-gray-500">
-              This subscription has no benefit grants
+              Esta assinatura não tem benefícios concedidos
             </span>
           </div>
         )}
@@ -170,7 +170,7 @@ const CustomerPortalSubscription = ({
       <div className="flex w-full flex-col gap-4">
         {hasInvoices && (
           <div className="flex flex-col gap-y-4">
-            <h3 className="text-lg">Invoices</h3>
+            <h3 className="text-lg">Faturas</h3>
             <DataTable
               wrapperClassName={themingPreset.polar.table}
               headerClassName={themingPreset.polar.tableHeader}
@@ -179,7 +179,7 @@ const CustomerPortalSubscription = ({
               columns={[
                 {
                   accessorKey: 'created_at',
-                  header: 'Date',
+                  header: 'Data',
                   cell: ({ row }) => (
                     <FormattedDateTime
                       datetime={row.original.created_at}
@@ -190,7 +190,7 @@ const CustomerPortalSubscription = ({
                 },
                 {
                   accessorKey: 'amount',
-                  header: 'Amount',
+                  header: 'Valor',
                   cell: ({ row }) => (
                     <span className="dark:text-polar-500 text-sm text-gray-500">
                       {formatCurrencyAndAmount(

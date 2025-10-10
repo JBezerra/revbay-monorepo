@@ -28,10 +28,10 @@ export const MiniMetricChartBox = ({
         <h3 className="text-2xl">
           {metric &&
             (metric.type === 'scalar'
-              ? Intl.NumberFormat('en-US', {
+              ? Intl.NumberFormat('pt-BR', {
                   notation: 'compact',
                 }).format(value ?? 0)
-              : formatCurrencyAndAmount(value ?? 0, 'USD', 0))}
+              : formatCurrencyAndAmount(value ?? 0, 'brl', 0))}
         </h3>
       </CardContent>
     </Card>

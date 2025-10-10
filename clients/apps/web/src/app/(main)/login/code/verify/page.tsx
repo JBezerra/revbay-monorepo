@@ -21,11 +21,11 @@ export default function Page({
       <div className="flex w-80 flex-col items-center">
         <LogoIcon size={60} className="mb-6 text-blue-500 dark:text-blue-400" />
         <div className="dark:text-polar-400 mb-2 text-center text-gray-500">
-          We sent a verification code to{' '}
+          Enviamentos um código de verificação para{' '}
           <span className="font-bold">{email}</span>
         </div>
         <div className="dark:text-polar-400 mb-6 text-center text-sm text-gray-500">
-          Please enter the 6-character code below
+          Por favor, digite o código de 6 caracteres abaixo
         </div>
         <ClientPage return_to={return_to} error={error} email={email} />
       </div>

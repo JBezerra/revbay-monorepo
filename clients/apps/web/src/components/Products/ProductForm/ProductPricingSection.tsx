@@ -230,9 +230,9 @@ export const ProductPriceMeteredUnitItem: React.FC<
               type="button"
               className="font-medium underline"
             >
-              Set up your first meter
+              Configure sua primeira métrica
             </button>{' '}
-            to start using metered pricing
+            para começar a usar preço por uso
           </p>
         </Alert>
       ) : (
@@ -241,13 +241,13 @@ export const ProductPriceMeteredUnitItem: React.FC<
             control={control}
             name={`prices.${index}.meter_id`}
             rules={{
-              required: 'This field is required',
+              required: 'Este campo é obrigatório',
             }}
             render={({ field }) => {
               return (
                 <FormItem>
                   <div className="flex flex-row items-center justify-between gap-x-2">
-                    <FormLabel>Meter</FormLabel>
+                    <FormLabel>Métrica</FormLabel>
                     <button
                       type="button"
                       className="flex flex-row items-center gap-x-1 text-sm font-medium text-gray-500"
@@ -257,7 +257,7 @@ export const ProductPriceMeteredUnitItem: React.FC<
                       }}
                     >
                       <PlusIcon className="h-4 w-4" />
-                      Add Meter
+                      Adicionar Métrica
                     </button>
                   </div>
                   <FormControl>
@@ -269,7 +269,7 @@ export const ProductPriceMeteredUnitItem: React.FC<
                       }}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a meter" />
+                        <SelectValue placeholder="Selecione uma métrica" />
                       </SelectTrigger>
                       <SelectContent>
                         {meters.items.map((meter) => (
@@ -290,12 +290,12 @@ export const ProductPriceMeteredUnitItem: React.FC<
             name={`prices.${index}.unit_amount`}
             rules={{
               min: 0,
-              required: 'This field is required',
+              required: 'Este campo é obrigatório',
             }}
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Amount per unit</FormLabel>
+                  <FormLabel>Preço por unidade</FormLabel>
                   <FormControl>
                     <UnitAmountInput
                       {...field}
@@ -318,7 +318,7 @@ export const ProductPriceMeteredUnitItem: React.FC<
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Cap amount</FormLabel>
+                  <FormLabel>Valor máximo</FormLabel>
                   <FormControl>
                     <MoneyInput
                       {...field}
@@ -332,8 +332,7 @@ export const ProductPriceMeteredUnitItem: React.FC<
                     />
                   </FormControl>
                   <FormDescription>
-                    Optional maximum amount that can be charged, regardless of
-                    the number of units consumed.
+                    Valor máximo que pode ser cobrado, independentemente do uso.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -403,13 +402,13 @@ const ProductPriceItem: React.FC<ProductPriceItemProps> = ({
       if (amountType === 'fixed') {
         replace({
           amount_type: 'fixed',
-          price_currency: 'usd',
+          price_currency: 'brl',
           price_amount: 0,
         })
       } else if (amountType === 'custom') {
         replace({
           amount_type: 'custom',
-          price_currency: 'usd',
+          price_currency: 'brl',
         })
       } else if (amountType === 'free') {
         replace({
@@ -418,7 +417,7 @@ const ProductPriceItem: React.FC<ProductPriceItemProps> = ({
       } else if (amountType === 'metered_unit') {
         replace({
           amount_type: 'metered_unit',
-          price_currency: 'usd',
+          price_currency: 'brl',
           unit_amount: 0,
           meter_id: '',
         })
@@ -450,15 +449,13 @@ const ProductPriceItem: React.FC<ProductPriceItemProps> = ({
                     }
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a price type" />
+                      <SelectValue placeholder="Selecione um tipo de preço" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="fixed">Fixed price</SelectItem>
-                      <SelectItem value="custom">Pay what you want</SelectItem>
-                      <SelectItem value="free">Free</SelectItem>
+                      <SelectItem value="fixed">Preço fixo</SelectItem>
                       {recurringInterval !== null && (
                         <SelectItem value="metered_unit">
-                          Metered price
+                          Preço por uso
                         </SelectItem>
                       )}
                     </SelectContent>
@@ -557,24 +554,25 @@ export const ProductPricingSection = ({
 
   return (
     <Section
-      title="Pricing"
-      description="Set your billing cycle and pricing model"
+      title="Preços"
+      description="Configure seu ciclo e modelo de cobrança"
       className={className}
       compact={compact}
     >
       {isLegacyRecurringProduct && !legacyMigration ? (
         <div className="prose dark:bg-polar-700 dark:text-polar-500 rounded-2xl bg-gray-100 p-6 text-sm text-gray-500">
           <p>
-            This product uses a deprecated pricing model with both a monthly and
-            yearly pricing.
+            Este produto usa um modelo de cobrança obsoleto com ambos um preço
+            mensal e anual.
           </p>
           <p>
-            To better support future pricing model, the billing cycle is now set
-            at the product level, meaning you need to create a separate product
-            for each billing cycle.
+            Para melhor suportar o modelo de cobrança futuro, o ciclo de
+            cobrança é agora configurado no nível do produto, o que significa
+            que você precisa criar um produto separado para cada ciclo de
+            cobrança.
           </p>
           <Button type="button" size="sm" onClick={switchToNewPricingModel}>
-            Switch to new pricing model
+            Mudar para novo modelo de cobrança
           </Button>
         </div>
       ) : (
@@ -600,12 +598,10 @@ export const ProductPricingSection = ({
                       </SelectTrigger>
                       <SelectContent>
                         {!legacyMigration && (
-                          <SelectItem value="one_time">
-                            One-time purchase
-                          </SelectItem>
+                          <SelectItem value="one_time">Compra única</SelectItem>
                         )}
-                        <SelectItem value="month">Monthly</SelectItem>
-                        <SelectItem value="year">Yearly</SelectItem>
+                        <SelectItem value="month">Mensal</SelectItem>
+                        <SelectItem value="year">Anual</SelectItem>
                       </SelectContent>
                     </Select>
                   </FormControl>
@@ -629,11 +625,13 @@ export const ProductPricingSection = ({
 
           {update && recurringInterval && (
             <ShadowBox className="dark:bg-polar-800 flex flex-col gap-2 !rounded-2xl !border-none p-4">
-              <h3 className="text-sm font-medium">Updating pricing model</h3>
+              <h3 className="text-sm font-medium">
+                Atualizando modelo de cobrança
+              </h3>
               <p className="dark:text-polar-500 text-gray-5 00 text-sm">
-                Changing pricing model on subscription products will only affect
-                new customers. Current customers will keep their original
-                pricing model.
+                Mudar modelo de cobrança em produtos de assinatura afetará
+                apenas novos clientes. Clientes atuais manterão seu modelo de
+                cobrança original.
               </p>
             </ShadowBox>
           )}
@@ -643,13 +641,13 @@ export const ProductPricingSection = ({
               onClick={() =>
                 append({
                   amount_type: 'metered_unit',
-                  price_currency: 'usd',
+                  price_currency: 'brl',
                   meter_id: '',
                   unit_amount: 0,
                 })
               }
             >
-              Add Price
+              Adicionar Preço
             </Button>
           )}
           <ErrorMessage

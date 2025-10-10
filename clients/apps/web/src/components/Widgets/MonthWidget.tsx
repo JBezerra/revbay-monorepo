@@ -16,11 +16,12 @@ import {
   subMonths,
 } from 'date-fns'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import lodash from 'lodash'
 import { useCallback, useContext, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import Spinner from '../Shared/Spinner'
 
-const weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+const weekDays = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
 
 interface MonthWidgetProps {
   className?: string
@@ -49,7 +50,7 @@ export const MonthWidget = ({ className }: MonthWidgetProps) => {
   const trailingEmptyCells = Array((7 - (totalCells % 7)) % 7).fill(null)
   const calendarDays = [...leadingEmptyCells, ...days, ...trailingEmptyCells]
 
-  const monthName = startDate.toLocaleString('default', {
+  const monthName = startDate.toLocaleString('pt-BR', {
     month: 'long',
     year: 'numeric',
   })
@@ -66,7 +67,7 @@ export const MonthWidget = ({ className }: MonthWidgetProps) => {
       )}
     >
       <div className="flex items-center justify-between p-4">
-        <h2 className="text-xl">{monthName}</h2>
+        <h2 className="text-xl">{lodash.capitalize(monthName)}</h2>
         <div className="flex items-center gap-x-2">
           <Button
             variant="ghost"
@@ -93,14 +94,14 @@ export const MonthWidget = ({ className }: MonthWidgetProps) => {
       <div className="flex items-center justify-between px-4 pb-4">
         <div className="flex items-baseline gap-x-2">
           <h3 className="text-5xl font-light">
-            {orderMetrics.data?.totals.orders.toLocaleString('en-US', {
+            {orderMetrics.data?.totals.orders.toLocaleString('pt-BR', {
               style: 'decimal',
               compactDisplay: 'short',
               notation: 'compact',
             }) ?? 0}
           </h3>
           <span className="text-lg">
-            {orderMetrics.data?.totals.orders === 1 ? 'Order' : 'Orders'}
+            {orderMetrics.data?.totals.orders === 1 ? 'Pedido' : 'Pedidos'}
           </span>
         </div>
       </div>
@@ -150,7 +151,7 @@ export const MonthWidget = ({ className }: MonthWidgetProps) => {
                       >
                         {day.orders > 0 ? (
                           <span>
-                            {day.orders.toLocaleString('en-US', {
+                            {day.orders.toLocaleString('pt-BR', {
                               style: 'decimal',
                               compactDisplay: 'short',
                               notation: 'compact',
@@ -169,7 +170,7 @@ export const MonthWidget = ({ className }: MonthWidgetProps) => {
                               <span className="dark:bg-polar-700 h-1 w-1 rounded-full bg-gray-200" />
                             ) : isToday(day.timestamp) ? (
                               <span className="text-white">
-                                {day.orders.toLocaleString('en-US', {
+                                {day.orders.toLocaleString('pt-BR', {
                                   style: 'decimal',
                                   compactDisplay: 'short',
                                   notation: 'compact',
@@ -181,17 +182,17 @@ export const MonthWidget = ({ className }: MonthWidgetProps) => {
                       </TooltipTrigger>
                       <TooltipContent className="flex flex-col gap-1">
                         <span className="dark:text-polar-500 text-sm text-gray-500">
-                          {new Date(day.timestamp).toLocaleString('default', {
+                          {new Date(day.timestamp).toLocaleString('pt-BR', {
                             day: 'numeric',
                             month: 'short',
                             year: 'numeric',
                           })}
                         </span>
                         <span>
-                          {day.orders.toLocaleString('en-US', {
+                          {day.orders.toLocaleString('pt-BR', {
                             style: 'decimal',
                           })}{' '}
-                          {day.orders === 1 ? 'Order' : 'Orders'}
+                          {day.orders === 1 ? 'Pedido' : 'Pedidos'}
                         </span>
                       </TooltipContent>
                     </Tooltip>

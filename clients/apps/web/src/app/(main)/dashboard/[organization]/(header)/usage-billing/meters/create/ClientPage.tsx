@@ -77,8 +77,8 @@ export default function ClientPage({ organization }: ClientPageProps) {
       }
 
       toast({
-        title: `Meter ${meter.name} created`,
-        description: `Meter successfully created.`,
+        title: `Métrica ${meter.name} criada`,
+        description: `Métrica criada com sucesso.`,
       })
 
       router.push(
@@ -90,10 +90,10 @@ export default function ClientPage({ organization }: ClientPageProps) {
 
   return (
     <DashboardBody
-      title="Create Meter"
+      title="Criar Métrica"
       header={
         <div className="hidden flex-row gap-x-4 md:flex">
-          <Button onClick={handleSubmit(onSubmit)}>Create Meter</Button>
+          <Button onClick={handleSubmit(onSubmit)}>Criar Métrica</Button>
         </div>
       }
       className="flex h-full flex-col gap-y-12"
@@ -118,8 +118,8 @@ export default function ClientPage({ organization }: ClientPageProps) {
             <div className="flex flex-col gap-y-4">
               <h2 className="text-xl">Preview</h2>
               <p className="dark:text-polar-500 text-gray-500">
-                Preview the meter with the filter you created. Showing the
-                latest 10 events.
+                Visualize a prévia da métrica com o filtro que você criou. Mostrando os
+                últimos 10 eventos.
               </p>
             </div>
             <Events events={events?.items ?? []} organization={organization} />
@@ -129,7 +129,7 @@ export default function ClientPage({ organization }: ClientPageProps) {
               onClick={handleSubmit(onSubmit)}
               loading={createMeter.isPending}
             >
-              Create Meter
+              Criar Métrica
             </Button>
           </div>
         </form>

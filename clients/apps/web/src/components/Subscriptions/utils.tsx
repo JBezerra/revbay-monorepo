@@ -9,13 +9,13 @@ import { twMerge } from 'tailwind-merge'
 export const subscriptionStatusDisplayNames: {
   [key in schemas['SubscriptionStatus']]: string
 } = {
-  incomplete: 'Incomplete',
-  incomplete_expired: 'Incomplete',
+  incomplete: 'Incompleto',
+  incomplete_expired: 'Incompleto',
   trialing: 'Trialing',
-  active: 'Active',
-  past_due: 'Past due',
-  canceled: 'Canceled',
-  unpaid: 'Unpaid',
+  active: 'Ativo',
+  past_due: 'Vencido',
+  canceled: 'Cancelado',
+  unpaid: 'Não Pago',
 }
 
 export const SubscriptionStatusLabel = ({
@@ -28,7 +28,7 @@ export const SubscriptionStatusLabel = ({
   const label = useMemo(() => {
     switch (subscription.status) {
       case 'active':
-        return subscription.ends_at ? 'To be cancelled' : 'Active'
+        return subscription.ends_at ? 'Para ser cancelado' : 'Ativo'
       default:
         return subscription.status.split('_').join(' ')
     }
@@ -80,8 +80,8 @@ export const getRecurringBillingLabel = (
 ) => {
   switch (recurringInterval) {
     case 'month':
-      return '/mo'
+        return '/mês'
     case 'year':
-      return '/year'
+      return '/ano'
   }
 }

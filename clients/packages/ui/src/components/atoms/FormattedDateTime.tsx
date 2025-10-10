@@ -10,7 +10,7 @@ interface FormattedDateTimeProps {
 
 const FormattedDateTime: React.FC<FormattedDateTimeProps> = ({
   datetime,
-  locale = 'en-US',
+  locale = 'pt-BR',
   dateStyle = 'medium',
   timeStyle = 'short',
   resolution = 'day',

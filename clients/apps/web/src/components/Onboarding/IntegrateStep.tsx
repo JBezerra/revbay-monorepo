@@ -4,13 +4,10 @@ import { schemas } from '@polar-sh/client'
 import Button from '@polar-sh/ui/components/atoms/Button'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
-import slugify from 'slugify'
 import { twMerge } from 'tailwind-merge'
 import LogoIcon from '../Brand/LogoIcon'
-import BetterAuthIcon from '../Icons/frameworks/better-auth'
 import NextJsIcon from '../Icons/frameworks/nextjs'
 import NodeJsIcon from '../Icons/frameworks/nodejs'
-import PythonIcon from '../Icons/frameworks/python'
 import OrganizationAccessTokensSettings from '../Settings/OrganizationAccessTokensSettings'
 import {
   SyntaxHighlighterClient,
@@ -33,42 +30,6 @@ export const GET = Checkout({
 });`,
     },
     {
-      slug: 'better-auth',
-      name: 'BetterAuth',
-      link: 'https://docs.polar.sh/integrate/sdk/adapters/better-auth',
-      icon: <BetterAuthIcon size={24} />,
-      install: 'pnpm add better-auth @polar-sh/better-auth @polar-sh/sdk',
-      code: `import { betterAuth } from "better-auth";
-import { polar, checkout, portal, usage, webhooks } from "@polar-sh/better-auth";
-import { Polar } from "@polar-sh/sdk";
-
-const polarClient = new Polar({
-    accessToken: process.env.POLAR_ACCESS_TOKEN
-});
-
-const auth = betterAuth({
-    // ... Better Auth config
-    plugins: [
-        polar({
-            client: polarClient,
-            createCustomerOnSignUp: true,
-            use: [
-                checkout({
-                    products: [
-                        {
-                            productId: "${product.id}",
-                            slug: "${slugify(product.name)}" // Custom slug for easy reference in Checkout URL, e.g. /checkout/${slugify(product.name)}
-                        }
-                    ],
-                    successUrl: process.env.POLAR_SUCCESS_URL,
-                    authenticatedUsersOnly: true
-                })
-            ],
-        })
-    ]
-});`,
-    },
-    {
       slug: 'nodejs',
       name: 'Node.js',
       link: 'https://docs.polar.sh/integrate/sdk/typescript',
@@ -86,29 +47,6 @@ const checkout = await polar.checkouts.create({
 });
 
 redirect(checkout.url)`,
-    },
-    {
-      slug: 'python',
-      name: 'Python',
-      link: 'https://docs.polar.sh/integrate/sdk/python',
-      icon: <PythonIcon size={24} />,
-      install: 'pip install polar-sdk',
-      code: `import os
-from polar_sdk import Polar
-
-with Polar(
-    access_token=os.environ.get("POLAR_ACCESS_TOKEN"),
-) as polar:
-
-    res = polar.checkouts.create(request={
-        "products": [
-            "${product.id}"
-        ],
-        "success_url": os.environ.get("POLAR_SUCCESS_URL")
-    })
-
-    # Handle response
-    redirect(res.url)`,
     },
   ] as const
 
@@ -133,9 +71,9 @@ export const IntegrateStep = ({ product }: IntegrateStepProps) => {
         <div className="flex flex-col gap-y-12">
           <LogoIcon size={50} />
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-3xl">Integrate Checkout</h1>
+            <h1 className="text-3xl">Integrar Checkout</h1>
             <p className="dark:text-polar-400 text-lg text-gray-600">
-              Integrate checkouts with your favorite framework.
+              Integre checkouts com seu framework favorito.
             </p>
           </div>
         </div>
@@ -165,16 +103,11 @@ export const IntegrateStep = ({ product }: IntegrateStepProps) => {
             href={`https://docs.polar.sh/integrate/sdk/adapters/nextjs`}
             target="_blank"
             className="w-full"
-          >
-            <Button size="lg" fullWidth variant="secondary">
-              <span>Explore All Adapters</span>
-              <ArrowOutwardOutlined className="ml-2" fontSize="small" />
-            </Button>
-          </Link>
+          ></Link>
         </div>
         <Link href={`/dashboard/${organization.slug}`} className="w-full">
           <Button size="lg" fullWidth>
-            Go to Dashboard
+            Ir para Dashboard
           </Button>
         </Link>
       </div>
@@ -184,16 +117,16 @@ export const IntegrateStep = ({ product }: IntegrateStepProps) => {
             <div className="flex flex-col items-center gap-y-6 text-center">
               <LogoIcon size={40} />
               <div className="flex flex-col gap-y-4">
-                <h1 className="text-3xl">Integrate Checkout</h1>
+                <h1 className="text-3xl">Integrar Checkout</h1>
                 <p className="dark:text-polar-500 text-lg text-gray-500">
-                  Follow the instructions below to integrate Checkout into your
-                  application.
+                  Siga as instruções abaixo para integrar o checkout em sua
+                  aplicação.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-col gap-y-6">
-              <h2 className="text-lg">1. Install Dependencies</h2>
+              <h2 className="text-lg">1. Instalar Dependências</h2>
               <CodeWrapper>
                 <SyntaxHighlighterClient
                   lang="bash"
@@ -207,7 +140,7 @@ export const IntegrateStep = ({ product }: IntegrateStepProps) => {
             </div>
 
             <div className="flex flex-col gap-y-6">
-              <h2 className="text-lg">2. Add Environment Variables</h2>
+              <h2 className="text-lg">2. Adicionar Variáveis de Ambiente</h2>
               <OrganizationAccessTokensSettings organization={organization} />
               <CodeWrapper>
                 <SyntaxHighlighterClient
@@ -220,20 +153,17 @@ POLAR_SUCCESS_URL=https://my-app.com/success?checkout_id={CHECKOUT_ID}`}
             </div>
 
             <div className="flex flex-col gap-y-6">
-              <h2 className="text-lg">3. Integrate the Checkout</h2>
+              <h2 className="text-lg">3. Integrar o Checkout</h2>
               <CodeWrapper>
                 <SyntaxHighlighterClient
-                  lang={
-                    currentFramework?.slug === 'python'
-                      ? 'python'
-                      : 'typescript'
-                  }
+                  lang={'typescript'}
                   code={currentFramework?.code ?? ''}
                 />
               </CodeWrapper>
               <Link href={currentFramework?.link ?? ''} target="_blank">
                 <Button size="lg" variant="secondary" fullWidth>
-                  <span>View Documentation</span>
+                  {/* Todo: mudar link */}
+                  <span>Ver Documentação</span>
                   <ArrowOutwardOutlined className="ml-2" fontSize="small" />
                 </Button>
               </Link>

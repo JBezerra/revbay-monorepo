@@ -22,14 +22,14 @@ import { useFieldArray, useFormContext } from 'react-hook-form'
 import { twMerge } from 'tailwind-merge'
 
 const OPERATOR_DISPLAY_NAMES: Record<schemas['FilterOperator'], string> = {
-  eq: 'Equals',
-  ne: 'Not Equals',
-  gt: 'Greater Than',
-  gte: 'Greater Than or Equals',
-  lt: 'Less Than',
-  lte: 'Less Than or Equals',
-  like: 'Contains',
-  not_like: 'Does Not Contain',
+  eq: 'Igual',
+  ne: 'Diferente',
+  gt: 'Maior que',
+  gte: 'Maior ou igual a',
+  lt: 'Menor que',
+  lte: 'Menor ou igual a',
+  like: 'Contém',
+  not_like: 'Não contém',
 }
 
 const isFilterClause = (
@@ -59,7 +59,7 @@ const MeterFilterInput: React.FC<{
       {/* To make the UI more digest, we don't allow to add single clause at the root level */}
       {prefix !== 'filter' && (
         <div className="flex items-center justify-between gap-2">
-          <h3>Filter</h3>
+          <h3>Filtro</h3>
           <div className="flex flex-row items-center gap-x-2">
             <Button
               type="button"
@@ -100,14 +100,18 @@ const MeterFilterInput: React.FC<{
                     'text-muted-foreground flex h-10 w-8 items-center justify-center',
                   )}
                 >
-                  {index === 0 ? '•' : conjunction}
+                  {index === 0
+                    ? '•'
+                    : conjunction === 'or'
+                      ? 'ou'
+                      : conjunction}
                 </div>
                 <div className="grid grow grid-cols-[1fr_1fr_1fr_auto] items-start gap-x-2">
                   <FormField
                     control={control}
                     name={`${prefix}.clauses.${index}.property`}
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => {
                       return (
@@ -128,7 +132,7 @@ const MeterFilterInput: React.FC<{
                     control={control}
                     name={`${prefix}.clauses.${index}.operator`}
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => {
                       return (
@@ -138,7 +142,7 @@ const MeterFilterInput: React.FC<{
                             defaultValue={field.value || undefined}
                           >
                             <SelectTrigger>
-                              <SelectValue placeholder="Select operator" />
+                              <SelectValue placeholder="Selecione um operador" />
                             </SelectTrigger>
                             <SelectContent>
                               {Object.entries(OPERATOR_DISPLAY_NAMES).map(
@@ -159,7 +163,7 @@ const MeterFilterInput: React.FC<{
                     control={control}
                     name={`${prefix}.clauses.${index}.value`}
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => {
                       const mostCommonEventName = eventNames?.[0]?.name
@@ -223,7 +227,7 @@ const MeterFilterInput: React.FC<{
               <div className="flex flex-col gap-4">
                 {index > 0 && (
                   <div className="text-muted-foreground ml-4">
-                    {conjunction}
+                    {conjunction === 'and' ? 'e' : conjunction}
                   </div>
                 )}
                 <ShadowBox className="flex flex-col gap-4 !rounded-2xl p-4">
@@ -253,7 +257,7 @@ const MeterFilterInput: React.FC<{
               })
             }
           >
-            Add Condition Group
+            Adicionar Grupo de Condições
           </Button>
         </div>
       )}

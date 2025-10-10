@@ -28,7 +28,7 @@ const SubscriptionStatusSelect: React.FC<SubscriptionStatusSelectProps> = ({
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="any">
-          <span className="whitespace-nowrap">Any status</span>
+          <span className="whitespace-nowrap">Qualquer status</span>
         </SelectItem>
         <SelectSeparator />
         {statuses.map((status) => (

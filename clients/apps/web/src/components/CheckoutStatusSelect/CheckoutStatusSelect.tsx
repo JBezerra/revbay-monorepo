@@ -22,7 +22,7 @@ const CheckoutStatusSelect: React.FC<CheckoutStatusSelectProps> = ({
   return (
     <Select value={value} onValueChange={onChange}>
       <SelectTrigger>
-        <SelectValue placeholder="Select a status" />
+        <SelectValue placeholder="Selecione um status" />
       </SelectTrigger>
       <SelectContent>
         {enums.checkoutStatusValues.map((status) => (

@@ -30,7 +30,7 @@ export const ActiveSubscriptionsOverview = ({
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h3 className="text-xl">Subscriptions</h3>
+      <h3 className="text-xl">Assinaturas</h3>
       <div className="flex flex-col gap-y-4">
         {subscriptions.length > 0 ? (
           subscriptions.map((s) => (
@@ -45,7 +45,7 @@ export const ActiveSubscriptionsOverview = ({
           ))
         ) : (
           <div className="dark:border-polar-700 flex flex-col items-center justify-center rounded-2xl border border-gray-200 p-12 text-gray-500">
-            <p>No Subscriptions Found</p>
+            <p>Nenhuma Assinatura Encontrada</p>
           </div>
         )}
       </div>
@@ -94,7 +94,7 @@ export const InactiveSubscriptionsOverview = ({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="flex flex-row items-center justify-between">
-        <h3 className="text-xl">Inactive Subscriptions</h3>
+        <h3 className="text-xl">Assinaturas Inativas</h3>
       </div>
       <DataTable
         wrapperClassName={themingPreset.polar.table}
@@ -104,12 +104,12 @@ export const InactiveSubscriptionsOverview = ({
         columns={[
           {
             accessorKey: 'product.name',
-            header: 'Product',
+            header: 'Produto',
             cell: ({ row }) => row.original.product.name,
           },
           {
             accessorKey: 'status',
-            header: 'Status',
+            header: 'Status da Assinatura',
             cell: ({ row }) => (
               <span className="capitalize">
                 {row.original.status.split('_').join(' ')}
@@ -118,7 +118,7 @@ export const InactiveSubscriptionsOverview = ({
           },
           {
             accessorKey: 'ended_at',
-            header: 'Ended At',
+            header: 'Data de Fim',
             cell: ({ row }) => (
               <FormattedDateTime
                 datetime={row.original.ended_at ?? '—'}
@@ -137,7 +137,7 @@ export const InactiveSubscriptionsOverview = ({
                   size="sm"
                   onClick={() => openSubscriptionModal(row.original)}
                 >
-                  View Subscription
+                  Ver Assinatura
                 </Button>
               </span>
             ),

@@ -13,7 +13,7 @@ export const useSafeCopy = (toast: typeof toastFunction) => {
           // Safe fallback for browsers like Safari blocking copy command if run inside an async promise
           // Basically, we show a toast with a button to copy the content, so the operation is sync user-triggered
           toast({
-            title: 'Click below to copy content',
+            title: 'Click no botão abaixo para copiar o conteúdo',
             description: (
               <div className="my-2">
                 <Button
@@ -23,7 +23,7 @@ export const useSafeCopy = (toast: typeof toastFunction) => {
                   }}
                   size="sm"
                 >
-                  Copy
+                  Copiar
                 </Button>
               </div>
             ),

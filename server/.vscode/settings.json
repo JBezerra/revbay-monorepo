@@ -26,5 +26,7 @@
     },
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
-  "mypy-type-checker.preferDaemon": true
+  "mypy-type-checker.preferDaemon": true,
+  "cursorpyright.analysis.autoImportCompletions": true,
+  "cursorpyright.analysis.typeCheckingMode": "basic"
 }

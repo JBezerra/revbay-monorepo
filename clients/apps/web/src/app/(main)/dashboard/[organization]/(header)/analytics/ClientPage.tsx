@@ -154,19 +154,19 @@ export default function ClientPage({
         {data && (
           <>
             <MetricGroup
-              title="Orders"
+              title="Pedidos"
               metricKeys={generalEvents}
               data={data}
               interval={interval}
             />
             <MetricGroup
-              title="Subscriptions"
+              title="Assinaturas"
               metricKeys={subscriptionEvents}
               data={data}
               interval={interval}
             />
             <MetricGroup
-              title="One-time Purchases"
+              title="Compras Únicas"
               metricKeys={oneTimeEvents}
               data={data}
               interval={interval}

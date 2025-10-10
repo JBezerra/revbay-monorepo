@@ -15,18 +15,19 @@ export const AuthModal = ({
   signup,
 }: AuthModalProps) => {
   const isSignup = signup !== undefined
-  const title = isSignup ? 'Sign Up' : 'Log In'
+  const title = isSignup ? 'Cadastrar-se' : 'Entrar'
 
+  // TODO: mexer nessa copy
   const copy = isSignup ? (
     <p className="dark:text-polar-500 text-xl text-gray-500">
-      Join thousands of developers &amp; startups monetizing their products with
-      Polar.
+      Junte-se a milhares de desenvolvedores e startups que monetizam seus
+      produtos com a RevBay.
     </p>
   ) : null
 
   return (
     <ShadowBox className="overflow-y-auto p-12">
-      <div className="flex flex-col justify-between gap-y-16">
+      <div className="flex flex-col justify-between gap-y-8">
         <LogoIcon className="text-black dark:text-white" size={60} />
 
         <div className="flex flex-col gap-y-4">

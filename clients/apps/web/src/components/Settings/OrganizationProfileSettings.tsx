@@ -172,7 +172,7 @@ const OrganizationSocialLinks = () => {
         onClick={handleAddSocial}
       >
         <AddOutlined fontSize="small" className="mr-1" />
-        Add Social
+        Adicionar
       </Button>
     </div>
   )
@@ -266,18 +266,18 @@ export const OrganizationDetailsForm: React.FC<
           <div className="space-y-4 sm:col-span-10">
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Organization Name *
+                Nome da Organização *
               </label>
               <FormField
                 control={control}
                 name="name"
-                rules={{ required: 'Organization name is required' }}
+                rules={{ required: 'Nome da Organização é obrigatório' }}
                 render={({ field }) => (
                   <div>
                     <Input
                       {...field}
                       value={field.value || ''}
-                      placeholder="Acme Inc"
+                      placeholder="Acme Inc."
                     />
                     <FormMessage />
                   </div>
@@ -287,19 +287,19 @@ export const OrganizationDetailsForm: React.FC<
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Support Email *
+                Email de Suporte *
               </label>
               <FormField
                 control={control}
                 name="email"
-                rules={{ required: 'Support email is required' }}
+                rules={{ required: 'Email de Suporte é obrigatório' }}
                 render={({ field }) => (
                   <div>
                     <Input
                       type="email"
                       {...field}
                       value={field.value || ''}
-                      placeholder="support@acme.com"
+                      placeholder="suporte@acme.com"
                     />
                     <FormMessage />
                   </div>
@@ -331,7 +331,7 @@ export const OrganizationDetailsForm: React.FC<
         {/* Social Links - Progressive Disclosure */}
         <div>
           <div className="mb-2 flex items-center justify-between">
-            <label className="block text-sm font-medium">Social Media</label>
+            <label className="block text-sm font-medium">Redes Sociais</label>
           </div>
           <OrganizationSocialLinks />
         </div>
@@ -341,41 +341,42 @@ export const OrganizationDetailsForm: React.FC<
       {inKYCMode && (
         <div className="border-t pt-8">
           <div className="mb-6">
-            <h3 className="mb-2 text-lg font-medium">Business Details</h3>
+            <h3 className="mb-2 text-lg font-medium">Detalhes da Empresa</h3>
             <p className="text-sm text-gray-600">
-              Help us understand your business for compliance and payment setup.
+              Ajude-nos a entender sua empresa para cumprir com as normas e
+              configurar o pagamento.
             </p>
           </div>
 
           <div className="space-y-6">
-            <div>
+            {/* <div>
               <label className="mb-2 block text-sm font-medium">
-                Describe your business *
+                Descreva sua empresa *
               </label>
               <p className="mb-2 text-xs text-gray-600">
-                Tell us: what industry you&apos;re in, what problem you solve,
-                and who your customers are
+                Nos diga: em que indústria você está, qual problema você resolve,
+                e quem são seus clientes
               </p>
               <FormField
                 control={control}
                 name="details.about"
                 rules={{
-                  required: 'Please describe your business',
+                  required: 'Por favor, descreva sua empresa',
                   minLength: {
                     value: 50,
-                    message: 'Please provide at least 50 characters',
+                    message: 'Por favor, forneça pelo menos 50 caracteres',
                   },
                 }}
                 render={({ field }) => (
                   <div>
                     <CompactTextArea
                       field={field}
-                      placeholder="We make project management software for design teams."
+                      placeholder="Nós fazemos software de gerenciamento de projetos para times de design."
                     />
                     <div className="mt-1 flex items-center justify-between">
                       <FormMessage />
                       <span className="text-xs text-gray-500">
-                        {field.value?.length || 0}/50+ characters
+                        {field.value?.length || 0}/50+ caracteres
                       </span>
                     </div>
                   </div>
@@ -385,32 +386,32 @@ export const OrganizationDetailsForm: React.FC<
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                What do you sell? Include type and features that are granted
+                O que você vende? Inclua o tipo e as funcionalidades que são concedidas
               </label>
               <p className="mb-2 text-xs text-gray-600">
-                Tell us: product type (SaaS, course, service, etc.) and main
-                features (advanced reporting, team collaboration, etc.)
+                Nos diga: tipo de produto (SaaS, curso, serviço, etc.) e principais
+                features (relatório avançado, colaboração em equipe, etc.)
               </p>
               <FormField
                 control={control}
                 name="details.product_description"
                 rules={{
-                  required: 'Please describe what you sell',
+                  required: 'Por favor, descreva o que você vende',
                   minLength: {
                     value: 50,
-                    message: 'Please provide at least 50 characters',
+                    message: 'Por favor, forneça pelo menos 50 caracteres',
                   },
                 }}
                 render={({ field }) => (
                   <div>
                     <CompactTextArea
                       field={field}
-                      placeholder="SaaS project management tool with team collaboration, file sharing, and reporting. $29/month per user."
+                      placeholder="Software de gerenciamento de projetos com colaboração em equipe, compartilhamento de arquivos, e relatório. $29/mês por usuário."
                     />
                     <div className="mt-1 flex items-center justify-between">
                       <FormMessage />
                       <span className="text-xs text-gray-500">
-                        {field.value?.length || 0}/50+ characters
+                        {field.value?.length || 0}/50+ caracteres
                       </span>
                     </div>
                   </div>
@@ -420,51 +421,52 @@ export const OrganizationDetailsForm: React.FC<
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                How will you integrate Polar into your business? *
+                Como você vai integrar o Polar em sua empresa? *
               </label>
               <p className="mb-2 text-xs text-gray-600">
-                Tell us: where customers will see Polar, what features
+                Nos diga: onde os clientes verão o Polar, quais funcionalidades
                 you&apos;ll use, and how it fits your workflow
               </p>
               <FormField
                 control={control}
                 name="details.intended_use"
                 rules={{
-                  required: 'Please describe how you will use Polar',
+                  required: 'Por favor, descreva como você vai usar o Polar',
                   minLength: {
                     value: 30,
-                    message: 'Please provide at least 30 characters',
+                    message: 'Por favor, forneça pelo menos 30 caracteres',
                   },
                 }}
                 render={({ field }) => (
                   <div>
                     <CompactTextArea
                       field={field}
-                      placeholder="Checkout on our website, API for subscription billing, webhooks for user access"
+                      placeholder="Checkout em nosso website, API para faturamento de assinaturas, webhooks para acesso de usuários"
                     />
                     <div className="mt-1 flex items-center justify-between">
                       <FormMessage />
                       <span className="text-xs text-gray-500">
-                        {field.value?.length || 0}/30+ characters
+                        {field.value?.length || 0}/30+ caracteres
                       </span>
                     </div>
                   </div>
                 )}
               />
-            </div>
+            </div> */}
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Main customer acquisition channels *
+                Principais canais de aquisição de clientes *
               </label>
               <FormField
                 control={control}
                 name="details.customer_acquisition"
                 rules={{
-                  required: 'Please select at least one acquisition channel',
+                  required:
+                    'Por favor, selecione pelo menos um canal de aquisição de clientes',
                   validate: (value) =>
                     (value && value.length > 0) ||
-                    'Please select at least one channel',
+                    'Por favor, selecione pelo menos um canal de aquisição de clientes',
                 }}
                 render={({ field }) => (
                   <div>
@@ -502,7 +504,7 @@ export const OrganizationDetailsForm: React.FC<
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-medium">
-                  Expected annual revenue
+                  Receita anual esperada
                 </label>
                 <FormField
                   control={control}
@@ -522,7 +524,7 @@ export const OrganizationDetailsForm: React.FC<
 
               <div>
                 <label className="mb-2 block text-sm font-medium">
-                  Currently using
+                  Atualmente usando
                 </label>
                 <FormField
                   control={control}
@@ -539,11 +541,11 @@ export const OrganizationDetailsForm: React.FC<
                         }}
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a platform" />
+                          <SelectValue placeholder="Selecione uma plataforma" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="none">
-                            This is my first payment platform
+                            Este é o meu primeiro pagamento
                           </SelectItem>
                           {Object.entries(SwitchingFromOptions).map(
                             ([key, label]) => (
@@ -601,8 +603,8 @@ const OrganizationProfileSettings: React.FC<
 
     reset(data)
     toast({
-      title: 'Organization Updated',
-      description: `Organization was updated successfully`,
+      title: 'Organização Atualizada',
+      description: `Organização foi atualizada com sucesso`,
     })
 
     if (onSubmitted) {
@@ -626,32 +628,32 @@ const OrganizationProfileSettings: React.FC<
           {!inKYCMode && (
             <>
               <SettingsGroupItem
-                title="Identifier"
-                description="Unique identifier for your organization"
+                title="Identificador"
+                description="Identificador único para sua organização"
               >
                 <FormControl>
                   <CopyToClipboardInput
                     value={organization.id}
                     onCopy={() => {
                       toast({
-                        title: 'Copied To Clipboard',
-                        description: `Organization ID was copied to clipboard`,
+                        title: 'Copiado Para a Área de Transferência',
+                        description: `ID da Organização foi copiado para a área de transferência`,
                       })
                     }}
                   />
                 </FormControl>
               </SettingsGroupItem>
               <SettingsGroupItem
-                title="Organization Slug"
-                description="Used for Customer Portal, Transaction Statements, etc."
+                title="Slug da Organização"
+                description="Usado para o Portal de Clientes, Extratos de Transações, etc."
               >
                 <FormControl>
                   <CopyToClipboardInput
                     value={organization.slug}
                     onCopy={() => {
                       toast({
-                        title: 'Copied To Clipboard',
-                        description: `Organization Slug was copied to clipboard`,
+                        title: 'Copiado Para a Área de Transferência',
+                        description: `Slug da Organização foi copiado para a área de transferência`,
                       })
                     }}
                   />
@@ -669,10 +671,10 @@ const OrganizationProfileSettings: React.FC<
           <SettingsGroupActions>
             <ConfirmationButton
               onConfirm={handleFormSubmit}
-              warningMessage="This information cannot be changed once submitted. Are you sure?"
-              buttonText={inKYCMode ? 'Submit for Review' : 'Save'}
+              warningMessage="Esta informação não pode ser alterada uma vez enviada. Tem certeza?"
+              buttonText={inKYCMode ? 'Enviar para Revisão' : 'Salvar'}
               size={inKYCMode ? 'default' : 'sm'}
-              confirmText="Submit"
+              confirmText="Enviar"
               disabled={!formState.isDirty}
               loading={updateOrganization.isPending}
               requireConfirmation={inKYCMode}

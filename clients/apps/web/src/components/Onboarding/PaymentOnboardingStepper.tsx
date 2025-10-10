@@ -29,32 +29,41 @@ const stepIcons = {
 const stepActions = {
   create_product: {
     href: '/dashboard/[organization]/products/new',
-    label: 'Create Product',
+    label: 'Criar Produto',
   },
   integrate_checkout: {
     href: '/dashboard/[organization]/settings#developers',
-    label: 'Get Started',
+    label: 'Iniciar',
   },
   setup_account: {
     href: '/dashboard/[organization]/finance/account',
-    label: 'Complete Setup',
+    label: 'Completar Setup',
   },
 } as const
 
 const integrationOptions = [
   {
     id: 'api-key',
-    title: 'API Integration',
-    description: 'Build custom checkout flows with full control',
+    title: 'Integração API',
+    description:
+      'Construa fluxos de checkout personalizados com controle total',
     href: '/dashboard/[organization]/settings#developers',
-    features: ['Full customization', 'Your own UI', 'Advanced features'],
+    features: [
+      'Customização completa',
+      'Sua própria interface',
+      'Funcionalidades avançadas',
+    ],
   },
   {
     id: 'checkout-link',
-    title: 'Checkout Links',
-    description: 'Quick setup with pre-built checkout pages',
+    title: 'Links de Checkout',
+    description: 'Setup rápido com páginas de checkout pré-prontas',
     href: '/dashboard/[organization]/products/checkout-links',
-    features: ['No coding required', 'Instant setup', 'Share anywhere'],
+    features: [
+      'Nenhum código necessário',
+      'Setup instantâneo',
+      'Compartilhar em qualquer lugar',
+    ],
   },
 ] as const
 
@@ -94,33 +103,32 @@ export const PaymentOnboardingStepper = ({
       )}
     >
       <div className="space-y-4 md:space-y-6">
-        {/* Header */}
         <div className="space-y-3">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
-              Checkout Setup
+              Setup do Checkout
             </h2>
             {paymentStatus.payment_ready ? (
               <div className="hidden items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 md:flex dark:bg-emerald-950">
                 <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                 <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
-                  Ready to Accept Payments
+                  Pronto para Aceitar Pagamentos
                 </span>
               </div>
             ) : (
               <div className="dark:bg-polar-700 hidden w-fit items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm md:flex">
                 <Clock className="h-4 w-4" />
-                <span className="text-sm font-medium">Setup Required</span>
+                <span className="text-sm font-medium">Setup Necessário</span>
               </div>
             )}
           </div>
 
           <p className="dark:text-polar-500 text-gray-500">
-            Complete these steps to set up checkout and start accepting payments
+            Complete estas etapas para configurar o checkout e começar a aceitar
+            pagamentos
           </p>
         </div>
 
-        {/* Steps */}
         <div className="relative flex flex-col gap-y-4">
           {paymentStatus.steps.map((step) => {
             const action = stepActions[step.id as keyof typeof stepActions]
@@ -133,7 +141,6 @@ export const PaymentOnboardingStepper = ({
 
             return (
               <div key={step.id} className="relative">
-                {/* Step Container */}
                 <div
                   className={twMerge(
                     'relative flex items-start gap-3 rounded-2xl p-4 shadow-sm transition-all duration-200 md:gap-4 md:rounded-3xl md:p-6',
@@ -159,7 +166,6 @@ export const PaymentOnboardingStepper = ({
                     )}
                   </div>
 
-                  {/* Step Content */}
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                       <div className="flex min-w-0 flex-1 flex-col gap-y-4">
@@ -172,7 +178,6 @@ export const PaymentOnboardingStepper = ({
                           </p>
                         </div>
 
-                        {/* Expanded Integration Options */}
                         {hasExpandedContent && (
                           <div className="space-y-4">
                             <div className="grid gap-4 lg:grid-cols-2">
@@ -200,7 +205,6 @@ export const PaymentOnboardingStepper = ({
                         )}
                       </div>
 
-                      {/* Action Button */}
                       {!step.completed && action && !hasExpandedContent && (
                         <Link
                           href={action.href.replace(
@@ -222,17 +226,16 @@ export const PaymentOnboardingStepper = ({
           })}
         </div>
 
-        {/* Status Warning */}
         {!paymentStatus.payment_ready && (
           <div className="dark:bg-polar-800 dark:md:bg-polar-700 flex items-start gap-3 rounded-2xl bg-gray-200 p-4">
             <AlertCircle className="h-5 w-5 flex-shrink-0" />
             <div className="flex flex-col gap-y-1 text-sm">
               <p className="font-medium">
-                Payment processing is not yet available
+                O processamento de pagamentos ainda não está disponível
               </p>
               <p className="dark:text-polar-500 text-gray-500">
-                Complete all steps above to start accepting payments from
-                customers
+                Complete todas as etapas acima para começar a aceitar pagamentos
+                de clientes
               </p>
             </div>
           </div>

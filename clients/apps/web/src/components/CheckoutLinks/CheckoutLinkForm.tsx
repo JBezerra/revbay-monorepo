@@ -46,7 +46,7 @@ export interface CheckoutLinkFormProps {
   onClose: (checkoutLink: schemas['CheckoutLink']) => void
 }
 
-export const CheckoutLinkForm = ({
+export const  CheckoutLinkForm = ({
   organization,
   checkoutLink,
   onClose,
@@ -159,8 +159,8 @@ export const CheckoutLinkForm = ({
         toast({
           title: 'Checkout Link Updated',
           description: `${
-            newCheckoutLink.label ? newCheckoutLink.label : 'Unlabeled'
-          } Checkout Link was updated successfully`,
+            newCheckoutLink.label ? newCheckoutLink.label : 'Sem Label'
+          } Link de Checkout foi atualizado com sucesso`,
         })
       } else {
         const { data: createdCheckoutLink, error } =
@@ -175,10 +175,10 @@ export const CheckoutLinkForm = ({
         }
         newCheckoutLink = createdCheckoutLink
         toast({
-          title: 'Checkout Link Created',
+          title: 'Link de Checkout Criado',
           description: `${
-            newCheckoutLink.label ? newCheckoutLink.label : 'Unlabeled'
-          } Checkout Link was created successfully`,
+            newCheckoutLink.label ? newCheckoutLink.label : 'Sem Label'
+          } Link de Checkout foi criado com sucesso`,
         })
       }
 
@@ -211,7 +211,7 @@ export const CheckoutLinkForm = ({
                   <Input placeholder="" {...field} value={field.value || ''} />
                 </FormControl>
                 <FormDescription className="text-xs">
-                  Helpful if you have multiple links - internal &amp; optional.
+                  Útil se você tiver vários links - internos e opcionais.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -222,7 +222,7 @@ export const CheckoutLinkForm = ({
             name="products"
             rules={{
               validate: (value) =>
-                value.length < 1 ? 'At least one product is required' : true,
+                value.length < 1 ? 'Pelo menos um produto é obrigatório' : true,
             }}
             render={({ field }) => {
               return (
@@ -233,13 +233,13 @@ export const CheckoutLinkForm = ({
                       organization={organization}
                       value={field.value || []}
                       onChange={field.onChange}
-                      emptyLabel="Select one or more products"
+                      emptyLabel="Selecione um ou mais produtos"
                     />
                   </FormControl>
                   <FormMessage />
                   <FormDescription>
-                    The customer will be able to switch between these products
-                    at checkout.
+                    O cliente poderá alternar entre esses produtos
+                    no checkout.
                   </FormDescription>
                 </FormItem>
               )
@@ -250,7 +250,7 @@ export const CheckoutLinkForm = ({
             name="success_url"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Success URL</FormLabel>
+                <FormLabel>URL de Sucesso</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="https://example.com/success?checkout_id={CHECKOUT_ID}"
@@ -259,11 +259,11 @@ export const CheckoutLinkForm = ({
                   />
                 </FormControl>
                 <FormDescription className="text-xs">
-                  Include{' '}
+                  Inclua{' '}
                   <code>
                     {'{'}CHECKOUT_ID{'}'}
                   </code>{' '}
-                  to receive the Checkout ID on success.
+                  para receber o ID do Checkout no sucesso.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -277,14 +277,14 @@ export const CheckoutLinkForm = ({
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Preset discount</FormLabel>
+                    <FormLabel>Desconto Preset</FormLabel>
                     <div className="flex flex-row items-center gap-2">
                       <Select
                         onValueChange={field.onChange}
                         value={field.value || ''}
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a discount" />
+                          <SelectValue placeholder="Selecione um desconto" />
                         </SelectTrigger>
                         <SelectContent>
                           {discounts?.items.map((discount) => (
@@ -323,7 +323,7 @@ export const CheckoutLinkForm = ({
               return (
                 <FormItem>
                   <div className="flex flex-row items-center justify-between space-x-2 space-y-0">
-                    <FormLabel>Allow discount codes</FormLabel>
+                    <FormLabel>Permitir códigos de desconto</FormLabel>
                     <FormControl>
                       <Switch
                         checked={field.value}
@@ -334,8 +334,8 @@ export const CheckoutLinkForm = ({
                   <FormMessage />
                   <FormDescription>
                     {field.value
-                      ? 'Customers will be able to apply discount codes at checkout.'
-                      : "Customers won't be able to apply discount codes at checkout."}
+                        ? 'Os clientes poderão aplicar códigos de desconto no checkout.'
+                      : "Os clientes não poderão aplicar códigos de desconto no checkout."}
                   </FormDescription>
                 </FormItem>
               )
@@ -348,7 +348,7 @@ export const CheckoutLinkForm = ({
               return (
                 <FormItem>
                   <div className="flex flex-row items-center justify-between space-x-2 space-y-0">
-                    <FormLabel>Require billing address</FormLabel>
+                    <FormLabel>Requer endereço de cobrança</FormLabel>
                     <FormControl>
                       <Switch
                         checked={field.value}
@@ -359,8 +359,8 @@ export const CheckoutLinkForm = ({
                   <FormMessage />
                   <FormDescription>
                     {field.value
-                      ? 'Customers will need to provide their full billing address at checkout.'
-                      : 'Customers will just need to provide their country at checkout.'}
+                      ? 'Os clientes precisarão fornecer seu endereço de cobrança completo no checkout.'
+                      : 'Os clientes precisarão fornecer seu país no checkout.'}
                   </FormDescription>
                 </FormItem>
               )
@@ -379,7 +379,7 @@ export const CheckoutLinkForm = ({
                   append({ key: '', value: '' })
                 }}
               >
-                Add Metadata
+                Adicionar Metadado
               </Button>
             </div>
             <div className="flex flex-col gap-2">
@@ -397,7 +397,7 @@ export const CheckoutLinkForm = ({
                           <Input
                             {...field}
                             value={field.value || ''}
-                            placeholder="Key"
+                            placeholder="Chave"
                           />
                         </FormControl>
                         <FormMessage />
@@ -413,7 +413,7 @@ export const CheckoutLinkForm = ({
                           <Input
                             {...field}
                             value={field.value.toString() || ''}
-                            placeholder="Value"
+                            placeholder="Valor"
                           />
                         </FormControl>
                         <FormMessage />
@@ -442,7 +442,7 @@ export const CheckoutLinkForm = ({
               type="submit"
               loading={isCreatePending || isUpdatePending}
             >
-              {checkoutLink ? 'Save Link' : 'Create Link'}
+              {checkoutLink ? 'Salvar Link' : 'Criar Link'}
             </Button>
           </div>
         </form>

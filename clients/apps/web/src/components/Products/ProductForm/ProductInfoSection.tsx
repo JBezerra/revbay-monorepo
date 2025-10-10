@@ -26,8 +26,8 @@ export const ProductInfoSection = ({
 
   return (
     <Section
-      title="Product Information"
-      description="Basic product information which helps identify the product"
+      title="Informações do Produto"
+      description="Informações básicas do produto que ajudam na identificação"
       className={className}
       compact={compact}
     >
@@ -36,14 +36,14 @@ export const ProductInfoSection = ({
           control={control}
           name="name"
           rules={{
-            required: 'This field is required',
+            required: 'Este campo é obrigatório',
             minLength: 3,
           }}
           defaultValue=""
           render={({ field }) => (
             <FormItem>
               <div className="flex flex-row items-center justify-between">
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Nome</FormLabel>
               </div>
               <FormControl>
                 <Input {...field} value={field.value || ''} />
@@ -58,9 +58,9 @@ export const ProductInfoSection = ({
           render={({ field }) => (
             <FormItem className="flex flex-col gap-2">
               <div className="flex flex-row items-center justify-between">
-                <FormLabel>Description</FormLabel>
+                <FormLabel>Descrição</FormLabel>
                 <p className="dark:text-polar-500 text-sm text-gray-500">
-                  Markdown format
+                  Formato Markdown
                 </p>
               </div>
               <FormControl>

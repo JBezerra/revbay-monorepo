@@ -12,8 +12,8 @@ export const ProductMetadataSection = ({
 }: ProductMetadataSectionProps) => {
   return (
     <Section
-      title="Metadata"
-      description="Optional metadata to associate with the product"
+      title="Metadados"
+      description="Metadados opcionais para associar ao produto"
       className={className}
       compact={compact}
     >

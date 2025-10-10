@@ -27,7 +27,7 @@ export const ConfirmModal = ({
   description,
   body,
   destructive,
-  destructiveText = 'Delete',
+  destructiveText = 'Deletar',
   confirmPrompt = undefined,
   onConfirm,
   onCancel,
@@ -84,7 +84,7 @@ export const ConfirmModal = ({
                   {confirmPrompt && (
                     <>
                       <p className="dark:text-polar-400 max-w-full text-sm leading-relaxed text-gray-500">
-                        Please enter &quot;{confirmPrompt}&quot; to confirm:
+                        Por favor, insira &quot;{confirmPrompt}&quot; para confirmar:
                       </p>
                       <FormField
                         control={control}
@@ -92,7 +92,7 @@ export const ConfirmModal = ({
                         rules={{
                           validate: (value) =>
                             value === confirmPrompt ||
-                            'Please enter the exact text to confirm',
+                            'Por favor, insira o texto exato para confirmar',
                         }}
                         render={({ field }) => {
                           return (
@@ -126,7 +126,7 @@ export const ConfirmModal = ({
                       {destructive ? destructiveText : 'Confirm'}
                     </Button>
                     <Button variant="ghost" onClick={handleCancel}>
-                      Cancel
+                      Cancelar
                     </Button>
                   </div>
                 </form>

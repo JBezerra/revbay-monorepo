@@ -4,7 +4,6 @@ import { DashboardBody } from '@/components/Layout/DashboardLayout'
 import OrganizationAccessTokensSettings from '@/components/Settings/OrganizationAccessTokensSettings'
 import OrganizationNotificationSettings from '@/components/Settings/OrganizationNotificationSettings'
 import OrganizationProfileSettings from '@/components/Settings/OrganizationProfileSettings'
-import OrganizationSubscriptionSettings from '@/components/Settings/OrganizationSubscriptionSettings'
 import { Section, SectionDescription } from '@/components/Settings/Section'
 import { schemas } from '@polar-sh/client'
 
@@ -16,30 +15,25 @@ export default function ClientPage({
   return (
     <DashboardBody
       wrapperClassName="!max-w-screen-sm"
-      title="Organization Settings"
+      title="Configurações da Organização"
     >
       <div className="flex flex-col gap-y-12">
         <Section id="organization">
-          <SectionDescription title="Profile" />
+          <SectionDescription title="Perfil" />
           <OrganizationProfileSettings organization={org} />
-        </Section>
-
-        <Section id="subscriptions">
-          <SectionDescription title="Subscriptions" />
-          <OrganizationSubscriptionSettings organization={org} />
-        </Section>
-
-        <Section id="notifications">
-          <SectionDescription title="Notifications" />
-          <OrganizationNotificationSettings organization={org} />
         </Section>
 
         <Section id="developers">
           <SectionDescription
-            title="Developers"
-            description="Manage access tokens to authenticate with the Polar API"
+            title="Desenvolvedores"
+            description="Gerencie API Keys para autenticar com a API da RevBay"
           />
           <OrganizationAccessTokensSettings organization={org} />
+        </Section>
+
+        <Section id="notifications">
+          <SectionDescription title="Notificações" />
+          <OrganizationNotificationSettings organization={org} />
         </Section>
       </div>
     </DashboardBody>

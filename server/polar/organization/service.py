@@ -525,8 +525,8 @@ class OrganizationService:
             steps.append(
                 PaymentStep(
                     id=PaymentStepID.CREATE_PRODUCT,
-                    title="Create a product",
-                    description="Create your first product to start accepting payments",
+                    title="Criar um produto",
+                    description="Crie seu primeiro produto para começar a aceitar pagamentos",
                     completed=product_count > 0,
                 )
             )
@@ -547,8 +547,8 @@ class OrganizationService:
             steps.append(
                 PaymentStep(
                     id=PaymentStepID.INTEGRATE_CHECKOUT,
-                    title="Integrate Checkout",
-                    description="Set up your integration to start accepting payments",
+                    title="Integrar Checkout",
+                    description="Configure sua integração para começar a aceitar pagamentos",
                     completed=integration_completed,
                 )
             )
@@ -558,8 +558,8 @@ class OrganizationService:
         steps.append(
             PaymentStep(
                 id=PaymentStepID.SETUP_ACCOUNT,
-                title="Finish account setup",
-                description="Complete your account details and verify your identity",
+                title="Finalizar setup da conta",
+                description="Complete os detalhes da sua conta e verifique sua identidade",
                 completed=account_setup_complete,
             )
         )

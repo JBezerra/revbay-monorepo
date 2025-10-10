@@ -37,7 +37,7 @@ export const ProductMetadataForm = () => {
                       <Input
                         {...field}
                         value={field.value || ''}
-                        placeholder="Key"
+                        placeholder="Chave"
                       />
                     </FormControl>
                     <FormMessage />
@@ -53,7 +53,7 @@ export const ProductMetadataForm = () => {
                       <Input
                         {...field}
                         value={field.value.toString() || ''}
-                        placeholder="Value"
+                        placeholder="Valor"
                       />
                     </FormControl>
                     <FormMessage />
@@ -84,7 +84,7 @@ export const ProductMetadataForm = () => {
           append({ key: '', value: '' })
         }}
       >
-        Add Metadata
+        Adicionar Metadado
       </Button>
     </FormItem>
   )

@@ -28,10 +28,12 @@ const DropzoneView = ({
             <AddPhotoAlternateOutlined fontSize="medium" />
           </div>
           <p className="dark:text-polar-200 text-xs font-medium text-gray-700">
-            {isDragActive ? "Drop it like it's hot" : 'Add product media'}
+            {isDragActive
+              ? "Drop it like it's hot"
+              : 'Adicionar mídia do produto'}
           </p>
           <p className="mt-2 text-xs">
-            Up to 10MB each. 16:9 ratio recommended for optimal display.
+            Até 10MB cada. Relação 16:9 recomendada para exibição ótima.
           </p>
         </div>
         {children}
@@ -103,7 +105,7 @@ const ProductMediasField = ({
         <div className="rounded-lg border border-red-200 bg-red-100 p-4 text-red-800 dark:border-red-800 dark:bg-red-900 dark:text-red-200">
           {filesRejected.map((file) => (
             <p key={file.file.name}>
-              {file.file.name} is not a valid image or is too large.
+              {file.file.name} não é uma imagem válida ou é muito grande.
             </p>
           ))}
         </div>

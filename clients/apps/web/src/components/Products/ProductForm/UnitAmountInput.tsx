@@ -1,6 +1,5 @@
 import Input from '@polar-sh/ui/components/atoms/Input'
 import Big from 'big.js'
-import { DollarSign } from 'lucide-react'
 import React, { useCallback, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -15,7 +14,7 @@ const UnitAmountInput: React.ForwardRefExoticComponent<
   const { value, onValueChange, className, ...rest } = props
   const formatter = useMemo(
     () =>
-      new Intl.NumberFormat('en-US', {
+      new Intl.NumberFormat('pt-BR', {
         style: 'decimal',
         minimumIntegerDigits: 1,
         minimumSignificantDigits: 1,
@@ -80,7 +79,7 @@ const UnitAmountInput: React.ForwardRefExoticComponent<
       value={parsedValue}
       onKeyDown={onKeyDown}
       onChange={onChange}
-      preSlot={<DollarSign className="h-4 w-4" />}
+      preSlot={<span className="text-sm">R$</span>}
     />
   )
 })

@@ -16,22 +16,22 @@ import { twMerge } from 'tailwind-merge'
 const links = (organization: schemas['Organization']) => [
   {
     href: `/${organization.slug}/portal/overview`,
-    label: 'Overview',
+    label: 'Geral',
     isActive: (path: string) => path.includes('/overview'),
   },
   {
     href: `/${organization.slug}/portal/orders`,
-    label: 'Orders',
+    label: 'Pedidos',
     isActive: (path: string) => path.includes('/orders'),
   },
   {
     href: `/${organization.slug}/portal/usage`,
-    label: 'Usage',
+    label: 'Uso',
     isActive: (path: string) => path.includes('/usage'),
   },
   {
     href: `/${organization.slug}/portal/settings`,
-    label: 'Settings',
+    label: 'Configurações',
     isActive: (path: string) => path.includes('/settings'),
   },
 ]

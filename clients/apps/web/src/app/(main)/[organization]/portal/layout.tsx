@@ -46,7 +46,7 @@ export default async function Layout({
             <h3 className="text-lg">{organization.name}</h3>
           </div>
           <div>
-            <h2 className="text-4xl">Customer Portal</h2>
+            <h2 className="text-4xl">Portal do Cliente</h2>
           </div>
         </div>
       </div>

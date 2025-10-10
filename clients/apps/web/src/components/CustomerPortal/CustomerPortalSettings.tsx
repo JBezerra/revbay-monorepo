@@ -50,22 +50,22 @@ export const CustomerPortalSettings = ({
 
   return (
     <div className="flex flex-col gap-y-8">
-      <h3 className="text-2xl">Settings</h3>
+      <h3 className="text-2xl">Configurações</h3>
       <Well
         className={twMerge('flex flex-col gap-y-6', themingPreset.polar.well)}
       >
         <WellHeader className="flex-row items-start justify-between">
           <div className="flex flex-col gap-y-2">
-            <h3 className="text-xl">Payment Methods</h3>
+            <h3 className="text-xl">Métodos de Pagamento</h3>
             <p className="dark:text-polar-500 text-gray-500">
-              Methods used for subscriptions & one-time purchases
+              Métodos usados para assinaturas e compras únicas
             </p>
           </div>
           <Button
             onClick={showAddPaymentMethodModal}
             className={themingPreset.polar.button}
           >
-            Add Payment Method
+            Adicionar Método de Pagamento
           </Button>
         </WellHeader>
         <Separator className="dark:bg-polar-700" />
@@ -89,9 +89,9 @@ export const CustomerPortalSettings = ({
       >
         <WellHeader className="flex-row items-center justify-between">
           <div className="flex flex-col gap-y-2">
-            <h3 className="text-xl">Billing Details</h3>
+            <h3 className="text-xl">Detalhes de Faturamento</h3>
             <p className="dark:text-polar-500 text-gray-500">
-              Update your billing details
+              Atualize seus detalhes de faturamento
             </p>
           </div>
         </WellHeader>

@@ -57,8 +57,8 @@ const OrganizationNotificationSettings: React.FC<
     reset(data.notification_settings)
 
     toast({
-      title: 'Notification Settings Updated',
-      description: `Notifications settings were updated successfully`,
+      title: 'Configurações de Notificação Atualizadas',
+      description: `Configurações de notificação foram atualizadas com sucesso`,
     })
   }
 
@@ -67,8 +67,8 @@ const OrganizationNotificationSettings: React.FC<
       <form onSubmit={handleSubmit(onSubmit)}>
         <SettingsGroup>
           <SettingsGroupItem
-            title="New Orders"
-            description="Send a notification when new orders are created"
+            title="Novos Pedidos"
+            description="Envie uma notificação quando novos pedidos forem criados"
           >
             <FormField
               control={control}
@@ -89,8 +89,8 @@ const OrganizationNotificationSettings: React.FC<
           </SettingsGroupItem>
 
           <SettingsGroupItem
-            title="New Subscriptions"
-            description="Send a notification when new subscriptions are created"
+            title="Novas Assinaturas"
+            description="Envie uma notificação quando novas assinaturas forem criadas"
           >
             <FormField
               control={control}
@@ -117,7 +117,7 @@ const OrganizationNotificationSettings: React.FC<
               disabled={!formState.isDirty}
               loading={updateOrganization.isPending}
             >
-              Save
+              Salvar
             </Button>
           </SettingsGroupActions>
         </SettingsGroup>

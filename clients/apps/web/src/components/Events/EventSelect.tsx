@@ -23,11 +23,11 @@ const EventSelect: React.FC<
       <SelectTrigger className={className}>
         <div className="flex flex-row items-center gap-x-2">
           <ShortTextOutlined fontSize="inherit" />
-          <SelectValue placeholder="Select an event" />
+          <SelectValue placeholder="Selecione um evento" />
         </div>
       </SelectTrigger>
       <SelectContent>
-        {allOption && <SelectItem value="all">All Events</SelectItem>}
+        {allOption && <SelectItem value="all">Todos os Eventos</SelectItem>}
         {eventNames.map((eventName) => (
           <SelectItem key={eventName.name} value={eventName.name}>
             {eventName.name}

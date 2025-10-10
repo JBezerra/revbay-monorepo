@@ -59,17 +59,17 @@ export const ClientPage = () => {
       await deleteCheckoutLink(checkoutLink).then(({ error }) => {
         if (error) {
           toast({
-            title: 'Checkout Link Deletion Failed',
-            description: `Error deleting checkout link: ${error.detail}`,
+            title: 'Falha na Deleção do Link de Checkout',
+            description: `Erro ao deletar link de checkout: ${error.detail}`,
           })
           return
         }
 
         toast({
-          title: 'Checkout Link Deleted',
+          title: 'Link de Checkout Deletado',
           description: `${
-            checkoutLink?.label ? checkoutLink.label : 'Unlabeled'
-          } Checkout Link  was deleted successfully`,
+            checkoutLink?.label ? checkoutLink.label : 'Sem Label'
+          } Link de Checkout foi deletado com sucesso`,
         })
 
         setSelectedCheckoutLinkId(null)
@@ -111,7 +111,7 @@ export const ClientPage = () => {
                 className="dark:bg-polar-800 bg-gray-50 shadow-lg"
               >
                 <DropdownMenuItem onClick={showDeleteModal}>
-                  Delete Checkout Link
+                  Deletar Link de Checkout
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -124,13 +124,13 @@ export const ClientPage = () => {
         <>
           <CheckoutLinkPage checkoutLink={checkoutLink} />
           <ConfirmModal
-            title="Confirm Deletion of Checkout Link"
-            description="It will cause 404 responses in case the link is still in use anywhere."
+            title="Confirmar Deleção do Link de Checkout"
+            description="Isso causará respostas 404 caso o link ainda esteja em uso em algum lugar."
             onConfirm={onDelete}
             isShown={isDeleteModalShown}
             hide={hideDeleteModal}
             confirmPrompt={checkoutLink.label ?? ''}
-            destructiveText="Delete"
+            destructiveText="Deletar"
             destructive
           />
         </>
@@ -139,14 +139,14 @@ export const ClientPage = () => {
           <div className="flex flex-col items-center justify-center gap-y-8">
             <LinkOutlined fontSize="large" />
             <div className="flex flex-col items-center justify-center gap-y-2">
-              <h3 className="text-xl">No Checkout Link Selected</h3>
+              <h3 className="text-xl">Nenhum Link de Checkout Selecionado</h3>
               <p className="dark:text-polar-500 text-gray-500">
-                Create a new checkout link to share with your customers
+                Crie um novo link de checkout para compartilhar com seus clientes
               </p>
             </div>
             <Button onClick={showCreateCheckoutLinkModal}>
               <AddOutlined fontSize="small" className="mr-2" />
-              New Link
+                Novo Link
             </Button>
           </div>
         </div>

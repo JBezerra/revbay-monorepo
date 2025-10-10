@@ -30,6 +30,8 @@ import {
   PopoverTrigger,
 } from '@polar-sh/ui/components/ui/popover'
 import { twMerge } from 'tailwind-merge'
+import { ptBR } from 'date-fns/locale/pt-BR'
+import lodash from 'lodash'
 
 export type DateRange = {
   from: Date
@@ -85,14 +87,14 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
             {date?.from ? (
               date.to ? (
                 <>
-                  {format(date.from, 'LLL dd, y')} -{' '}
-                  {format(date.to, 'LLL dd, y')}
+                  {lodash.capitalize(format(date.from, 'LLL dd, y',{locale: ptBR}))} -{' '}
+                  {lodash.capitalize(format(date.to, 'LLL dd, y',{locale: ptBR}))}
                 </>
               ) : (
-                format(date.from, 'LLL dd, y')
+                lodash.capitalize(format(date.from, 'LLL dd, y',{locale: ptBR}))
               )
             ) : (
-              <span>Pick a date</span>
+              <span>Selecione uma data</span>
             )}
           </Button>
         </PopoverTrigger>
@@ -158,27 +160,27 @@ const DateRangeIntervals = ({
   const intervals: DateRangeInterval[] = [
     {
       slug: 'today',
-      label: 'Today',
+      label: 'Hoje',
       value: [startOfToday(), endOfToday()],
     },
     {
       slug: 'yesterday',
-      label: 'Yesterday',
+      label: 'Ontem',
       value: [startOfYesterday(), endOfYesterday()],
     },
     {
       slug: 'thisWeek',
-      label: 'This Week',
+      label: 'Esta Semana',
       value: [startOfWeek(new Date()), endOfWeek(new Date())],
     },
     {
       slug: 'thisMonth',
-      label: 'This Month',
+      label: 'Este Mês',
       value: [startOfMonth(new Date()), endOfMonth(new Date())],
     },
     {
       slug: 'lastMonth',
-      label: 'Last Month',
+      label: 'Mês Passado',
       value: [
         startOfMonth(subMonths(new Date(), 1)),
         endOfMonth(subMonths(new Date(), 1)),
@@ -186,17 +188,17 @@ const DateRangeIntervals = ({
     },
     {
       slug: 'last3Months',
-      label: 'Last 3 Months',
+      label: 'Últimos 3 Meses',
       value: [subMonths(new Date(), 3), new Date()],
     },
     {
       slug: 'thisYear',
-      label: 'This Year',
+      label: 'Este Ano',
       value: [endOfYear(subYears(new Date(), 1)), endOfYear(new Date())],
     },
     {
       slug: 'lastYear',
-      label: 'Last Year',
+      label: 'Ano Passado',
       value: [
         endOfYear(subYears(new Date(), 2)),
         endOfYear(subYears(new Date(), 1)),
@@ -204,7 +206,7 @@ const DateRangeIntervals = ({
     },
     {
       slug: 'allTime',
-      label: 'All Time',
+      label: 'Todo o Tempo',
       value: [new Date(organization.created_at), new Date()],
     },
   ]

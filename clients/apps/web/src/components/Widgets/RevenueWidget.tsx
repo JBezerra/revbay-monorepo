@@ -9,6 +9,8 @@ import {
 } from '@polar-sh/ui/components/ui/tooltip'
 import { formatCurrencyAndAmount } from '@polar-sh/ui/lib/money'
 import { endOfMonth, format, startOfMonth, subMonths } from 'date-fns'
+import { ptBR } from 'date-fns/locale/pt-BR'
+import lodash from 'lodash'
 import { useContext } from 'react'
 import { twMerge } from 'tailwind-merge'
 import Spinner from '../Shared/Spinner'
@@ -43,12 +45,12 @@ const RevenueWidget = ({ className, productId }: RevenueWidgetProps) => {
       <div className="flex flex-col gap-y-4">
         <div className="flex items-center justify-between">
           <h2 className="dark:text-polar-500 text-lg text-gray-500">
-            Last 6 Months
+            Últimos 6 Meses
           </h2>
         </div>
 
         <h3 className="text-4xl font-light">
-          {productId ? 'Product Revenue' : 'Revenue'}
+          {productId ? 'Receita do Produto' : 'Receita'}
         </h3>
       </div>
 
@@ -100,19 +102,25 @@ const RevenueWidget = ({ className, productId }: RevenueWidgetProps) => {
                 </TooltipTrigger>
                 <TooltipContent>
                   <span>
-                    {formatCurrencyAndAmount(period.revenue, 'usd', 0)} in{' '}
-                    {format(period.timestamp, 'MMMM')}
+                    {formatCurrencyAndAmount(period.revenue, 'brl', 0)} em{' '}
+                    {lodash.capitalize(
+                      format(period.timestamp, 'MMMM', {
+                        locale: ptBR,
+                      }),
+                    )}
                   </span>
                 </TooltipContent>
               </Tooltip>
               <div className="flex flex-col text-left">
                 <span className="text-sm lg:text-base">
-                  {format(period.timestamp, 'MMMM')}
+                  {lodash.capitalize(
+                    format(period.timestamp, 'MMMM', { locale: ptBR }),
+                  )}
                 </span>
                 <div className="flex flex-row items-center justify-between gap-x-2">
                   <span className="dark:text-polar-500 text-sm text-gray-500">
-                    $
-                    {(period.revenue / 100).toLocaleString('en-US', {
+                    R$
+                    {(period.revenue / 100).toLocaleString('pt-BR', {
                       style: 'decimal',
                       compactDisplay: 'short',
                       notation: 'compact',

@@ -1,14 +1,12 @@
-import LogoIcon from '@/components/Brand/LogoIcon'
 import { NotificationsPopover } from '@/components/Notifications/NotificationsPopover'
 import { CONFIG } from '@/utils/config'
-import { ArrowOutwardOutlined } from '@mui/icons-material'
+import { Logout, TuneOutlined } from '@mui/icons-material'
 import { schemas } from '@polar-sh/client'
 import Avatar from '@polar-sh/ui/components/atoms/Avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@polar-sh/ui/components/atoms/DropdownMenu'
 import {
@@ -22,9 +20,8 @@ import {
   SidebarTrigger,
   useSidebar,
 } from '@polar-sh/ui/components/atoms/Sidebar'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 import { BrandingMenu } from '../Public/BrandingMenu'
@@ -90,32 +87,6 @@ export const DashboardSidebar = ({
         </motion.div>
       </SidebarContent>
       <SidebarFooter>
-        {!isCollapsed && (
-          <AnimatePresence>
-            <motion.div
-              key={isCollapsed ? 'nav-collapsed' : 'nav-expanded'}
-              className={`flex ${isCollapsed ? 'flex-col' : 'flex-row'} items-center gap-2`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <SidebarContent>
-                <div className="dark:bg-polar-900 dark:border-polar-800 flex flex-col gap-3 rounded-lg border border-gray-200 bg-white p-3 text-sm">
-                  <LogoIcon size={24} />
-                  <span>Polar for iOS is now available on TestFlight!</span>
-                  <Link
-                    href="https://testflight.apple.com/join/CwVdc1Jt"
-                    target="_blank"
-                    className="dark:bg-polar-800 dark:hover:bg-polar-700 self-start rounded-sm bg-gray-100 p-1 text-xs transition-colors hover:bg-gray-200"
-                  >
-                    <span>Join Beta</span>
-                    <ArrowOutwardOutlined className="ml-2" fontSize="inherit" />
-                  </Link>
-                </div>
-              </SidebarContent>
-            </motion.div>
-          </AnimatePresence>
-        )}
         {type === 'organization' && (
           <SidebarMenu>
             <SidebarMenuItem>
@@ -142,49 +113,23 @@ export const DashboardSidebar = ({
                   align={isCollapsed ? 'start' : 'center'}
                   className="w-[--radix-popper-anchor-width] min-w-[200px]"
                 >
-                  {organizations.map((org) => (
-                    <DropdownMenuItem
-                      key={org.id}
-                      className="flex flex-row items-center gap-x-2"
-                      onClick={() => navigateToOrganization(org)}
-                    >
-                      <Avatar
-                        name={org.name}
-                        avatar_url={org.avatar_url}
-                        className="h-6 w-6"
-                      />
-                      <span className="min-w-0 truncate">{org.name}</span>
-                    </DropdownMenuItem>
-                  ))}
-                  <DropdownMenuSeparator />
                   <DropdownMenuItem
+                    className="group"
                     onClick={() =>
-                      router.push('/dashboard/create?existing_org=1')
+                      router.push(`/dashboard/${organization?.slug}/settings`)
                     }
                   >
-                    New Organization
+                    <TuneOutlined className="h-5 w-5 text-gray-500 group-hover:text-white" />
+                    Configurações
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    onClick={() => router.push('/dashboard/account')}
-                  >
-                    Account Settings
-                  </DropdownMenuItem>
-                  {!CONFIG.IS_SANDBOX && (
-                    <DropdownMenuItem
-                      onClick={() =>
-                        router.push('https://sandbox.polar.sh/start')
-                      }
-                    >
-                      Go to Sandbox
-                    </DropdownMenuItem>
-                  )}
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem
+                    className="group"
                     onClick={() =>
                       router.push(`${CONFIG.BASE_URL}/v1/auth/logout`)
                     }
                   >
-                    Logout
+                    <Logout className="h-5 w-5 text-gray-500 group-hover:text-white" />
+                    Sair
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

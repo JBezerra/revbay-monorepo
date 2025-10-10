@@ -1,4 +1,3 @@
-import { DollarSign } from 'lucide-react'
 import {
   ChangeEvent,
   FocusEvent,
@@ -198,7 +197,7 @@ const MoneyInput = (props: Props) => {
       onChange={onChange}
       onKeyDown={onKeyDown}
       placeholder={placeholder ? `${placeholder / 100}` : undefined}
-      preSlot={preSlot ? preSlot : <DollarSign className="h-4 w-4" />}
+      preSlot={preSlot ? preSlot : <span className="text-sm">R$</span>}
       postSlot={postSlot}
       onBlur={onBlur}
       onFocus={onFocus}

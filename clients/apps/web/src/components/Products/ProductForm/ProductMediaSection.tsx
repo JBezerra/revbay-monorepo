@@ -27,8 +27,8 @@ export const ProductMediaSection = ({
 
   return (
     <Section
-      title="Media"
-      description="Enhance the product page with medias, giving the customers a better idea of the product"
+      title="Mídias"
+      description="Melhore a página do produto com mídias, dando aos clientes uma melhor ideia do produto"
       className={className}
       compact={compact}
     >

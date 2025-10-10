@@ -170,7 +170,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 150,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Customer" />
+        <DataTableColumnHeader column={column} title="Cliente" />
       ),
       cell: ({ row: { original: subscription } }) => {
         const customer = subscription.customer
@@ -203,7 +203,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 85,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Subscription Date" />
+        <DataTableColumnHeader column={column} title="Data da Assinatura" />
       ),
       cell: (props) => (
         <FormattedDateTime datetime={props.getValue() as string} />
@@ -214,7 +214,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 85,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Renewal Date" />
+        <DataTableColumnHeader column={column} title="Data de Renovação" />
       ),
       cell: (props) => {
         const datetime = props.getValue() as string | null
@@ -232,7 +232,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       id: 'product',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Product" />
+        <DataTableColumnHeader column={column} title="Produto" />
       ),
       cell: (props) => {
         const tier = props.getValue() as schemas['Product']
@@ -241,7 +241,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
             {tier.name}
             {tier.is_archived && (
               <Status
-                status="Archived"
+                status="Arquivado"
                 className="bg-red-100 text-xs text-red-500 dark:bg-red-950"
               />
             )}
@@ -298,7 +298,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
             wrapperClassNames="gap-x-2"
           >
             <FileDownloadOutlined fontSize="inherit" />
-            <span>Export</span>
+            <span>Exportar</span>
           </Button>
         </div>
         {subscriptions && pageCount !== undefined && (

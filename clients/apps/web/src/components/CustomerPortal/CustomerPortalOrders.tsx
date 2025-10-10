@@ -46,7 +46,7 @@ export const CustomerPortalOrders = ({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="flex flex-row items-center justify-between">
-        <h3 className="text-xl">Order History</h3>
+        <h3 className="text-xl">Histórico de Pedidos</h3>
       </div>
       <DataTable
         wrapperClassName={themingPreset.polar.table}
@@ -56,12 +56,12 @@ export const CustomerPortalOrders = ({
         columns={[
           {
             accessorKey: 'product.name',
-            header: 'Product',
+            header: 'Produto',
             cell: ({ row }) => row.original.product.name,
           },
           {
             accessorKey: 'status',
-            header: 'Status',
+            header: 'Status do Pedido',
             cell: ({ row }) => (
               <span className="flex flex-shrink">
                 <OrderStatus status={row.original.status} />
@@ -70,7 +70,7 @@ export const CustomerPortalOrders = ({
           },
           {
             accessorKey: 'created_at',
-            header: 'Date',
+            header: 'Data',
             cell: ({ row }) => (
               <FormattedDateTime
                 datetime={row.original.created_at}
@@ -107,7 +107,7 @@ export const CustomerPortalOrders = ({
                     )}
                     size="sm"
                   >
-                    View Order
+                    Ver Pedido
                   </Button>
                   <Link
                     className="md:hidden"
@@ -118,7 +118,7 @@ export const CustomerPortalOrders = ({
                       size="sm"
                       className={twMerge(themingPreset.polar.buttonSecondary)}
                     >
-                      View Order
+                        Ver Pedido
                     </Button>
                   </Link>
                 </span>

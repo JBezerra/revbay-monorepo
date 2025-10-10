@@ -66,7 +66,7 @@ export const CheckoutLinkList = ({
   return (
     <div className="dark:divide-polar-800 flex h-full flex-col divide-y divide-gray-200">
       <div className="flex flex-row items-center justify-between gap-6 px-4 py-4">
-        <div>Checkout Links</div>
+        <div>Links de Checkout</div>
         <div className="flex flex-row items-center gap-4">
           <Button
             variant="ghost"
@@ -105,7 +105,7 @@ export const CheckoutLinkList = ({
           const productLabel =
             checkoutLink.products.length === 1
               ? checkoutLink.products[0].name
-              : `${checkoutLink.products.length} Products`
+              : `${checkoutLink.products.length} Produtos`
 
           return (
             <div
@@ -138,8 +138,8 @@ export const CheckoutLinkList = ({
                       navigator.clipboard.writeText(checkoutLink.url)
 
                       toast({
-                        title: 'Checkout Link Copied',
-                        description: `Checkout Link was copied to clipboard`,
+                        title: 'Link de Checkout Copiado',
+                        description: `Link de Checkout foi copiado para a área de transferência`,
                       })
                     }
                   }}

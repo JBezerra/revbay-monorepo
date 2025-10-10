@@ -28,7 +28,7 @@ export const CustomerUsage = ({ api, organization }: CustomerUsageProps) => {
     <div className="flex flex-col">
       <Tabs defaultValue="meters">
         <div className="flex flex-row items-center justify-between gap-x-12">
-          <h3 className="text-2xl">Usage</h3>
+          <h3 className="text-2xl">Uso</h3>
           {/* <TabsList>
             <TabsTrigger value="meters">Meters</TabsTrigger>
             {<TabsTrigger value="alerts">Alerts</TabsTrigger>}
@@ -41,7 +41,7 @@ export const CustomerUsage = ({ api, organization }: CustomerUsageProps) => {
                 <Input
                   className={twMerge('w-full', themingPreset.polar.input)}
                   preSlot={<Search fontSize="inherit" />}
-                  placeholder="Search Usage Meter"
+                  placeholder="Pesquisar por métrica"
                   value={query || ''}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -50,14 +50,14 @@ export const CustomerUsage = ({ api, organization }: CustomerUsageProps) => {
           </div>
 
           <div className="flex flex-col gap-6">
-            <h3 className="text-xl">Overview</h3>
+            <h3 className="text-xl">Visão Geral</h3>
             <DataTable
               isLoading={isLoading}
               wrapperClassName={themingPreset.polar.table}
               headerClassName={themingPreset.polar.tableHeader}
               columns={[
                 {
-                  header: 'Name',
+                  header: 'Nome',
                   accessorKey: 'meter_name',
                   cell: ({
                     row: {
@@ -84,7 +84,7 @@ export const CustomerUsage = ({ api, organization }: CustomerUsageProps) => {
                   },
                 },
                 {
-                  header: 'Consumed',
+                  header: 'Consumido',
                   accessorKey: 'consumed_units',
                   cell: ({
                     row: {
@@ -95,7 +95,7 @@ export const CustomerUsage = ({ api, organization }: CustomerUsageProps) => {
                   },
                 },
                 {
-                  header: 'Credited',
+                  header: 'Creditado',
                   accessorKey: 'credited_units',
                   cell: ({
                     row: {
@@ -106,7 +106,7 @@ export const CustomerUsage = ({ api, organization }: CustomerUsageProps) => {
                   },
                 },
                 {
-                  header: 'Balance',
+                  header: 'Saldo',
                   accessorKey: 'balance',
                   cell: ({
                     row: {

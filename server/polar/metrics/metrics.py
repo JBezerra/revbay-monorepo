@@ -72,7 +72,7 @@ class OrdersMetric(Metric):
 
 class RevenueMetric(Metric):
     slug = "revenue"
-    display_name = "Revenue"
+    display_name = "Receita"
     type = MetricType.currency
     query = MetricQuery.orders
 

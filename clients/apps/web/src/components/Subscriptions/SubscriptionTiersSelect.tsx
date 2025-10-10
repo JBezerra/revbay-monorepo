@@ -23,11 +23,11 @@ const SubscriptionTiersSelect: React.FC<SubscriptionTiersSelectProps> = ({
   return (
     <Select value={value} onValueChange={onChange}>
       <SelectTrigger>
-        <SelectValue placeholder="Select a plan" />
+        <SelectValue placeholder="Selecione um plano" />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="all">
-          <span className="whitespace-nowrap">All plans</span>
+          <span className="whitespace-nowrap">Todos os planos</span>
         </SelectItem>
         <SelectSeparator />
         {products.map((product) => (

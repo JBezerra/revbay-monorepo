@@ -1,18 +1,13 @@
-import {
-  useBenefits,
-  useCreateProduct,
-  useUpdateProductBenefits,
-} from '@/hooks/queries'
+import { useCreateProduct, useUpdateProductBenefits } from '@/hooks/queries'
 import { setValidationErrors } from '@/utils/api/errors'
 import { schemas } from '@polar-sh/client'
 import Button from '@polar-sh/ui/components/atoms/Button'
 import { Form } from '@polar-sh/ui/components/ui/form'
 import { useRouter } from 'next/navigation'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { DashboardBody } from '../Layout/DashboardLayout'
 import { getStatusRedirect } from '../Toast/utils'
-import ProductBenefitsForm from './ProductBenefitsForm'
 import ProductForm, { ProductFullMediasMixin } from './ProductForm/ProductForm'
 
 type ProductCreateForm = Omit<schemas['ProductCreate'], 'metadata'> &
@@ -27,17 +22,8 @@ export interface CreateProductPageProps {
 
 export const CreateProductPage = ({ organization }: CreateProductPageProps) => {
   const router = useRouter()
-  const benefits = useBenefits(organization.id, {
-    limit: 200,
-  })
-  const organizationBenefits = useMemo(
-    () => benefits.data?.items ?? [],
-    [benefits],
-  )
 
-  const [enabledBenefitIds, setEnabledBenefitIds] = useState<
-    schemas['Benefit']['id'][]
-  >([])
+  const [enabledBenefitIds] = useState<schemas['Benefit']['id'][]>([])
 
   const form = useForm<ProductCreateForm>({
     defaultValues: {
@@ -46,7 +32,7 @@ export const CreateProductPage = ({ organization }: CreateProductPageProps) => {
         prices: [
           {
             price_amount: undefined,
-            price_currency: 'usd',
+            price_currency: 'brl',
           },
         ],
       },
@@ -107,33 +93,9 @@ export const CreateProductPage = ({ organization }: CreateProductPageProps) => {
     ],
   )
 
-  const onSelectBenefit = useCallback(
-    (benefit: schemas['Benefit']) => {
-      setEnabledBenefitIds((benefitIds) => [...benefitIds, benefit.id])
-    },
-    [setEnabledBenefitIds],
-  )
-
-  const onRemoveBenefit = useCallback(
-    (benefit: schemas['Benefit']) => {
-      setEnabledBenefitIds((benefitIds) =>
-        benefitIds.filter((b) => b !== benefit.id),
-      )
-    },
-    [setEnabledBenefitIds],
-  )
-
-  const enabledBenefits = useMemo(
-    () =>
-      organizationBenefits.filter((benefit) =>
-        enabledBenefitIds.includes(benefit.id),
-      ),
-    [organizationBenefits, enabledBenefitIds],
-  )
-
   return (
     <DashboardBody
-      title="Create Product"
+      title="Criar Produto"
       wrapperClassName="!max-w-screen-md"
       className="gap-y-16"
     >
@@ -146,18 +108,6 @@ export const CreateProductPage = ({ organization }: CreateProductPageProps) => {
             <ProductForm organization={organization} update={false} />
           </form>
         </Form>
-        <ProductBenefitsForm
-          organization={organization}
-          organizationBenefits={organizationBenefits.filter(
-            (benefit) =>
-              // Hide not selectable benefits unless they are already enabled
-              benefit.selectable ||
-              enabledBenefits.some((b) => b.id === benefit.id),
-          )}
-          benefits={enabledBenefits}
-          onSelectBenefit={onSelectBenefit}
-          onRemoveBenefit={onRemoveBenefit}
-        />
       </div>
       <div className="flex flex-row items-center gap-2 pb-12">
         <Button
@@ -165,7 +115,7 @@ export const CreateProductPage = ({ organization }: CreateProductPageProps) => {
           loading={createProduct.isPending || updateBenefits.isPending}
           disabled={createProduct.isPending || updateBenefits.isPending}
         >
-          Create Product
+          Criar Produto
         </Button>
       </div>
     </DashboardBody>

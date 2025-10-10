@@ -3,8 +3,6 @@ import {
   AllInclusiveOutlined,
   AttachMoneyOutlined,
   CodeOutlined,
-  DiamondOutlined,
-  DiscountOutlined,
   DonutLargeOutlined,
   HiveOutlined,
   LinkOutlined,
@@ -134,7 +132,7 @@ export const useAccountRoutes = (): RouteWithActive[] => {
 const generalRoutesList = (org?: schemas['Organization']): Route[] => [
   {
     id: 'home',
-    title: 'Home',
+    title: 'Dashboard',
     icon: <SpaceDashboardOutlined fontSize="inherit" />,
     link: `/dashboard/${org?.slug}`,
     checkIsActive: (currentRoute: string) =>
@@ -143,7 +141,7 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
   },
   {
     id: 'new-products',
-    title: 'Products',
+    title: 'Produtos',
     icon: <HiveOutlined fontSize="inherit" />,
     link: `/dashboard/${org?.slug}/products`,
     checkIsActive: (currentRoute: string): boolean => {
@@ -152,25 +150,20 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
     if: true,
     subs: [
       {
-        title: 'Catalogue',
+        title: 'Catálogo',
         link: `/dashboard/${org?.slug}/products`,
         icon: <HiveOutlined fontSize="inherit" />,
       },
       {
-        title: 'Checkout Links',
+        title: 'Links de Checkout',
         link: `/dashboard/${org?.slug}/products/checkout-links`,
         icon: <LinkOutlined fontSize="inherit" />,
-      },
-      {
-        title: 'Discounts',
-        link: `/dashboard/${org?.slug}/products/discounts`,
-        icon: <DiscountOutlined fontSize="inherit" />,
       },
     ],
   },
   {
     id: 'usage-billing',
-    title: 'Usage Billing',
+    title: 'Cobrança por Uso',
     icon: <DonutLargeOutlined fontSize="inherit" />,
     link: `/dashboard/${org?.slug}/usage-billing`,
     if: true,
@@ -179,30 +172,20 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
     },
     subs: [
       {
-        title: 'Meters',
+        title: 'Métricas',
         link: `/dashboard/${org?.slug}/usage-billing/meters`,
         icon: <DonutLargeOutlined fontSize="inherit" />,
       },
       {
-        title: 'Events',
+        title: 'Eventos',
         link: `/dashboard/${org?.slug}/usage-billing/events`,
         icon: <StreamOutlined fontSize="inherit" />,
       },
     ],
   },
   {
-    id: 'benefits',
-    title: 'Benefits',
-    icon: <DiamondOutlined fontSize="inherit" />,
-    link: `/dashboard/${org?.slug}/benefits`,
-    checkIsActive: (currentRoute: string): boolean => {
-      return currentRoute.startsWith(`/dashboard/${org?.slug}/benefits`)
-    },
-    if: true,
-  },
-  {
     id: 'customers',
-    title: 'Customers',
+    title: 'Clientes',
     icon: <PeopleAltOutlined fontSize="inherit" />,
     link: `/dashboard/${org?.slug}/customers`,
     checkIsActive: (currentRoute: string): boolean => {
@@ -212,7 +195,7 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
   },
   {
     id: 'org-sales',
-    title: 'Sales',
+    title: 'Vendas',
     icon: <ShoppingBagOutlined fontSize="inherit" />,
     link: `/dashboard/${org?.slug}/sales`,
     checkIsActive: (currentRoute: string): boolean => {
@@ -221,12 +204,12 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
     if: true,
     subs: [
       {
-        title: 'Orders',
+        title: 'Pedidos',
         link: `/dashboard/${org?.slug}/sales`,
         icon: <ShoppingBagOutlined fontSize="inherit" />,
       },
       {
-        title: 'Subscriptions',
+        title: 'Assinaturas',
         link: `/dashboard/${org?.slug}/sales/subscriptions`,
         icon: <AllInclusiveOutlined fontSize="inherit" />,
       },
@@ -249,7 +232,7 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
     title: 'Analytics',
     icon: <TrendingUp fontSize="inherit" />,
     link: `/dashboard/${org?.slug}/analytics`,
-    if: true,
+    if: false,
   },
 ]
 
@@ -262,7 +245,7 @@ const dashboardRoutesList = (org?: schemas['Organization']): Route[] => [
 const accountRoutesList = (): Route[] => [
   {
     id: 'preferences',
-    title: 'Preferences',
+    title: 'Preferências',
     link: `/dashboard/account/preferences`,
     icon: <TuneOutlined className="h-5 w-5" fontSize="inherit" />,
     if: true,
@@ -270,7 +253,7 @@ const accountRoutesList = (): Route[] => [
   },
   {
     id: 'developer',
-    title: 'Developer',
+    title: 'Desenvolvedor',
     link: `/dashboard/account/developer`,
     icon: <CodeOutlined fontSize="inherit" />,
     if: true,
@@ -279,15 +262,15 @@ const accountRoutesList = (): Route[] => [
 
 const orgFinanceSubRoutesList = (org?: schemas['Organization']): SubRoute[] => [
   {
-    title: 'Income',
+    title: 'Receita',
     link: `/dashboard/${org?.slug}/finance/income`,
   },
   {
-    title: 'Payouts',
+    title: 'Pagamentos',
     link: `/dashboard/${org?.slug}/finance/payouts`,
   },
   {
-    title: 'Account',
+    title: 'Conta',
     link: `/dashboard/${org?.slug}/finance/account`,
   },
 ]
@@ -295,35 +278,10 @@ const orgFinanceSubRoutesList = (org?: schemas['Organization']): SubRoute[] => [
 const organizationRoutesList = (org?: schemas['Organization']): Route[] => [
   {
     id: 'finance',
-    title: 'Finance',
+    title: 'Finanças',
     link: `/dashboard/${org?.slug}/finance`,
     icon: <AttachMoneyOutlined fontSize="inherit" />,
     if: true,
     subs: orgFinanceSubRoutesList(org),
-  },
-  {
-    id: 'settings',
-    title: 'Settings',
-    link: `/dashboard/${org?.slug}/settings`,
-    icon: <TuneOutlined fontSize="inherit" />,
-    if: true,
-    subs: [
-      {
-        title: 'General',
-        link: `/dashboard/${org?.slug}/settings`,
-      },
-      {
-        title: 'Members',
-        link: `/dashboard/${org?.slug}/settings/members`,
-      },
-      {
-        title: 'Webhooks',
-        link: `/dashboard/${org?.slug}/settings/webhooks`,
-      },
-      {
-        title: 'Custom Fields',
-        link: `/dashboard/${org?.slug}/settings/custom-fields`,
-      },
-    ],
   },
 ]

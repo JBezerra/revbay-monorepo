@@ -76,13 +76,13 @@ export const MeterPage = ({
       <Tabs defaultValue="overview" className="flex flex-col">
         <TabsList className="mb-4 p-0">
           <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="events">Events</TabsTrigger>
-          <TabsTrigger value="customers">Customers</TabsTrigger>
+          <TabsTrigger value="events">Eventos</TabsTrigger>
+          <TabsTrigger value="customers">Clientes</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className="flex flex-col gap-y-12 pb-12">
           <div className="flex flex-col gap-y-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <h2 className="text-xl">Meter Quantities</h2>
+              <h2 className="text-xl">Uso da Métrica</h2>
               <div className="w-full lg:w-auto">
                 <DateRangePicker
                   date={dateRange}
@@ -104,28 +104,28 @@ export const MeterPage = ({
                 height={400}
                 metric={{
                   slug: 'quantity',
-                  display_name: 'Quantity',
+                  display_name: 'Uso',
                   type: 'scalar',
                 }}
               />
             ) : (
               <div className="flex h-[300px] flex-col items-center justify-center">
-                <span className="text-lg">No data available</span>
+                <span className="text-lg">Nenhum dado disponível</span>
               </div>
             )}
           </div>
           <div className="flex flex-col gap-y-6">
             <div className="flex flex-row items-center justify-between">
-              <h2 className="text-xl">Activity</h2>
+              <h2 className="text-xl">Atividade</h2>
             </div>
             <MeterActivityCards meter={meter} />
           </div>
           {meterEvents.length > 0 ? (
             <div className="flex flex-col gap-y-6">
               <div className="flex flex-col gap-y-2">
-                <h3 className="text-xl">Latest meter events</h3>
+                <h3 className="text-xl">Últimos eventos da métrica</h3>
                 <p className="dark:text-polar-500 text-gray-500">
-                  Recently received meter events
+                  Eventos recentemente recebidos
                 </p>
               </div>
               <Events events={meterEvents} organization={organization} />
@@ -188,19 +188,19 @@ const MeterActivityCards = ({ meter }: { meter: schemas['Meter'] }) => {
     <div className="flex flex-row gap-x-8">
       {[
         {
-          title: 'Current Month',
+          title: 'Mês Atual',
           value: figuresQuantities?.quantities[1]?.quantity,
           startDate: dates.currentMonthStart,
           endDate: dates.currentMonthEnd,
         },
         {
-          title: 'Previous Month',
+          title: 'Mês Anterior',
           value: figuresQuantities?.quantities[0]?.quantity,
           startDate: dates.lastMonthStart,
           endDate: dates.lastMonthEnd,
         },
         {
-          title: 'All Time',
+          title: 'Todo o Tempo',
           value: allTimeQuantities?.quantities.reduce(
             (acc, curr) => acc + curr.quantity,
             0,
@@ -213,7 +213,7 @@ const MeterActivityCards = ({ meter }: { meter: schemas['Meter'] }) => {
           <CardHeader className="flex flex-col gap-y-0">
             <h3 className="text-lg">{card.title}</h3>
             <span className="dark:text-polar-500 text-gray-500">
-              {card.startDate.toLocaleDateString('en-US', {
+              {card.startDate.toLocaleDateString('pt-BR', {
                 month: 'long',
                 day: 'numeric',
                 ...(card.startDate.getFullYear() !==
@@ -222,7 +222,7 @@ const MeterActivityCards = ({ meter }: { meter: schemas['Meter'] }) => {
                 }),
               })}{' '}
               -{' '}
-              {card.endDate.toLocaleDateString('en-US', {
+              {card.endDate.toLocaleDateString('pt-BR', {
                 month: 'long',
                 day: 'numeric',
                 ...(card.endDate.getFullYear() !== new Date().getFullYear() && {

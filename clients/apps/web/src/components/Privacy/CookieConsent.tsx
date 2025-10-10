@@ -45,8 +45,8 @@ export function CookieConsent() {
     consentGiven === 'undecided' && (
       <div className="shadow-3xl dark:bg-polar-950 dark:border-polar-700 dark:text-polar-500 fixed bottom-8 left-8 right-8 z-50 flex flex-col gap-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-500 md:left-auto md:max-w-96">
         <p>
-          We use tracking cookies to understand how you use the product and help
-          us improve it.
+          Nós utilizamos cookies para entender como você usa o produto e nos
+          ajudar a melhorar.
         </p>
         <div className="flex flex-row items-center gap-x-4">
           <button
@@ -54,10 +54,10 @@ export function CookieConsent() {
             onClick={handleAcceptCookies}
             type="button"
           >
-            Accept
+            Aceitar
           </button>
           <button onClick={handleDeclineCookies} type="button">
-            Decline
+            Rejeitar
           </button>
         </div>
       </div>

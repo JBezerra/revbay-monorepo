@@ -112,7 +112,7 @@ export const CustomerEventsView = ({
           loading={isFetching}
           disabled={!hasNextPage}
         >
-          Load More
+          Carregar Mais
         </Button>
       )}
     </TabsContent>

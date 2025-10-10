@@ -8,7 +8,7 @@ export const getCentsInDollarString = (
   const precision = cents % 100 === 0 && !showCents ? 0 : 2
 
   if (pretty) {
-    return dollars.toLocaleString('en-US', {
+    return dollars.toLocaleString('pt-BR', {
       maximumFractionDigits: precision,
       minimumFractionDigits: precision,
     })
@@ -19,11 +19,11 @@ export const getCentsInDollarString = (
 
 export const formatCurrencyAndAmount = (
   cents: number,
-  currency: string = 'usd',
+  currency: string = 'brl',
   minimumFractionDigits?: number,
   notation?: 'standard' | 'scientific' | 'engineering' | 'compact',
 ): string => {
-  const currencyNumberFormat = new Intl.NumberFormat('en-US', {
+  const currencyNumberFormat = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency,
     minimumFractionDigits,

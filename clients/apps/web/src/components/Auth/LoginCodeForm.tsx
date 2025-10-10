@@ -75,7 +75,7 @@ const LoginCodeForm: React.FC<LoginCodeFormProps> = ({ returnTo, signup }) => {
                       loading={loading}
                       disabled={loading}
                     >
-                      Login
+                      Entrar
                     </Button>
                   </div>
                 </FormControl>

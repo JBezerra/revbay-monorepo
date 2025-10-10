@@ -146,7 +146,7 @@ const TransactionsList = ({
       accessorKey: 'created_at',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Date" />
+        <DataTableColumnHeader column={column} title="Data" />
       ),
       cell: (props) => {
         const datetime = props.getValue() as string
@@ -157,7 +157,7 @@ const TransactionsList = ({
       id: 'description',
       enableSorting: false,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Description" />
+        <DataTableColumnHeader column={column} title="Descrição" />
       ),
       cell: (props) => {
         const transaction = props.row.original
@@ -182,7 +182,7 @@ const TransactionsList = ({
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="Gross"
+          title="Bruto"
           className="flex justify-end"
         />
       ),
@@ -206,7 +206,7 @@ const TransactionsList = ({
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="Fees"
+          title="Taxas"
           className="flex justify-end"
         />
       ),
@@ -232,7 +232,7 @@ const TransactionsList = ({
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="Net"
+          title="Líquido"
           className="flex justify-end"
         />
       ),

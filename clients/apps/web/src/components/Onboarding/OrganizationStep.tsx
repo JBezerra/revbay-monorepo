@@ -23,7 +23,6 @@ import { useForm } from 'react-hook-form'
 import slugify from 'slugify'
 import { twMerge } from 'tailwind-merge'
 import LogoIcon from '../Brand/LogoIcon'
-import { Testamonial, testimonials } from '../Landing/Testimonials'
 import { getStatusRedirect } from '../Toast/utils'
 
 export interface OrganizationStepProps {
@@ -142,9 +141,10 @@ export const OrganizationStep = ({
         <div className="flex flex-col gap-y-12">
           <LogoIcon size={50} />
           <div className="flex flex-col gap-y-4">
-            <h1 className="text-3xl">Let&apos;s get you onboarded</h1>
+            <h1 className="text-3xl">Precisamos te conhecer melhor</h1>
             <p className="dark:text-polar-400 text-lg text-gray-600">
-              Get up to speed with an Organization, Product & Checkout Session.
+              Vamos agilizar pra você criando uma Organização, Produto e
+              Checkout.
             </p>
           </div>
         </div>
@@ -171,12 +171,12 @@ export const OrganizationStep = ({
                   control={control}
                   name="name"
                   rules={{
-                    required: 'This field is required',
+                    required: 'Este campo é obrigatório',
                   }}
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormControl className="w-full">
-                        <Input {...field} placeholder="Organization Name" />
+                        <Input {...field} placeholder="Nome da Organização" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -187,7 +187,7 @@ export const OrganizationStep = ({
                   control={control}
                   name="slug"
                   rules={{
-                    required: 'Slug is required',
+                    required: 'Este campo é obrigatório',
                   }}
                   render={({ field }) => (
                     <>
@@ -195,7 +195,7 @@ export const OrganizationStep = ({
                         type="text"
                         {...field}
                         size={slug?.length || 1}
-                        placeholder="Organization Slug"
+                        placeholder="Slug da Organização"
                         onFocus={() => setEditedSlug(true)}
                       />
                       <FormMessage />
@@ -204,51 +204,6 @@ export const OrganizationStep = ({
                 />
 
                 <div className="flex flex-col gap-y-4">
-                  {/* Simple Product Restrictions */}
-                  <div className="dark:bg-polar-800 flex flex-col gap-y-3 rounded-lg bg-gray-50 p-4">
-                    <div className="flex flex-col gap-y-4 text-sm">
-                      <div className="flex flex-col gap-y-2">
-                        <p className="font-medium">Supported Usecases</p>
-                        <p className="dark:text-polar-500 text-sm text-gray-500">
-                          SaaS subscriptions, digital downloads, software
-                          licenses, online courses, and other purely digital
-                          products.
-                        </p>
-                      </div>
-
-                      <div className="flex flex-col gap-y-2">
-                        <p className="font-medium">Prohibited Usecases</p>
-                        <ul className="dark:text-polar-500 space-y-1 text-sm text-gray-500">
-                          <li>
-                            • Physical goods or products requiring shipping
-                          </li>
-                          <li>
-                            • Human services (custom development, design and
-                            consultancy)
-                          </li>
-                          <li>• Marketplaces</li>
-                          <li>
-                            • Anything in our list of{' '}
-                            <a
-                              href="https://docs.polar.sh/merchant-of-record/acceptable-use"
-                              className="text-blue-500 underline dark:text-blue-400"
-                              target="_blank"
-                            >
-                              prohibited products
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="dark:border-polar-700 border-t border-gray-200 pt-4">
-                        <p className="dark:text-polar-500 text-xs font-medium text-gray-500">
-                          Transactions that violate our policy will be canceled
-                          and refunded.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
                   <FormField
                     control={control}
                     name="terms"
@@ -273,8 +228,9 @@ export const OrganizationStep = ({
                                 htmlFor="terms"
                                 className="cursor-pointer font-medium leading-relaxed"
                               >
-                                I understand the restrictions above and agree to
-                                Polar&apos;s terms
+                                {/* Todo: Fazer termos de serviço e outros documentos */}
+                                Eu entendo as restrições abaixo e concordo com
+                                os termos da RevBay
                               </label>
                               <ul className="dark:text-polar-300 ml-1 mt-3 list-inside list-disc space-y-1.5 text-gray-600">
                                 <li>
@@ -283,11 +239,11 @@ export const OrganizationStep = ({
                                     className="text-blue-600 hover:underline dark:text-blue-400"
                                     target="_blank"
                                   >
-                                    Account Reviews Policy
+                                    Política de Revisões de Conta
                                   </a>
-                                  {' - '}I&apos;ll comply with KYC/AML
-                                  requirements including website and social
-                                  verification
+                                  {' - '}Eu vou cumprir com os requisitos de
+                                  KYC/AML e incluir verificações de website e
+                                  verificação social
                                 </li>
                                 <li>
                                   <a
@@ -295,7 +251,7 @@ export const OrganizationStep = ({
                                     className="text-blue-600 hover:underline dark:text-blue-400"
                                     target="_blank"
                                   >
-                                    Terms of Service
+                                    Termos de serviço
                                   </a>
                                 </li>
                                 <li>
@@ -304,7 +260,7 @@ export const OrganizationStep = ({
                                     className="text-blue-600 hover:underline dark:text-blue-400"
                                     target="_blank"
                                   >
-                                    Privacy Policy
+                                    Política de Privacidade
                                   </a>
                                 </li>
                               </ul>
@@ -328,12 +284,12 @@ export const OrganizationStep = ({
                   loading={createOrganization.isPending}
                   disabled={name.length === 0 || slug.length === 0 || !terms}
                 >
-                  Create
+                  Criar
                 </Button>
                 {hasExistingOrg && (
                   <Link href={`/dashboard`} className="w-full">
                     <Button variant="secondary" fullWidth>
-                      Back to Dashboard
+                      Voltar para o Dashboard
                     </Button>
                   </Link>
                 )}
@@ -342,39 +298,7 @@ export const OrganizationStep = ({
           </Form>
         </div>
       </div>
-      <div className="dark:bg-polar-950 relative hidden flex-1 flex-grow flex-col items-center justify-center gap-12 overflow-hidden bg-gray-100 p-12 md:flex">
-        <div className="absolute inset-0 flex flex-col items-center">
-          <TestimonialsWrapper />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const TestimonialsWrapper = () => {
-  const thirdLength = Math.ceil(testimonials.length / 3)
-  const firstRow = testimonials.slice(0, thirdLength)
-  const secondRow = testimonials.slice(thirdLength, thirdLength * 2)
-  const thirdRow = testimonials.slice(thirdLength * 2)
-
-  return (
-    <div className="flex flex-col items-center gap-y-12 px-4 md:gap-y-24">
-      <div className="flex flex-col gap-4 md:relative md:w-full md:overflow-hidden">
-        <div className="flex flex-row gap-4">
-          {[firstRow, secondRow, thirdRow].map((row, rowIndex) => (
-            <div
-              key={`row-${rowIndex}`}
-              className="min-w-1/3 flex w-full max-w-[400px] flex-col gap-4 md:h-max md:animate-[infinite-vertical-scroll_50s_linear_infinite_forwards]"
-            >
-              {[...row, ...row, ...row].map((testimonial, index) => (
-                <div key={`row${rowIndex}-${index}`}>
-                  <Testamonial {...testimonial} />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className="dark:bg-polar-950 relative hidden flex-1 flex-grow flex-col items-center justify-center gap-12 overflow-hidden bg-gray-100 p-12 md:flex"></div>
     </div>
   )
 }

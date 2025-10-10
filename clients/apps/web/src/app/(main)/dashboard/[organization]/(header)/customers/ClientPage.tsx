@@ -64,8 +64,8 @@ const CustomerHeader = ({
 
     if (error) {
       toast({
-        title: 'Error',
-        description: `An error occurred while creating the customer portal link. Please try again later.`,
+        title: 'Erro',
+        description: `Ocorreu um erro ao criar o link do Portal do Cliente. Por favor, tente novamente mais tarde.`,
       })
 
       return
@@ -74,8 +74,8 @@ const CustomerHeader = ({
     const link = `${CONFIG.FRONTEND_BASE_URL}/${organization.slug}/portal?customer_session_token=${session.token}`
     await safeCopy(link)
     toast({
-      title: 'Copied To Clipboard',
-      description: `Customer Portal Link was copied to clipboard`,
+      title: 'Copiado para a área de transferência',
+      description: `Link do Portal do Cliente foi copiado para a área de transferência`,
     })
   }, [safeCopy, customer, organization])
 
@@ -88,14 +88,14 @@ const CustomerHeader = ({
     deleteCustomer.mutateAsync().then((response) => {
       if (response.error) {
         toast({
-          title: 'Delete Customer Failed',
-          description: `Error deleting customer ${customer.email}: ${response.error.detail}`,
+          title: 'Falha ao Deletar Cliente',
+          description: `Erro ao deletar cliente ${customer.email}: ${response.error.detail}`,
         })
         return
       }
       toast({
-        title: 'Customer Deleted',
-        description: `Customer ${customer.email} deleted successfully`,
+        title: 'Cliente Deletado',
+        description: `Cliente ${customer.email} deletado com sucesso`,
       })
     })
   }, [deleteCustomer, customer])
@@ -110,17 +110,14 @@ const CustomerHeader = ({
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onClick={createCustomerSession}>
-            Copy Customer Portal
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <a href={`mailto:${customer.email}`}>Contact Customer</a>
+            Copiar URL do Portal do Cliente
           </DropdownMenuItem>
           <DropdownMenuItem onClick={showEditCustomerModal}>
-            Edit Customer
+            Editar Cliente
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={showDeleteCustomerModal}>
-            Delete Customer
+            Deletar Cliente
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -137,19 +134,17 @@ const CustomerHeader = ({
       <ConfirmModal
         isShown={isDeleteCustomerModalShown}
         hide={hideDeleteCustomerModal}
-        title={`Delete Customer "${customer.email}"?`}
+        title={`Deletar Cliente "${customer.email}"?`}
         body={
           <div className="dark:text-polar-400 flex flex-col gap-y-2 text-sm leading-relaxed text-gray-500">
-            <p>This action cannot be undone and will immediately:</p>
+            <p>Esta ação não pode ser desfeita e irá imediatamente:</p>
             <ol className="list-inside list-disc pl-4">
-              <li>Cancel any active subscriptions for the customer</li>
-              <li>Revoke all their benefits</li>
-              <li>Clear any external_id</li>
+              <li>Cancelar todas as assinaturas ativas para o cliente</li>
+              <li>Limpar qualquer external_id</li>
             </ol>
 
             <p>
-              However, their information will still be retained for historic
-              orders and subscriptions.
+              No entanto, suas informações ainda serão mantidas para pedidos e assinaturas históricos.
             </p>
           </div>
         }
@@ -252,7 +247,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
       contextView={
         <div className="dark:divide-polar-800 flex h-full flex-col divide-y divide-gray-200">
           <div className="flex flex-row items-center justify-between gap-6 px-4 py-4">
-            <div>Customers</div>
+            <div>Clientes</div>
             <div className="flex flex-row items-center gap-4">
               <Button
                 variant="ghost"
@@ -288,7 +283,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
             </div>
             <Input
               className="w-full rounded-none border-none bg-transparent p-0 !shadow-none ring-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-transparent"
-              placeholder="Search Customers"
+              placeholder="Pesquisar Clientes"
               value={query ?? undefined}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -338,9 +333,9 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
         <CustomerPage customer={selectedCustomer} organization={organization} />
       ) : (
         <div className="mt-96 flex w-full flex-col items-center justify-center gap-4">
-          <h1 className="text-2xl font-normal">No Customer Selected</h1>
+          <h1 className="text-2xl font-normal">Nenhum Cliente Selecionado</h1>
           <p className="dark:text-polar-500 text-gray-500">
-            Select a customer to view their details
+            Selecione um cliente para ver seus detalhes
           </p>
         </div>
       )}

@@ -56,9 +56,9 @@ const ProductsCommandGroup = ({
         </div>
         <div className="flex items-center font-light">
           {!areAllSelected ? (
-            <>Select all {groupedProducts[productPriceType].length}</>
+            <>Selecionar todos {groupedProducts[productPriceType].length}</>
           ) : (
-            <>Unselect all</>
+            <>Desselecionar todos</>
           )}
         </div>
       </CommandItem>
@@ -74,7 +74,7 @@ const ProductsCommandGroup = ({
             value={product.id}
             onSelect={() => onSelectProduct(product)}
           >
-            {`${product.name} ${product.is_archived ? '(Archived)' : ''}`}
+            {`${product.name} ${product.is_archived ? '(Arquivado)' : ''}`}
             <CheckOutlined
               className={twMerge(
                 'mr-2 h-4 w-4',
@@ -167,12 +167,12 @@ const ProductSelect: React.FC<ProductSelectProps> = ({
 
   const buttonLabel = useMemo(() => {
     if (value.length === 0) {
-      return emptyLabel || 'All products'
+      return emptyLabel || 'Todos os produtos'
     }
     if (value.length === 1) {
       return selectedProducts?.[0].name
     }
-    return `${value.length} products`
+    return `${value.length} produtos`
   }, [value, emptyLabel, selectedProducts])
 
   const onSelectProduct = useCallback(
@@ -232,7 +232,7 @@ const ProductSelect: React.FC<ProductSelectProps> = ({
         <Command shouldFilter={false}>
           <CommandInput
             className="border-none focus:ring-transparent"
-            placeholder="Search product"
+            placeholder="Pesquisar produto"
             value={query}
             onValueChange={setQuery}
           />
@@ -256,7 +256,7 @@ const ProductSelect: React.FC<ProductSelectProps> = ({
                 />
               </>
             ) : (
-              <CommandEmpty>No product found</CommandEmpty>
+              <CommandEmpty>Nenhum produto encontrado</CommandEmpty>
             )}
           </CommandList>
         </Command>

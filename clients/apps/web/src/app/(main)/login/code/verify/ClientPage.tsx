@@ -96,7 +96,7 @@ const ClientPage = ({
           }}
         />
         <Button type="submit" size="lg" className="w-full" loading={loading}>
-          Sign in
+          Entrar
         </Button>
       </form>
     </Form>

@@ -25,7 +25,6 @@ import LogoIcon from '../Brand/LogoIcon'
 import { CheckoutCard } from '../Checkout/CheckoutCard'
 import CheckoutProductInfo from '../Checkout/CheckoutProductInfo'
 import { createCheckoutPreview } from '../Customization/utils'
-import ProductBenefitsForm from '../Products/ProductBenefitsForm'
 import { ProductFullMediasMixin } from '../Products/ProductForm/ProductForm'
 import { ProductInfoSection } from '../Products/ProductForm/ProductInfoSection'
 import { ProductMediaSection } from '../Products/ProductForm/ProductMediaSection'
@@ -39,9 +38,7 @@ type ProductCreateForm = Omit<schemas['ProductCreate'], 'metadata'> &
 
 export const ProductStep = () => {
   const { organization } = useContext(OrganizationContext)
-  const [enabledBenefitIds, setEnabledBenefitIds] = useState<
-    schemas['Benefit']['id'][]
-  >([])
+  const [enabledBenefitIds] = useState<schemas['Benefit']['id'][]>([])
 
   const benefits = useBenefits(organization.id, {
     limit: 200,
@@ -62,7 +59,7 @@ export const ProductStep = () => {
           {
             amount_type: 'fixed',
             price_amount: 1000,
-            price_currency: 'usd',
+            price_currency: 'brl',
           },
         ],
       },
@@ -121,30 +118,6 @@ export const ProductStep = () => {
     ],
   )
 
-  const onSelectBenefit = useCallback(
-    (benefit: schemas['Benefit']) => {
-      setEnabledBenefitIds((benefitIds) => [...benefitIds, benefit.id])
-    },
-    [setEnabledBenefitIds],
-  )
-
-  const onRemoveBenefit = useCallback(
-    (benefit: schemas['Benefit']) => {
-      setEnabledBenefitIds((benefitIds) =>
-        benefitIds.filter((b) => b !== benefit.id),
-      )
-    },
-    [setEnabledBenefitIds],
-  )
-
-  const enabledBenefits = useMemo(
-    () =>
-      organizationBenefits.filter((benefit) =>
-        enabledBenefitIds.includes(benefit.id),
-      ),
-    [organizationBenefits, enabledBenefitIds],
-  )
-
   return (
     <Form {...form}>
       <div className="flex h-full flex-col md:flex-row">
@@ -152,9 +125,9 @@ export const ProductStep = () => {
           <div className="flex flex-col gap-y-12">
             <LogoIcon size={50} />
             <div className="flex flex-col gap-y-4">
-              <h1 className="text-3xl">Your first product</h1>
+              <h1 className="text-3xl">Seu primeiro produto</h1>
               <p className="dark:text-polar-400 text-lg text-gray-600">
-                Setup your first digital product to get started.
+                Configure seu primeiro produto para começar.
               </p>
             </div>
           </div>
@@ -180,19 +153,6 @@ export const ProductStep = () => {
                 <ProductPricingSection organization={organization} compact />
               </div>
             </form>
-            <ProductBenefitsForm
-              className="px-0"
-              organization={organization}
-              organizationBenefits={organizationBenefits.filter(
-                (benefit) =>
-                  // Hide not selectable benefits unless they are already enabled
-                  benefit.selectable ||
-                  enabledBenefits.some((b) => b.id === benefit.id),
-              )}
-              benefits={enabledBenefits}
-              onSelectBenefit={onSelectBenefit}
-              onRemoveBenefit={onRemoveBenefit}
-            />
             <div className="flex flex-row gap-x-4">
               <Button
                 className="self-start"
@@ -200,10 +160,10 @@ export const ProductStep = () => {
                 disabled={!formState.isValid}
                 loading={createProduct.isPending}
               >
-                Create Product
+                Criar Produto
               </Button>
               <Link href={`/dashboard/${organization.slug}`}>
-                <Button variant="secondary">Skip</Button>
+                <Button variant="secondary">Pular</Button>
               </Link>
             </div>
           </div>
@@ -213,9 +173,9 @@ export const ProductStep = () => {
             <div className="flex flex-col items-center gap-y-6 text-center">
               <LogoIcon size={40} />
               <div className="flex flex-col gap-y-4">
-                <h1 className="text-3xl">Product Preview</h1>
+                <h1 className="text-3xl">Preview do Produto</h1>
                 <p className="dark:text-polar-500 text-lg text-gray-500">
-                  Product information will be shown on your checkout page.
+                  Informações do produto serão mostradas na página de checkout.
                 </p>
               </div>
             </div>
@@ -300,8 +260,8 @@ const CheckoutPreview = memo(
         )}
         <Button size="lg">
           {checkoutPreview.productPrice.amountType === 'free'
-            ? 'Continue'
-            : `Buy Now`}
+            ? 'Continuar'
+            : `Comprar Agora`}
         </Button>
       </ShadowBox>
     )

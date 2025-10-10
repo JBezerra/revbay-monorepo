@@ -52,8 +52,8 @@ export const CreateCustomerModal = ({
         return
       }
       toast({
-        title: 'Customer Created',
-        description: `Customer ${customer.email} created successfully`,
+        title: 'Cliente Criado',
+        description: `Cliente ${customer.email} criado com sucesso`,
       })
       revalidate(`customer:${customer.id}`)
       onClose()
@@ -63,7 +63,7 @@ export const CreateCustomerModal = ({
   return (
     <div className="flex flex-col gap-8 overflow-y-auto px-8 py-12">
       <div className="flex flex-row items-center gap-x-4">
-        <h2 className="text-xl">Create Customer</h2>
+        <h2 className="text-xl">Criar Cliente</h2>
       </div>
       <Form {...form}>
         <form
@@ -76,7 +76,7 @@ export const CreateCustomerModal = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel> Name</FormLabel>
+                  <FormLabel> Nome</FormLabel>
                   <FormControl>
                     <Input {...field} value={field.value || ''} />
                   </FormControl>
@@ -88,15 +88,15 @@ export const CreateCustomerModal = ({
               control={form.control}
               name="email"
               rules={{
-                required: 'Email is required',
+                required: 'Email é obrigatório',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Invalid email address',
+                  message: 'Email inválido',
                 },
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>Email</FormLabel>o
                   <FormControl>
                     <Input {...field} value={field.value || ''} />
                   </FormControl>
@@ -115,7 +115,7 @@ export const CreateCustomerModal = ({
             className="self-start"
             loading={createCustomer.isPending}
           >
-            Create Customer
+            Criar Cliente
           </Button>
         </form>
       </Form>

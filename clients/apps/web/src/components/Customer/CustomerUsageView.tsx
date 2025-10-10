@@ -36,9 +36,9 @@ export const CustomerUsageView = ({
         {!isLoading && customerMeters.length === 0 && (
           <div className="flex flex-col items-center gap-y-6">
             <div className="flex flex-col items-center gap-y-2">
-              <h3 className="text-lg font-medium">No active meter</h3>
+              <h3 className="text-lg font-medium">Nenhuma métrica ativa</h3>
               <p className="dark:text-polar-500 text-gray-500">
-                This customer has no active meters.
+                Este cliente não tem nenhuma métrica ativa.
               </p>
             </div>
           </div>

@@ -149,19 +149,20 @@ const MetricChartBox = forwardRef<HTMLDivElement, MetricChartBoxProps>(
             )}
           >
             {onMetricChange ? (
-              <Select value={metric} onValueChange={onMetricChange}>
-                <SelectTrigger className="dark:hover:bg-polar-700 -ml-3 -mt-2 h-fit w-fit rounded-lg border-0 border-none bg-transparent px-3 py-2 shadow-none ring-0 transition-colors hover:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-0">
-                  <SelectValue placeholder="Select a metric" />
-                </SelectTrigger>
-                <SelectContent className="dark:bg-polar-800 dark:ring-polar-700 ring-1 ring-gray-200">
-                  {data &&
-                    Object.values(data.metrics).map((metric) => (
-                      <SelectItem key={metric.slug} value={metric.slug}>
-                        {metric.display_name}
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
+              <span>{selectedMetric?.display_name}</span>
+              // <Select value={metric} onValueChange={onMetricChange}>
+              //   <SelectTrigger className="dark:hover:bg-polar-700 -ml-3 -mt-2 h-fit w-fit rounded-lg border-0 border-none bg-transparent px-3 py-2 shadow-none ring-0 transition-colors hover:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-0">
+              //     <SelectValue placeholder="Select a metric" />
+              //   </SelectTrigger>
+              //   <SelectContent className="dark:bg-polar-800 dark:ring-polar-700 ring-1 ring-gray-200">
+              //     {data &&
+              //       Object.values(data.metrics).map((metric) => (
+              //         <SelectItem key={metric.slug} value={metric.slug}>
+              //           {metric.display_name}
+              //         </SelectItem>
+              //       ))}
+              //   </SelectContent>
+              // </Select>
             ) : (
               <h3 className={compact ? 'text-base' : 'text-lg'}>
                 {selectedMetric?.display_name}
@@ -242,7 +243,7 @@ const MetricChartBox = forwardRef<HTMLDivElement, MetricChartBoxProps>(
                 )}
               />
             )}
-            {shareable && (
+            {false && (
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
@@ -290,7 +291,7 @@ const MetricChartBox = forwardRef<HTMLDivElement, MetricChartBoxProps>(
               className="flex w-full flex-col items-center justify-center"
               style={{ height }}
             >
-              <span className="text-lg">No data available</span>
+              <span className="text-lg">Nenhum dado disponível</span>
             </div>
           )}
         </div>

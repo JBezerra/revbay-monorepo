@@ -76,8 +76,8 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
     <Tabs defaultValue="overview" className="flex flex-col">
       <TabsList className="mb-8">
         <TabsTrigger value="overview">Overview</TabsTrigger>
-        <TabsTrigger value="events">Events</TabsTrigger>
-        <TabsTrigger value="usage">Usage</TabsTrigger>
+        <TabsTrigger value="events">Eventos</TabsTrigger>
+        <TabsTrigger value="usage">Uso</TabsTrigger>
       </TabsList>
       <TabsContent value="overview" className="flex flex-col gap-y-12">
         <MetricChartBox
@@ -88,12 +88,12 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
           loading={metricsLoading}
         />
         <div className="flex flex-col gap-4">
-          <h3 className="text-lg">Subscriptions</h3>
+          <h3 className="text-lg">Assinaturas</h3>
           <DataTable
             data={subscriptions?.items ?? []}
             columns={[
               {
-                header: 'Product Name',
+                header: 'Nome do Produto',
                 accessorKey: 'product.name',
                 cell: ({ row: { original } }) => (
                   <span>{original.product.name}</span>
@@ -110,7 +110,7 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
                 ),
               },
               {
-                header: 'Amount',
+                header: 'Valor',
                 accessorKey: 'amount',
                 cell: ({ row: { original } }) =>
                   original.amount && original.currency ? (
@@ -144,13 +144,13 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
           />
         </div>
         <div className="flex flex-col gap-4">
-          <h3 className="text-lg">Orders</h3>
+          <h3 className="text-lg">Pedidos</h3>
 
           <DataTable
             data={orders?.items ?? []}
             columns={[
               {
-                header: 'Product Name',
+                header: 'Nome do Produto',
                 accessorKey: 'product.name',
                 cell: ({ row: { original } }) => (
                   <Link
@@ -162,7 +162,7 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
                 ),
               },
               {
-                header: 'Created At',
+                header: 'Criado em',
                 accessorKey: 'created_at',
                 cell: ({ row: { original } }) => (
                   <span className="dark:text-polar-500 text-xs text-gray-500">
@@ -171,7 +171,7 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
                 ),
               },
               {
-                header: 'Amount',
+                header: 'Valor',
                 accessorKey: 'amount',
                 cell: ({ row: { original } }) => (
                   <AmountLabel
@@ -189,7 +189,7 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
                       href={`/dashboard/${organization.slug}/sales/${original.id}`}
                     >
                       <Button variant="secondary" size="sm">
-                        View
+                        Visualizar
                       </Button>
                     </Link>
                   </div>
@@ -203,49 +203,49 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
 
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
           <ShadowBox className="flex flex-col gap-8">
-            <h2 className="text-xl">Customer Details</h2>
+            <h2 className="text-xl">Detalhes do Cliente</h2>
             <div className="flex flex-col">
               <DetailRow label="ID" value={customer.id} />
-              <DetailRow label="External ID" value={customer.external_id} />
+              <DetailRow label="ID Externo" value={customer.external_id} />
               <DetailRow label="Email" value={customer.email} />
-              <DetailRow label="Name" value={customer.name} />
+              <DetailRow label="Nome" value={customer.name} />
               <DetailRow
                 label="Tax ID"
                 value={customer.tax_id ? customer.tax_id[0] : null}
               />
               <DetailRow
-                label="Created At"
+                label="Criado em"
                 value={<FormattedDateTime datetime={customer.created_at} />}
               />
             </div>
-            <h4 className="text-lg">Billing Address</h4>
+            <h4 className="text-lg">Endereço de Cobrança</h4>
             <div className="flex flex-col">
               <DetailRow
-                label="Line 1"
+                label="Rua"
                 value={customer.billing_address?.line1}
               />
               <DetailRow
-                label="Line 2"
+                label="Complemento"
                 value={customer.billing_address?.line2}
               />
-              <DetailRow label="City" value={customer.billing_address?.city} />
+              <DetailRow label="Cidade" value={customer.billing_address?.city} />
               <DetailRow
-                label="State"
+                label="Estado"
                 value={customer.billing_address?.state}
               />
               <DetailRow
-                label="Postal Code"
+                  label="CEP"
                 value={customer.billing_address?.postal_code}
               />
               <DetailRow
-                label="Country"
+                label="País"
                 value={customer.billing_address?.country}
               />
             </div>
           </ShadowBox>
           <ShadowBox className="flex flex-col gap-4">
             <div className="flex flex-row items-center justify-between gap-2">
-              <h3 className="text-lg">Metadata</h3>
+                <h3 className="text-lg">Metadados</h3>
               <Button
                 className="h-6 w-6"
                 size="icon"

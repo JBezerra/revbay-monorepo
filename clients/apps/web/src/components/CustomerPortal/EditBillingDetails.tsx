@@ -123,7 +123,7 @@ const EditBillingDetails = ({
           )}
         />
         <FormItem className="flex flex-col gap-y-3">
-          <FormLabel>Billing address</FormLabel>
+          <FormLabel>Endereço de Faturamento</FormLabel>
           <FormControl>
             <FormField
               control={control}
@@ -136,7 +136,7 @@ const EditBillingDetails = ({
                   <Input
                     type="text"
                     autoComplete="billing address-line1"
-                    placeholder="Line 1"
+                    placeholder="Rua"
                     className={themingPreset.polar.input}
                     {...field}
                     value={field.value || ''}
@@ -155,7 +155,7 @@ const EditBillingDetails = ({
                   <Input
                     type="text"
                     autoComplete="billing address-line2"
-                    placeholder="Line 2"
+                    placeholder="Complemento"
                     className={themingPreset.polar.input}
                     {...field}
                     value={field.value || ''}
@@ -179,7 +179,7 @@ const EditBillingDetails = ({
                     <Input
                       type="text"
                       autoComplete="billing postal-code"
-                      placeholder="Postal code"
+                      placeholder="CEP"
                       className={themingPreset.polar.input}
                       {...field}
                       value={field.value || ''}
@@ -201,7 +201,7 @@ const EditBillingDetails = ({
                     <Input
                       type="text"
                       autoComplete="billing address-level2"
-                      placeholder="City"
+                      placeholder="Cidade"
                       className={themingPreset.polar.input}
                       {...field}
                       value={field.value || ''}
@@ -269,7 +269,7 @@ const EditBillingDetails = ({
           name="tax_id"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tax ID</FormLabel>
+              <FormLabel>ID de Imposto</FormLabel>
               <FormControl>
                 <Input
                   type="text"
@@ -289,7 +289,7 @@ const EditBillingDetails = ({
           disabled={updateCustomer.isPending || !isDirty}
           className={twMerge('self-start', themingPreset.polar.button)}
         >
-          Update Billing Details
+          Atualizar
         </Button>
       </form>
     </Form>

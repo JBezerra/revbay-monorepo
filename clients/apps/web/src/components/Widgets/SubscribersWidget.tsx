@@ -47,7 +47,7 @@ export const SubscribersWidget = ({ className }: SubscribersWidgetProps) => {
     >
       <CardHeader className="flex flex-col gap-y-2 pb-2">
         <div className="flex flex-row items-center justify-between">
-          <span className="text-lg">Active Subscriptions</span>
+          <span className="text-lg">Assinaturas Ativas</span>
         </div>
         <h2 className="text-5xl font-light">
           {
@@ -65,8 +65,8 @@ export const SubscribersWidget = ({ className }: SubscribersWidgetProps) => {
                 ? 'bg-blue-500 dark:bg-blue-500'
                 : 'hover:bg-blue-100 dark:hover:bg-blue-900'
 
-            const tooltipContent = `${period.active_subscriptions} in ${period.timestamp.toLocaleDateString(
-              'en-US',
+            const tooltipContent = `${period.active_subscriptions} em ${period.timestamp.toLocaleDateString(
+              'pt-BR',
               {
                 month: 'long',
                 year: 'numeric',

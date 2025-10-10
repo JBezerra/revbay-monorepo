@@ -68,13 +68,13 @@ export const ProductListItem = ({
       })
 
       toast({
-        title: 'Product archived',
-        description: 'The product has been archived',
+        title: 'Produto arquivado',
+        description: 'O produto foi arquivado',
       })
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'An error occurred while archiving the product',
+        title: 'Erro',
+        description: 'Ocorreu um erro ao arquivar o produto',
       })
     }
   }, [updateProduct, product])
@@ -118,14 +118,14 @@ export const ProductListItem = ({
               />
             </TooltipTrigger>
             <TooltipContent align="center" side="left">
-              Archived products only prevents new subscribers & purchases
+              Produtos arquivados impedem novos assinantes e compras
             </TooltipContent>
           </Tooltip>
         ) : (
           <>
             {isUsageBasedProduct && (
               <Pill color="green" className="px-3 py-1 text-xs">
-                Metered Pricing
+                Preço por uso
               </Pill>
             )}
             <span className="text-sm leading-snug">
@@ -142,7 +142,7 @@ export const ProductListItem = ({
               }}
             >
               <Button size="sm" variant="secondary">
-                Share
+                Compartilhar
               </Button>
             </Link>
             <DropdownMenu>
@@ -163,12 +163,22 @@ export const ProductListItem = ({
               >
                 <DropdownMenuItem
                   onClick={handleContextMenuCallback(() => {
+                    router.push(
+                      `/dashboard/${organization.slug}/products/${product.id}`,
+                    )
+                  })}
+                >
+                  Editar Produto
+                </DropdownMenuItem>
+                <DropdownMenuSeparator className="dark:bg-polar-600 bg-gray-200" />
+                <DropdownMenuItem
+                  onClick={handleContextMenuCallback(() => {
                     if (typeof navigator !== 'undefined') {
                       navigator.clipboard.writeText(product.id)
                     }
                   })}
                 >
-                  Copy Product ID
+                  Copiar ID do Produto
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="dark:bg-polar-600 bg-gray-200" />
                 <DropdownMenuItem
@@ -178,13 +188,13 @@ export const ProductListItem = ({
                     )
                   })}
                 >
-                  Integrate Checkout
+                  Integrar Checkout
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="dark:bg-polar-600 bg-gray-200" />
                 <DropdownMenuItem
                   onClick={handleContextMenuCallback(showModal)}
                 >
-                  Archive Product
+                  Arquivar Produto
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -194,11 +204,11 @@ export const ProductListItem = ({
       <ConfirmModal
         isShown={isConfirmModalShown}
         hide={hideModal}
-        title="Archive Product"
-        description="Are you sure you want to archive this product? This action cannot be undone."
+        title="Arquivar Produto"
+        description="Tem certeza que deseja arquivar este produto? Esta ação não pode ser desfeita."
         onConfirm={onArchiveProduct}
         destructive
-        destructiveText="Archive"
+        destructiveText="Arquivar"
       />
     </ListItem>
   )

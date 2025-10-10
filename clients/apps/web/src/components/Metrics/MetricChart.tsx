@@ -67,11 +67,11 @@ const MetricChart = forwardRef<HTMLDivElement, MetricChartProps>(
         style={{ height: _height, width: _width }}
         config={{
           current: {
-            label: 'Current',
+            label: 'Atual',
             color: '#2563eb',
           },
           previous: {
-            label: 'Previous',
+            label: 'Anterior',
             color: isDark ? '#383942' : '#ccc',
           },
           metric: {

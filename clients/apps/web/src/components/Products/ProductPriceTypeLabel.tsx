@@ -10,9 +10,9 @@ const ProductPriceTypeLabel: React.FC<ProductPriceTypeLabelProps> = ({
 }) => {
   switch (productPriceType) {
     case 'one_time':
-      return 'One-time purchase'
+      return 'Compra única'
     case 'recurring':
-      return 'Subscription'
+      return 'Assinatura'
     default:
       return null
   }

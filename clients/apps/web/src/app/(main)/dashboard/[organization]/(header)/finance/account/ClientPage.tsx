@@ -61,21 +61,21 @@ export default function ClientPage({
       const errorDetail = (error as any).detail
       if (
         errorDetail?.error === 'IdentityVerificationProcessing' ||
-        errorDetail === 'Your identity verification is still processing.'
+        errorDetail === 'Sua verificação de identidade ainda está sendo processada.'
       ) {
         toast({
-          title: 'Identity verification in progress',
+          title: 'Verificação de identidade em andamento',
           description:
-            'Your identity verification is already being processed. Please wait for it to complete.',
+            'Sua verificação de identidade já está sendo processada. Por favor, aguarde até que ela seja concluída.',
         })
       } else {
         toast({
-          title: 'Error starting identity verification',
+          title: 'Erro ao iniciar verificação de identidade',
           description:
             typeof errorDetail === 'string'
               ? errorDetail
               : errorDetail?.detail ||
-                'Unable to start identity verification. Please try again.',
+                'Não foi possível iniciar a verificação de identidade. Por favor, tente novamente.',
         })
       }
       return
@@ -83,8 +83,8 @@ export default function ClientPage({
     const stripe = await stripePromise
     if (!stripe) {
       toast({
-        title: 'Error loading Stripe',
-        description: 'Unable to load identity verification. Please try again.',
+        title: 'Erro ao carregar Stripe',
+        description: 'Não foi possível carregar a verificação de identidade. Por favor, tente novamente.',
       })
       return
     }
@@ -93,10 +93,10 @@ export default function ClientPage({
     )
     if (stripeError) {
       toast({
-        title: 'Identity verification error',
+        title: 'Erro na verificação de identidade',
         description:
           stripeError.message ||
-          'Something went wrong during verification. Please try again.',
+          'Algo deu errado durante a verificação. Por favor, tente novamente.',
       })
       return
     }

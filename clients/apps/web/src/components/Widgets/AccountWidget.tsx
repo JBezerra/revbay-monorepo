@@ -37,19 +37,19 @@ export const AccountWidget = ({ className }: AccountWidgetProps) => {
     >
       <div className="flex flex-col gap-y-4 p-6 pb-2">
         <div className="flex flex-row items-center justify-between">
-          <span className="text-lg">Account Balance</span>
+          <span className="text-lg">Saldo da Conta</span>
           <Link href={`/dashboard/${org.slug}/finance`}>
             <Button
               variant={canWithdraw ? 'default' : 'secondary'}
               size="sm"
               className="rounded-full border-none"
             >
-              {canWithdraw ? 'Withdraw' : 'Transactions'}
+              {canWithdraw ? 'Sacar' : 'Transações'}
             </Button>
           </Link>
         </div>
         <h2 className="text-5xl font-light">
-          {formatCurrencyAndAmount(summary?.balance.amount ?? 0, 'USD', 0)}
+          {formatCurrencyAndAmount(summary?.balance.amount ?? 0, 'brl', 0)}
         </h2>
       </div>
       <div className="dark:bg-polar-900 m-2 flex flex-col gap-y-4 rounded-3xl bg-white p-4">
@@ -57,7 +57,7 @@ export const AccountWidget = ({ className }: AccountWidgetProps) => {
           <div className="flex flex-col">
             <div className="flex flex-row items-center justify-between gap-x-2">
               <h3 className="text-lg">
-                {formatCurrencyAndAmount(lastPayout.amount, 'USD', 0)}
+                {formatCurrencyAndAmount(lastPayout.amount, 'brl', 0)}
               </h3>
               <Status
                 status={lastPayout.status.split('_').join(' ')}
@@ -70,7 +70,7 @@ export const AccountWidget = ({ className }: AccountWidgetProps) => {
               />
             </div>
             <p className="dark:text-polar-500 text-sm text-gray-500">
-              {new Date(lastPayout.created_at).toLocaleDateString('en-US', {
+              {new Date(lastPayout.created_at).toLocaleDateString('pt-BR', {
                 month: 'long',
                 day: 'numeric',
                 year: 'numeric',
@@ -79,9 +79,9 @@ export const AccountWidget = ({ className }: AccountWidgetProps) => {
           </div>
         ) : (
           <div className="flex flex-col">
-            <h3>No payouts yet</h3>
+            <h3>Nenhuma saldo para ser sacado disponível</h3>
             <p className="dark:text-polar-500 text-sm text-gray-500">
-              You may only withdraw funds above $10.
+              Você pode sacar apenas fundos acima de R$ 10.
             </p>
           </div>
         )}

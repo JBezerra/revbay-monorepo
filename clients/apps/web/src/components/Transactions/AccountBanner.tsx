@@ -21,14 +21,13 @@ const GenericAccountBanner: React.FC<{
           color="default"
           right={
             <Link href={setupLink}>
-              <Button size="sm">Setup</Button>
+              <Button size="sm">Configurar</Button>
             </Link>
           }
         >
           <ExclamationCircleIcon className="h-6 w-6 text-red-500" />
           <span className="text-sm">
-            You need to set up a <strong>payout account</strong> to receive
-            payouts
+            Você precisa configurar uma <strong>conta de pagamento</strong> para receber pagamentos
           </span>
         </Banner>
       </>
@@ -42,12 +41,12 @@ const GenericAccountBanner: React.FC<{
         color="default"
         right={
           <Link href={setupLink}>
-            <Button size="sm">Read more</Button>
+            <Button size="sm">Ler mais</Button>
           </Link>
         }
       >
         <Icon classes="bg-blue-500 p-1" icon={<AccountTypeIcon />} />
-        <span className="text-sm">Your payout account is under review</span>
+        <span className="text-sm">Sua conta de pagamento está em revisão</span>
       </Banner>
     )
   }
@@ -59,15 +58,15 @@ const GenericAccountBanner: React.FC<{
         color="default"
         right={
           <Link href={setupLink}>
-            <Button size="sm">Continue setup</Button>
+            <Button size="sm">Continuar configuração</Button>
           </Link>
         }
       >
         <Icon classes="bg-blue-500 p-1" icon={<AccountTypeIcon />} />
         <span className="text-sm">
-          Continue the setup of your{' '}
+          Continue a configuração da sua{' '}
           <strong>{ACCOUNT_TYPE_DISPLAY_NAMES[account.account_type]}</strong>{' '}
-          account to receive payouts
+          conta para receber pagamentos
         </span>
       </Banner>
     )
@@ -83,7 +82,7 @@ const GenericAccountBanner: React.FC<{
           right={
             <>
               <Link href={setupLink}>
-                <Button size="sm">Manage</Button>
+                <Button size="sm">Gerenciar</Button>
               </Link>
             </>
           }
@@ -91,9 +90,9 @@ const GenericAccountBanner: React.FC<{
           <Icon classes="bg-blue-500 p-1" icon={<AccountTypeIcon />} />
           <span className="dark:text-polar-400 text-sm">
             {accountType === 'stripe' &&
-              'Payouts will be made to the connected Stripe account'}
+              'Pagamentos serão feitos para a conta Stripe conectada'}
             {accountType === 'open_collective' &&
-              'Payouts will be made in bulk once per month to the connected Open Collective account'}
+              'Pagamentos serão feitos em massa uma vez por mês para a conta Open Collective conectada'}
           </span>
         </Banner>
       </>

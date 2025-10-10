@@ -145,7 +145,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
       contextView={
         <div className="dark:divide-polar-800 flex h-full flex-col divide-y divide-gray-200">
           <div className="flex flex-row items-center justify-between gap-6 px-4 py-4">
-            <div>Events</div>
+            <div>Eventos</div>
             <div className="flex flex-row items-center gap-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -161,7 +161,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
                         source !== 'all' && 'invisible',
                       )}
                     />
-                    <span>All</span>
+                    <span>Todos</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setSource('user')}>
                     <CheckOutlined
@@ -170,7 +170,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
                         source !== 'user' && 'invisible',
                       )}
                     />
-                    <span>User</span>
+                    <span>Usuário</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setSource('system')}>
                     <CheckOutlined
@@ -179,7 +179,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
                         source !== 'system' && 'invisible',
                       )}
                     />
-                    <span>System</span>
+                    <span>Sistema</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -218,7 +218,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
             </div>
             <Input
               className="w-full rounded-none border-none bg-transparent p-0 !shadow-none ring-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-transparent"
-              placeholder="Search Events"
+              placeholder="Pesquisar Eventos"
               value={query ?? undefined}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -238,10 +238,10 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
                   <div className="flex flex-col">
                     <div>{eventName.name}</div>
                     <div className="dark:text-polar-500 text-sm text-gray-500">
-                      {new Intl.NumberFormat('en-US', {
+                      {new Intl.NumberFormat('pt-BR', {
                         notation: 'compact',
                       }).format(eventName.occurrences)}{' '}
-                      Ingested Events
+                      Eventos Recebidos
                     </div>
                   </div>
                 </div>
@@ -278,9 +278,9 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
 
           {events?.items.length === 0 ? (
             <div className="rounded-4xl dark:border-polar-700 flex min-h-96 w-full flex-col items-center justify-center gap-4 border border-gray-200 p-24">
-              <h1 className="text-2xl font-normal">No Events Found</h1>
+                <h1 className="text-2xl font-normal">Nenhum Evento Encontrado</h1>
               <p className="dark:text-polar-500 text-gray-500">
-                There are no events matching your current filters
+                Não há eventos correspondentes aos seus filtros atuais
               </p>
             </div>
           ) : (
@@ -302,9 +302,9 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization }) => {
         </div>
       ) : (
         <div className="mt-96 flex w-full flex-col items-center justify-center gap-4">
-          <h1 className="text-2xl font-normal">No Event Entity Selected</h1>
+          <h1 className="text-2xl font-normal">Nenhum Evento Selecionado</h1>
           <p className="dark:text-polar-500 text-gray-500">
-            Select an event entity to view its details
+            Selecione um evento para ver seus detalhes
           </p>
         </div>
       )}

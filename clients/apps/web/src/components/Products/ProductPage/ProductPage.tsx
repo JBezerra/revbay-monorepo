@@ -7,12 +7,7 @@ import { MoreVert } from '@mui/icons-material'
 import { schemas } from '@polar-sh/client'
 import Button from '@polar-sh/ui/components/atoms/Button'
 import { Status } from '@polar-sh/ui/components/atoms/Status'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@polar-sh/ui/components/atoms/Tabs'
+import { Tabs } from '@polar-sh/ui/components/atoms/Tabs'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -157,25 +152,19 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
         }
         wide
       >
-        <TabsList className="pb-8">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="metrics">Metrics</TabsTrigger>
-        </TabsList>
-        <TabsContent value="overview">
+        <div className="flex flex-col gap-y-12">
           <ProductOverview
             metrics={metrics}
             todayMetrics={todayMetrics}
             organization={organization}
             product={product}
           />
-        </TabsContent>
-        <TabsContent value="metrics">
           <ProductMetricsView
             data={metrics}
             interval={allTimeInterval}
             loading={metricsLoading}
           />
-        </TabsContent>
+        </div>
         <ConfirmModal
           title="Archive Product"
           description="Archiving a product will not affect its current customers, only prevent new subscribers and purchases."

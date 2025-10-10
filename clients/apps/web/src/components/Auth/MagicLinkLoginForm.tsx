@@ -78,7 +78,7 @@ const MagicLinkLoginForm: React.FC<MagicLinkLoginFormProps> = ({
                       loading={loading}
                       disabled={loading}
                     >
-                      Login
+                      Entrar
                     </Button>
                   </div>
                 </FormControl>

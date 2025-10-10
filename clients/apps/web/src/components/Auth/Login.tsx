@@ -5,7 +5,6 @@ import { schemas } from '@polar-sh/client'
 import LabeledSeparator from '@polar-sh/ui/components/atoms/LabeledSeparator'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
-import GithubLoginButton from '../Auth/GithubLoginButton'
 import LoginCodeForm from '../Auth/LoginCodeForm'
 import GoogleLoginButton from './GoogleLoginButton'
 
@@ -76,33 +75,28 @@ const Login = ({
     posthog.capture(eventName, loginProps)
   }, [])
 
+  // Todo: Fazer termos de serviço
   return (
     <div className="flex flex-col gap-y-4">
       <div className="flex w-full flex-col gap-y-4">
-        <GithubLoginButton
-          text="Continue with GitHub"
-          size="large"
-          fullWidth
-          {...loginProps}
-        />
         <GoogleLoginButton {...loginProps} />
-        <LabeledSeparator label="Or" />
+        <LabeledSeparator label="Ou" />
         <LoginCodeForm {...loginProps} />
       </div>
       <div className="dark:text-polar-500 mt-6 text-center text-xs text-gray-400">
-        By using Polar you agree to our{' '}
+        Ao usar a RevBay, você concorda com nossos{' '}
         <a
           className="dark:text-polar-300 text-gray-600"
           href="https://polar.sh/legal/terms"
         >
-          Terms of Service
+          Termos de Serviço
         </a>{' '}
-        and{' '}
+        e{' '}
         <a
           className="dark:text-polar-300 text-gray-600"
           href="https://polar.sh/legal/privacy"
         >
-          Privacy Policy
+          Política de Privacidade
         </a>
       </div>
     </div>

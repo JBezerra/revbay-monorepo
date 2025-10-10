@@ -97,7 +97,7 @@ export default function ClientPage({
       accessorKey: 'created_at',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Date" />
+        <DataTableColumnHeader column={column} title="Data" />
       ),
       cell: ({ getValue }) => {
         return (
@@ -112,7 +112,7 @@ export default function ClientPage({
       accessorKey: 'paid_at',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Paid At" />
+        <DataTableColumnHeader column={column} title="Pago em" />
       ),
       cell: ({ getValue }) => {
         const value = getValue()
@@ -148,7 +148,7 @@ export default function ClientPage({
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="Gross"
+          title="Bruto"
           className="flex justify-end"
         />
       ),
@@ -170,7 +170,7 @@ export default function ClientPage({
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="Fees"
+          title="Taxas"
           className="flex justify-end"
         />
       ),
@@ -192,7 +192,7 @@ export default function ClientPage({
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="Net"
+          title="Líquido"
           className="flex justify-end"
         />
       ),

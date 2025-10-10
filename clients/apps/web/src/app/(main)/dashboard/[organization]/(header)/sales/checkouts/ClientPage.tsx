@@ -172,7 +172,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 70,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Date" />
+        <DataTableColumnHeader column={column} title="Data" />
       ),
       cell: (props) => (
         <FormattedDateTime
@@ -197,7 +197,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'customer',
       enableSorting: false,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Customer" />
+        <DataTableColumnHeader column={column} title="Cliente" />
       ),
       cell: ({ row: { original: checkout } }) => {
         const customerEmail = checkout.customer_email
@@ -222,7 +222,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       id: 'products',
       enableSorting: false,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Product" />
+        <DataTableColumnHeader column={column} title="Produto" />
       ),
       cell: ({
         row: {
@@ -241,7 +241,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
           <div className="grid grid-cols-3 gap-4">
             <Input
               type="text"
-              placeholder="Filter by email"
+              placeholder="Pesquisar por email"
               onChange={(e) => setQuery(e.target.value)}
             />
             <CheckoutStatusSelect value={status || ''} onChange={setStatus} />

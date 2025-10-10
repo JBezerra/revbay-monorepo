@@ -58,7 +58,7 @@ export const getFormattedMetricValue = (
     case 'scalar':
       return scalarFormatter.format(value)
     case 'currency':
-      return formatCurrencyAndAmount(value, 'usd', 0)
+      return formatCurrencyAndAmount(value, 'brl', 0)
     case 'percentage':
       return percentageFormatter.format(value)
   }
@@ -66,7 +66,7 @@ export const getFormattedMetricValue = (
 
 export const getTimestampFormatter = (
   interval: schemas['TimeInterval'],
-  locale: string = 'en-US',
+  locale: string = 'pt-BR',
 ): ((value: Date) => string) => {
   switch (interval) {
     case 'hour':

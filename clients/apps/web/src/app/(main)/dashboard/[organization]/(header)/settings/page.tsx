@@ -5,7 +5,7 @@ import ClientPage from './ClientPage'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Settings', // " | Polar is added by the template"
+    title: 'Configurações', // " | Polar is added by the template"
   }
 }
 

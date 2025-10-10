@@ -101,18 +101,18 @@ export default function ClientPage({
             <Input
               className="w-full md:max-w-64"
               preSlot={<Search fontSize="small" />}
-              placeholder="Search Products"
+              placeholder="Pesquisar Produtos"
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
             />
             <Select value={show} onValueChange={setShow}>
               <SelectTrigger className="w-full md:max-w-fit">
-                <SelectValue placeholder="Show archived products" />
+                <SelectValue placeholder="Mostrar produtos arquivados" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="archived">Archived</SelectItem>
+                <SelectItem value="all">Todos</SelectItem>
+                <SelectItem value="active">Ativos</SelectItem>
+                <SelectItem value="archived">Arquivados</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -126,7 +126,7 @@ export default function ClientPage({
               className="w-full"
             >
               <AddOutlined className="h-4 w-4" />
-              <span>New Product</span>
+              <span>Novo Produto</span>
             </Button>
           </Link>
         </div>
@@ -161,14 +161,14 @@ export default function ClientPage({
             />
             <div className="flex flex-col items-center gap-y-6">
               <div className="flex flex-col items-center gap-y-2">
-                <h3 className="text-lg font-medium">No products found</h3>
+                <h3 className="text-lg font-medium">Nenhum produto encontrado</h3>
                 <p className="dark:text-polar-500 text-gray-500">
-                  Start selling digital products today
+                  Comece a vender produtos digitais hoje
                 </p>
               </div>
               <Link href={`/dashboard/${org.slug}/products/new`}>
                 <Button role="link" variant="secondary">
-                  <span>Create Product</span>
+                  <span>Criar Produto</span>
                 </Button>
               </Link>
             </div>

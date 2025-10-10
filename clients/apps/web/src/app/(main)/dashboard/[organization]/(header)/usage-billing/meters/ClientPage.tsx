@@ -1,6 +1,7 @@
 'use client'
 
 import { DashboardBody } from '@/components/Layout/DashboardLayout'
+import { AGGREGATION_FUNCTION_DISPLAY_NAMES } from '@/components/Meter/MeterForm'
 import { MeterIngestionGuide } from '@/components/Meter/MeterIngestionGuide'
 import { MeterPage } from '@/components/Meter/MeterPage'
 import { useModal } from '@/components/Modal/useModal'
@@ -89,7 +90,7 @@ const ClientPage = ({
             <div className="flex flex-row items-center gap-x-2">
               <Status
                 className="bg-emerald-50 capitalize text-emerald-500 dark:bg-emerald-950 dark:text-emerald-500"
-                status={`${selectedMeter.aggregation.func} Aggregation`}
+                status={`${AGGREGATION_FUNCTION_DISPLAY_NAMES[selectedMeter.aggregation.func]}`}
               />
               {'property' in selectedMeter.aggregation && (
                 <Status
@@ -100,7 +101,7 @@ const ClientPage = ({
             </div>
           </div>
         ) : (
-          'Meters'
+          'Métricas'
         )
       }
       header={
@@ -109,7 +110,7 @@ const ClientPage = ({
             wrapperClassNames="flex items-center flex-row gap-x-2"
             onClick={showEditMeterModal}
           >
-            <span>Edit Meter</span>
+            <span>Editar Métrica</span>
           </Button>
         )
       }
@@ -119,7 +120,7 @@ const ClientPage = ({
       contextView={
         <div className="dark:divide-polar-800 flex h-full flex-col divide-y divide-gray-200">
           <div className="flex flex-row items-center justify-between gap-6 px-4 py-4">
-            <div>Meters</div>
+            <div>Métricas</div>
             <div className="flex flex-row items-center gap-4">
               <Button
                 variant="ghost"
@@ -155,7 +156,7 @@ const ClientPage = ({
             </div>
             <Input
               className="w-full rounded-none border-none bg-transparent p-0 !shadow-none ring-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-transparent"
-              placeholder="Search Meters"
+              placeholder="Pesquisar Métricas"
               value={query ?? undefined}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -174,7 +175,7 @@ const ClientPage = ({
                 <div className="flex min-w-0 flex-col gap-y-1 px-6 py-2">
                   <div className="w-full truncate text-sm">{meter.name}</div>
                   <div className="w-full truncate text-xs capitalize text-gray-500 dark:text-gray-500">
-                    {meter.aggregation.func}
+                  {AGGREGATION_FUNCTION_DISPLAY_NAMES[meter.aggregation.func]}
                   </div>
                 </div>
               </div>

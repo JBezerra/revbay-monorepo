@@ -37,14 +37,14 @@ const CheckoutsWidget = ({ className }: CheckoutsWidgetProps) => {
 
   const stages = [
     {
-      name: 'Initiated',
+      name: 'Iniciado',
       value: checkoutsInitiated.data?.pagination.total_count ?? 0,
       percentage: 100,
       color: 'dark:bg-indigo-500 bg-indigo-300',
       status: null,
     },
     {
-      name: 'Expired',
+      name: 'Expirado',
       value: checkoutsExpired.data?.pagination.total_count ?? 0,
       percentage:
         ((checkoutsExpired.data?.pagination.total_count ?? 0) /
@@ -54,7 +54,7 @@ const CheckoutsWidget = ({ className }: CheckoutsWidgetProps) => {
       status: 'expired',
     },
     {
-      name: 'Failed',
+      name: 'Falhou',
       value: checkoutsFailed.data?.pagination.total_count ?? 0,
       percentage:
         ((checkoutsFailed.data?.pagination.total_count ?? 0) /
@@ -64,7 +64,7 @@ const CheckoutsWidget = ({ className }: CheckoutsWidgetProps) => {
       status: 'failed',
     },
     {
-      name: 'Succeeded',
+      name: 'Concluído',
       value: checkoutsSucceeded.data?.pagination.total_count ?? 0,
       percentage:
         ((checkoutsSucceeded.data?.pagination.total_count ?? 0) /
@@ -84,14 +84,14 @@ const CheckoutsWidget = ({ className }: CheckoutsWidgetProps) => {
     >
       <div className="flex flex-col gap-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl">Conversion Funnel</h2>
+          <h2 className="text-xl">Funil de Conversão</h2>
         </div>
 
         <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-x-2">
             <h3 className="text-5xl font-light">
               {checkoutsInitiated.data?.pagination.total_count.toLocaleString(
-                'en-US',
+                'pt-BR',
               )}
             </h3>
             <span className="text-lg">

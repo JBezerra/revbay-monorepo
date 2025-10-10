@@ -23,11 +23,11 @@ const MeterSelect: React.FC<
       <SelectTrigger className={className}>
         <div className="flex flex-row items-center gap-x-2">
           <DonutLargeOutlined fontSize="inherit" />
-          <SelectValue placeholder="Select a meter" />
+          <SelectValue placeholder="Selecione uma métrica" />
         </div>
       </SelectTrigger>
       <SelectContent>
-        {allOption && <SelectItem value="all">All Meters</SelectItem>}
+        {allOption && <SelectItem value="all">Todas as Métricas</SelectItem>}
         {meters.map((meter) => (
           <SelectItem key={meter.id} value={meter.id}>
             {meter.name}

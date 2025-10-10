@@ -120,8 +120,8 @@ export const CustomerContextView = ({
                 className="bg-white"
                 onCopy={() => {
                   toast({
-                    title: 'Copied To Clipboard',
-                    description: `Customer Portal Link was copied to clipboard`,
+                    title: 'Copiado para a área de transferência',
+                    description: `Link do Portal do Cliente foi copiado para a área de transferência`,
                   })
                 }}
               />
@@ -132,7 +132,7 @@ export const CustomerContextView = ({
                 loading={customerSessionLoading}
                 onClick={createCustomerSession}
               >
-                Generate Customer Portal
+                Gerar Portal do Cliente
               </Button>
             )}
             <div className="flex flex-row gap-4">
@@ -141,7 +141,7 @@ export const CustomerContextView = ({
                 className="w-1/2 text-blue-500 dark:text-blue-400"
               >
                 <Button className="w-full" size="lg" variant="secondary">
-                  Send Email
+                  Enviar Email
                 </Button>
               </a>
               <Button
@@ -150,7 +150,7 @@ export const CustomerContextView = ({
                 variant="secondary"
                 onClick={showModal}
               >
-                Edit
+                Editar
               </Button>
             </div>
 

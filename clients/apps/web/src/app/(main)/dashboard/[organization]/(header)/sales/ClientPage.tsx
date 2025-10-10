@@ -127,7 +127,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'customer',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Customer" />
+        <DataTableColumnHeader column={column} title="Cliente" />
       ),
       cell: (props) => {
         const customer = props.getValue() as schemas['OrderCustomer']
@@ -150,7 +150,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 50,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Amount" />
+        <DataTableColumnHeader column={column} title="Valor" />
       ),
       cell: ({ row: { original: order } }) => (
         <span>{formatCurrencyAndAmount(order.net_amount, order.currency)}</span>
@@ -160,7 +160,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'product',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Product" />
+        <DataTableColumnHeader column={column} title="Produto" />
       ),
       cell: (props) => {
         const product = props.getValue() as schemas['Product']
@@ -182,7 +182,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 50,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Status" />
+        <DataTableColumnHeader column={column} title="Status do Pedido" />
       ),
       cell: ({ row: { original: order } }) => (
         <span className="flex flex-shrink">
@@ -195,7 +195,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       enableSorting: true,
       size: 50,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Date" />
+        <DataTableColumnHeader column={column} title="Data" />
       ),
       cell: (props) => (
         <FormattedDateTime datetime={props.getValue() as string} />
@@ -258,15 +258,17 @@ const ClientPage: React.FC<ClientPageProps> = ({
         </div>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <MiniMetricChartBox
+          title='Pedidos'
             value={metricsData?.totals.orders}
             metric={metricsData?.metrics.orders}
           />
           <MiniMetricChartBox
-            title="Today's Revenue"
+            title="Receita de Hoje"
             value={todayMetricsData?.totals.revenue}
             metric={todayMetricsData?.metrics.revenue}
           />
           <MiniMetricChartBox
+            title="Receita Total"
             value={metricsData?.totals.revenue}
             metric={metricsData?.metrics.cumulative_revenue}
           />

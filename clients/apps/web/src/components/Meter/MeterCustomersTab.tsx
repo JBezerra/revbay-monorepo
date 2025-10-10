@@ -54,7 +54,7 @@ const MeterCustomersTab = ({
       columns={[
         {
           header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Customer" />
+            <DataTableColumnHeader column={column} title="Cliente" />
           ),
           accessorKey: 'customer',
           cell: ({
@@ -84,7 +84,7 @@ const MeterCustomersTab = ({
         },
         {
           header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Updated At" />
+            <DataTableColumnHeader column={column} title="Atualizado em" />
           ),
           accessorKey: 'modified_at',
           cell: ({
@@ -107,7 +107,7 @@ const MeterCustomersTab = ({
         },
         {
           header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Consumed Units" />
+            <DataTableColumnHeader column={column} title="Unidades Consumidas" />
           ),
           accessorKey: 'consumed_units',
           cell: ({
@@ -120,7 +120,7 @@ const MeterCustomersTab = ({
         },
         {
           header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Credited Units" />
+            <DataTableColumnHeader column={column} title="Unidades Creditadas" />
           ),
           accessorKey: 'credited_units',
           cell: ({
@@ -133,7 +133,7 @@ const MeterCustomersTab = ({
         },
         {
           header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Balance" />
+            <DataTableColumnHeader column={column} title="Saldo" />
           ),
           accessorKey: 'balance',
           cell: ({

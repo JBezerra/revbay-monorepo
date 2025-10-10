@@ -2,7 +2,6 @@ import { MoreHorizOutlined } from '@mui/icons-material'
 import { schemas } from '@polar-sh/client'
 import Avatar from '@polar-sh/ui/components/atoms/Avatar'
 import { List } from '@polar-sh/ui/components/atoms/List'
-import Link from 'next/link'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -52,12 +51,12 @@ const EventRow = ({
           </div>
         </td>
         <td className="px-4 py-2">
-          <Link
-            href={`/dashboard/${organization.slug}/customers?customerId=${event.customer?.id}`}
+          <div
+            // href={`/dashboard/${organization.slug}/customers?customerId=${event.customer?.id}`}
             className="flex w-[180px] flex-shrink-0 items-center gap-x-3"
-            onClick={(e) => {
-              e.stopPropagation()
-            }}
+            // onClick={(e) => {
+            //   e.stopPropagation()
+            // }}
           >
             <Avatar
               className="dark:bg-polar-900 text-xxs h-8 w-8 bg-white"
@@ -74,7 +73,7 @@ const EventRow = ({
                 {event.customer?.email ?? '—'}
               </span>
             </div>
-          </Link>
+          </div>
         </td>
         <td className="px-4 py-2">
           <span className="dark:bg-polar-700 dark:text-polar-500 w-fit items-center justify-center rounded-md bg-gray-100 px-1.5 py-0.5 text-gray-500">
@@ -108,16 +107,16 @@ export const Events = ({
         <thead>
           <tr className="dark:bg-polar-800 bg-gray-50">
             <th className="px-4 py-2 text-left font-normal">
-              <span className="font-mono text-xs capitalize">Timestamp</span>
+              <span className="font-mono text-xs capitalize">Data</span>
             </th>
             <th className="px-4 py-2 text-left font-normal">
-              <span className="font-mono text-xs capitalize">Event</span>
+              <span className="font-mono text-xs capitalize">Evento</span>
             </th>
             <th className="px-4 py-2 text-left font-normal">
-              <span className="font-mono text-xs capitalize">Customer</span>
+              <span className="font-mono text-xs capitalize">Cliente</span>
             </th>
             <th className="px-4 py-2 text-left font-normal">
-              <span className="font-mono text-xs capitalize">Metadata</span>
+              <span className="font-mono text-xs capitalize">Metadados</span>
             </th>
           </tr>
         </thead>
@@ -132,7 +131,7 @@ export const Events = ({
           {events.length === 0 && (
             <tr>
               <td colSpan={4} className="py-6 text-center text-sm">
-                No events found
+                Nenhum evento encontrado
               </td>
             </tr>
           )}

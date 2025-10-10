@@ -70,17 +70,17 @@ const CustomerPortalOrder = ({
           <div className="flex flex-col">
             <DetailRow label="Order ID" value={<span>{order.id}</span>} />
             <DetailRow
-              label="Product"
+              label="Produto"
               value={<span>{order.product.name}</span>}
             />
             <DetailRow
-              label="Order Date"
+              label="Data do Pedido"
               value={
                 <span>{new Date(order.created_at).toLocaleDateString()}</span>
               }
             />
             <DetailRow
-              label="Status"
+              label="Status do Pedido"
               value={
                 <span className="capitalize">
                   {order.status.split('_').join(' ')}
@@ -91,7 +91,7 @@ const CustomerPortalOrder = ({
 
           {order.items.length > 0 && (
             <div className="flex flex-col gap-4">
-              <h3 className="text-lg">Order Items</h3>
+              <h3 className="text-lg">Itens do Pedido</h3>
               <div className="flex flex-col gap-4">
                 {order.items.map((item) => (
                   <DetailRow
@@ -106,13 +106,13 @@ const CustomerPortalOrder = ({
 
           <div className="flex flex-col">
             <DetailRow
-              label="Subtotal"
+              label="Subtotal do Pedido"
               value={
                 <span>{formatCurrencyAndAmount(order.subtotal_amount)}</span>
               }
             />
             <DetailRow
-              label="Discount"
+              label="Desconto"
               value={
                 <span>
                   {order.discount_amount
@@ -122,21 +122,21 @@ const CustomerPortalOrder = ({
               }
             />
             <DetailRow
-              label="Net amount"
+              label="Valor Líquido do Pedido"
               value={<span>{formatCurrencyAndAmount(order.net_amount)}</span>}
             />
             <DetailRow
-              label="Tax"
+              label="Imposto"
               value={<span>{formatCurrencyAndAmount(order.tax_amount)}</span>}
             />
             <DetailRow
-              label="Total"
+              label="Total do Pedido"
               value={<span>{formatCurrencyAndAmount(order.total_amount)}</span>}
             />
 
             {isPartiallyOrFullyRefunded && (
               <DetailRow
-                label="Refunded amount"
+                label="Valor Reembolsado"
                 value={
                   <span>{formatCurrencyAndAmount(order.refunded_amount)}</span>
                 }
@@ -155,7 +155,7 @@ const CustomerPortalOrder = ({
         </div>
 
         <div className="flex w-full flex-col gap-4">
-          <h3 className="text-lg">Benefit Grants</h3>
+          <h3 className="text-lg">Benefícios Concedidos</h3>
           {(benefitGrants?.items.length ?? 0) > 0 ? (
             <div className="flex flex-col gap-4">
               <List className={themingPreset.polar.list}>
@@ -172,7 +172,7 @@ const CustomerPortalOrder = ({
           ) : (
             <div className="dark:border-polar-700 flex flex-col items-center justify-center gap-4 rounded-2xl border border-gray-200 p-6">
               <span className="dark:text-polar-500 text-gray-500">
-                This product has no benefit grants
+                Este produto não tem benefícios concedidos
               </span>
             </div>
           )}

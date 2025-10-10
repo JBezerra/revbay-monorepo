@@ -116,7 +116,7 @@ export const AddPaymentMethodModal = ({
 
   return (
     <div className="flex flex-col gap-6 p-8">
-      <h3 className="text-xl">Add Payment Method</h3>
+      <h3 className="text-xl">Adicionar Método de Pagamento</h3>
       <Elements
         stripe={stripePromise}
         options={{
@@ -154,14 +154,14 @@ export const AddPaymentMethodModal = ({
                   disabled={!stripe || loading}
                   loading={loading}
                 >
-                  Add payment method
+                  Adicionar
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={hide}
                   className={themingPreset.polar.buttonSecondary}
                 >
-                  Cancel
+                  Cancelar
                 </Button>
               </div>
             </form>

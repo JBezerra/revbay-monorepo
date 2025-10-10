@@ -37,7 +37,7 @@ export const CustomerMetadataForm = () => {
             append({ key: '', value: '' })
           }}
         >
-          Add Metadata
+          Adicionar Metadado
         </Button>
       </div>
       <div className="flex flex-col gap-2">
@@ -52,7 +52,7 @@ export const CustomerMetadataForm = () => {
                     <Input
                       {...field}
                       value={field.value || ''}
-                      placeholder="Key"
+                      placeholder="Chave"
                     />
                   </FormControl>
                   <FormMessage />
@@ -68,7 +68,7 @@ export const CustomerMetadataForm = () => {
                     <Input
                       {...field}
                       value={field.value.toString() || ''}
-                      placeholder="Value"
+                        placeholder="Valor"
                     />
                   </FormControl>
                   <FormMessage />

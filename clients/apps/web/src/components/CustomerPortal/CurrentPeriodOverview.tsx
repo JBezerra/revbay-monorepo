@@ -36,9 +36,9 @@ export const CurrentPeriodOverview = ({
       )}
     >
       <div className="flex items-center justify-between">
-        <h4 className="text-lg font-medium">Current Period Overview</h4>
+        <h4 className="text-lg font-medium">Visão Geral do Período Atual</h4>
         <span className="text-sm text-gray-500">
-          Next Invoice —{' '}
+          Próxima Fatura —{' '}
           {subscription.current_period_end
             ? new Date(subscription.current_period_end).toLocaleDateString(
                 'en-US',
@@ -62,7 +62,7 @@ export const CurrentPeriodOverview = ({
 
         {subscription.meters.length > 0 && (
           <>
-            <span className="font-medium">Metered Charges</span>
+            <span className="font-medium">Cobranças por Uso</span>
 
             {subscription.meters.map((meter) => (
               <div key={meter.id} className="flex items-center justify-between">
@@ -83,7 +83,7 @@ export const CurrentPeriodOverview = ({
 
         <div className="dark:border-polar-700 mt-2 border-t border-gray-200 pt-2">
           <div className="flex items-center justify-between">
-            <span className="font-medium">Estimated Total</span>
+            <span className="font-medium">Total Estimado</span>
             <span className="text-lg font-semibold">
               <AmountLabel
                 amount={totalAmount}
@@ -94,8 +94,7 @@ export const CurrentPeriodOverview = ({
 
           {subscription.meters.length > 0 && (
             <p className="text-xs text-gray-500">
-              Final charges may vary based on usage until the end of the billing
-              period
+              As cobranças finais podem variar com base no uso até o final do período de faturação
             </p>
           )}
         </div>

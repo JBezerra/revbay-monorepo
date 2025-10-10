@@ -10,15 +10,15 @@ import {
 const getIntervalLabel = (interval: schemas['TimeInterval']) => {
   switch (interval) {
     case 'hour':
-      return 'Hourly'
+      return 'Hora'
     case 'day':
-      return 'Daily'
+      return 'Diário'
     case 'week':
-      return 'Weekly'
+      return 'Semanal'
     case 'month':
-      return 'Monthly'
+      return 'Mensal'
     case 'year':
-      return 'Yearly'
+      return 'Anual'
   }
 }
 
@@ -34,7 +34,7 @@ const IntervalPicker: React.FC<IntervalPickerProps> = ({
   return (
     <Select value={interval} onValueChange={onChange}>
       <SelectTrigger>
-        <SelectValue placeholder="Select an interval" />
+        <SelectValue placeholder="Selecione um intervalo" />
       </SelectTrigger>
       <SelectContent>
         {Object.values(enums.timeIntervalValues).map((interval) => (

@@ -6,6 +6,9 @@ import { DayPicker, DateRange } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
+import { ptBR } from "date-fns/locale/pt-BR"
+import { format } from "date-fns"
+import lodash from "lodash"
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
@@ -15,8 +18,15 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }: CalendarProps) {
+  const formatters = {
+    formatMonthCaption: (date: Date) => {
+      return lodash.capitalize(format(date, 'MMMM yyyy', { locale: ptBR }))
+    },
+  }
   return (
     <DayPicker
+      locale={ptBR}
+      formatters={formatters}
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       classNames={{
