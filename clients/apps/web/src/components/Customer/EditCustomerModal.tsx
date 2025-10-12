@@ -59,16 +59,16 @@ export const EditCustomerModal = ({
             setValidationErrors(error.detail, form.setError)
           } else {
             toast({
-              title: 'Customer Update Failed',
-              description: `Error updating customer ${customer.email}: ${error.detail}`,
+              title: 'Falha ao atualizar cliente',
+              description: `Erro ao atualizar cliente ${customer.email}: ${error.detail}`,
             })
           }
         return
       }
 
       toast({
-        title: 'Customer Updated',
-        description: `Customer ${customer.email} updated successfully`,
+        title: 'Cliente atualizado',
+        description: `Cliente ${customer.email} atualizado com sucesso`,
       })
       revalidate(`customer:${customer.id}`)
       onClose()
@@ -78,7 +78,7 @@ export const EditCustomerModal = ({
   return (
     <div className="flex flex-col gap-8 overflow-y-auto px-8 py-12">
       <div className="flex flex-row items-center gap-x-4">
-        <h2 className="text-xl">Edit Customer</h2>
+        <h2 className="text-xl">Editar Cliente</h2>
       </div>
       <Form {...form}>
         <form
@@ -91,7 +91,7 @@ export const EditCustomerModal = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel> Name</FormLabel>
+                  <FormLabel>Nome</FormLabel>
                   <FormControl>
                     <Input {...field} value={field.value || ''} />
                   </FormControl>
@@ -102,15 +102,15 @@ export const EditCustomerModal = ({
               control={form.control}
               name="email"
               rules={{
-                required: 'Email is required',
+                required: 'E-mail é obrigatório',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Invalid email address',
+                  message: 'Endereço de e-mail inválido',
                 },
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>E-mail</FormLabel>
                   <FormControl>
                     <Input {...field} value={field.value || ''} />
                   </FormControl>
@@ -129,7 +129,7 @@ export const EditCustomerModal = ({
             className="self-start"
             loading={updateCustomer.isPending}
           >
-            Save Customer
+            Salvar Cliente
           </Button>
         </form>
       </Form>

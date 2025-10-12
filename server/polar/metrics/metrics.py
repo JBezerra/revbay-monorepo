@@ -55,7 +55,7 @@ class Metric(Protocol):
 
 class OrdersMetric(Metric):
     slug = "orders"
-    display_name = "Orders"
+    display_name = "Pedidos"
     type = MetricType.scalar
     query = MetricQuery.orders
 
@@ -89,7 +89,7 @@ class RevenueMetric(Metric):
 
 class CumulativeRevenueMetric(Metric):
     slug = "cumulative_revenue"
-    display_name = "Cumulative Revenue"
+    display_name = "Receita Acumulada"
     type = MetricType.currency
     query = MetricQuery.cumulative_orders
 
@@ -106,7 +106,7 @@ class CumulativeRevenueMetric(Metric):
 
 class AverageOrderValueMetric(Metric):
     slug = "average_order_value"
-    display_name = "Average Order Value"
+    display_name = "Valor Médio do Pedido"
     type = MetricType.currency
     query = MetricQuery.orders
 
@@ -123,7 +123,7 @@ class AverageOrderValueMetric(Metric):
 
 class OneTimeProductsMetric(Metric):
     slug = "one_time_products"
-    display_name = "One-Time Products"
+    display_name = "Produtos de Compra Única"
     type = MetricType.scalar
     query = MetricQuery.orders
 
@@ -140,7 +140,7 @@ class OneTimeProductsMetric(Metric):
 
 class OneTimeProductsRevenueMetric(Metric):
     slug = "one_time_products_revenue"
-    display_name = "One-Time Products Revenue"
+    display_name = "Receita de Produtos One-Time"
     type = MetricType.currency
     query = MetricQuery.orders
 
@@ -157,7 +157,7 @@ class OneTimeProductsRevenueMetric(Metric):
 
 class NewSubscriptionsMetric(Metric):
     slug = "new_subscriptions"
-    display_name = "New Subscriptions"
+    display_name = "Novas Assinaturas"
     type = MetricType.scalar
     query = MetricQuery.active_subscriptions
 
@@ -179,7 +179,7 @@ class NewSubscriptionsMetric(Metric):
 
 class NewSubscriptionsRevenueMetric(Metric):
     slug = "new_subscriptions_revenue"
-    display_name = "New Subscriptions Revenue"
+    display_name = "Receita de Novas Assinaturas"
     type = MetricType.currency
     query = MetricQuery.orders
 
@@ -201,7 +201,7 @@ class NewSubscriptionsRevenueMetric(Metric):
 
 class RenewedSubscriptionsMetric(Metric):
     slug = "renewed_subscriptions"
-    display_name = "Renewed Subscriptions"
+    display_name = "Renovações de Assinaturas"
     type = MetricType.scalar
     query = MetricQuery.orders
 
@@ -223,7 +223,7 @@ class RenewedSubscriptionsMetric(Metric):
 
 class RenewedSubscriptionsRevenueMetric(Metric):
     slug = "renewed_subscriptions_revenue"
-    display_name = "Renewed Subscriptions Revenue"
+    display_name = "Receita de Renovações de Assinaturas"
     type = MetricType.currency
     query = MetricQuery.orders
 
@@ -245,7 +245,7 @@ class RenewedSubscriptionsRevenueMetric(Metric):
 
 class ActiveSubscriptionsMetric(Metric):
     slug = "active_subscriptions"
-    display_name = "Active Subscriptions"
+    display_name = "Assinaturas Ativas"
     type = MetricType.scalar
     query = MetricQuery.active_subscriptions
 
@@ -262,7 +262,7 @@ class ActiveSubscriptionsMetric(Metric):
 
 class MonthlyRecurringRevenueMetric(Metric):
     slug = "monthly_recurring_revenue"
-    display_name = "Monthly Recurring Revenue"
+    display_name = "Receita Recorrente Mensal"
     type = MetricType.currency
     query = MetricQuery.active_subscriptions
 
@@ -295,7 +295,7 @@ class MonthlyRecurringRevenueMetric(Metric):
 
 class CommittedMonthlyRecurringRevenueMetric(Metric):
     slug = "committed_monthly_recurring_revenue"
-    display_name = "Committed Monthly Recurring Revenue"
+    display_name = "Compromisso de Receita Recorrente Mensal"
     type = MetricType.currency
     query = MetricQuery.active_subscriptions
 
@@ -358,7 +358,7 @@ class CheckoutsMetric(Metric):
 
 class SucceededCheckoutsMetric(Metric):
     slug = "succeeded_checkouts"
-    display_name = "Succeeded Checkouts"
+    display_name = "Checkouts Realizados"
     type = MetricType.scalar
     query = MetricQuery.checkouts
 
@@ -377,7 +377,7 @@ class SucceededCheckoutsMetric(Metric):
 
 class CheckoutsConversionMetric(Metric):
     slug = "checkouts_conversion"
-    display_name = "Checkouts Conversion Rate"
+    display_name = "Taxa de Conversão de Checkouts"
     type = MetricType.percentage
     query = MetricQuery.checkouts
 

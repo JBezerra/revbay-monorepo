@@ -84,7 +84,7 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
             <div className="flex flex-row items-center gap-4">
               <Status
                 status={
-                  product.is_recurring ? 'Subscription' : 'One-time Product'
+                  product.is_recurring ? 'Inscrição' : 'Produto de compra única'
                 }
                 className={
                   ProductTypeDisplayColor[
@@ -94,7 +94,7 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
               />
               {product.is_archived && (
                 <Status
-                  status="Archived"
+                  status="Arquivado"
                   className="bg-red-100 text-red-500 dark:bg-red-950"
                 />
               )}
@@ -116,13 +116,14 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
                       navigator.clipboard.writeText(product.id)
 
                       toast({
-                        title: 'Product ID Copied',
-                        description: 'Product ID copied to clipboard',
+                        title: 'ID do Produto Copiado',
+                        description:
+                          'ID do Produto copiado para a área de transferência',
                       })
                     }
                   }}
                 >
-                  Copy Product ID
+                  Copiar ID do Produto
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => {
@@ -131,11 +132,11 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
                     )
                   }}
                 >
-                  Integrate Checkout
+                  Integrar Checkout
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={showArchiveModal}>
-                  Archive Product
+                  Arquivar Produto
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -166,12 +167,12 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
           />
         </div>
         <ConfirmModal
-          title="Archive Product"
-          description="Archiving a product will not affect its current customers, only prevent new subscribers and purchases."
+          title="Arquivar Produto"
+          description="Arquivar um produto não afetará seus clientes atuais, apenas impedirá novos assinantes e compras."
           onConfirm={handleArchiveProduct}
           isShown={isArchiveModalShown}
           hide={hideArchiveModal}
-          destructiveText="Archive"
+          destructiveText="Arquivar"
           destructive
         />
       </DashboardBody>

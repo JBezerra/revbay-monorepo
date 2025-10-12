@@ -38,6 +38,7 @@ export const ProductOverview = ({
     <div className="flex flex-col gap-y-16">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <MiniMetricChartBox
+          title="Pedidos"
           metric={metrics?.metrics.orders}
           value={metrics?.periods.reduce(
             (acc, current) => acc + current.orders,
@@ -45,11 +46,12 @@ export const ProductOverview = ({
           )}
         />
         <MiniMetricChartBox
-          title="Today's Revenue"
+          title="Receita de Hoje"
           metric={todayMetrics?.metrics.revenue}
           value={todayMetrics?.periods[todayMetrics.periods.length - 1].revenue}
         />
         <MiniMetricChartBox
+          title="Receita Acumulada"
           metric={metrics?.metrics.cumulative_revenue}
           value={
             metrics?.periods[metrics?.periods.length - 1].cumulative_revenue
@@ -59,15 +61,15 @@ export const ProductOverview = ({
       <div className="flex flex-col gap-y-6">
         <div className="flex flex-row items-center justify-between gap-x-6">
           <div className="flex flex-col gap-y-1">
-            <h2 className="text-lg">Product Orders</h2>
+            <h2 className="text-lg">Pedidos do Produto</h2>
             <p className="dark:text-polar-500 text-sm text-gray-500">
-              Showing last 10 orders for {product.name}
+              Mostrando os últimos 10 pedidos para {product.name}
             </p>
           </div>
           <Link
             href={`/dashboard/${organization.slug}/sales?product_id=${product.id}`}
           >
-            <Button size="sm">View All</Button>
+            <Button size="sm">Ver Todos</Button>
           </Link>
         </div>
         <DataTable
@@ -97,7 +99,7 @@ export const ProductOverview = ({
               accessorKey: 'amount',
               enableSorting: true,
               header: ({ column }) => (
-                <DataTableColumnHeader column={column} title="Amount" />
+                <DataTableColumnHeader column={column} title="Valor" />
               ),
               cell: ({ row: { original: order } }) => (
                 <span>
@@ -109,7 +111,10 @@ export const ProductOverview = ({
               accessorKey: 'status',
               enableSorting: true,
               header: ({ column }) => (
-                <DataTableColumnHeader column={column} title="Status" />
+                <DataTableColumnHeader
+                  column={column}
+                  title="Status do Pedido"
+                />
               ),
               cell: ({ row: { original: order } }) => (
                 <span className="flex flex-shrink">
@@ -121,7 +126,7 @@ export const ProductOverview = ({
               accessorKey: 'created_at',
               enableSorting: true,
               header: ({ column }) => (
-                <DataTableColumnHeader column={column} title="Date" />
+                <DataTableColumnHeader column={column} title="Data" />
               ),
               cell: (props) => (
                 <FormattedDateTime datetime={props.getValue() as string} />
@@ -137,7 +142,7 @@ export const ProductOverview = ({
                     href={`/dashboard/${organization.slug}/sales/${props.row.original.id}`}
                   >
                     <Button variant="secondary" size="sm">
-                      View
+                      Visualizar
                     </Button>
                   </Link>
                 </span>

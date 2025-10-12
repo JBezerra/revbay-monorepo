@@ -27,7 +27,7 @@ export const CustomerMetadataForm = () => {
   return (
     <FormItem>
       <div className="flex flex-row items-center justify-between gap-2 py-2">
-        <FormLabel>Metadata</FormLabel>
+        <FormLabel>Metadados</FormLabel>
         <Button
           size="sm"
           variant="secondary"
@@ -68,7 +68,7 @@ export const CustomerMetadataForm = () => {
                     <Input
                       {...field}
                       value={field.value.toString() || ''}
-                        placeholder="Valor"
+                      placeholder="Valor"
                     />
                   </FormControl>
                   <FormMessage />

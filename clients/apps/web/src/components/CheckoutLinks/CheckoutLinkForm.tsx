@@ -46,7 +46,7 @@ export interface CheckoutLinkFormProps {
   onClose: (checkoutLink: schemas['CheckoutLink']) => void
 }
 
-export const  CheckoutLinkForm = ({
+export const CheckoutLinkForm = ({
   organization,
   checkoutLink,
   onClose,
@@ -157,10 +157,10 @@ export const  CheckoutLinkForm = ({
         }
         newCheckoutLink = updatedCheckoutLink
         toast({
-          title: 'Checkout Link Updated',
-          description: `${
+          title: 'Link de checkout atualizado',
+          description: `O link de checkout de ${
             newCheckoutLink.label ? newCheckoutLink.label : 'Sem Label'
-          } Link de Checkout foi atualizado com sucesso`,
+          } foi atualizado com sucesso`,
         })
       } else {
         const { data: createdCheckoutLink, error } =
@@ -175,10 +175,10 @@ export const  CheckoutLinkForm = ({
         }
         newCheckoutLink = createdCheckoutLink
         toast({
-          title: 'Link de Checkout Criado',
+          title: 'Link de checkout criado',
           description: `${
             newCheckoutLink.label ? newCheckoutLink.label : 'Sem Label'
-          } Link de Checkout foi criado com sucesso`,
+          } foi criado com sucesso`,
         })
       }
 
@@ -227,7 +227,7 @@ export const  CheckoutLinkForm = ({
             render={({ field }) => {
               return (
                 <FormItem>
-                  <FormLabel>Products</FormLabel>
+                  <FormLabel>Produtos</FormLabel>
                   <FormControl>
                     <ProductSelect
                       organization={organization}
@@ -238,8 +238,7 @@ export const  CheckoutLinkForm = ({
                   </FormControl>
                   <FormMessage />
                   <FormDescription>
-                    O cliente poderá alternar entre esses produtos
-                    no checkout.
+                    O cliente poderá alternar entre esses produtos no checkout.
                   </FormDescription>
                 </FormItem>
               )
@@ -334,8 +333,8 @@ export const  CheckoutLinkForm = ({
                   <FormMessage />
                   <FormDescription>
                     {field.value
-                        ? 'Os clientes poderão aplicar códigos de desconto no checkout.'
-                      : "Os clientes não poderão aplicar códigos de desconto no checkout."}
+                      ? 'Os clientes poderão aplicar códigos de desconto no checkout.'
+                      : 'Os clientes não poderão aplicar códigos de desconto no checkout.'}
                   </FormDescription>
                 </FormItem>
               )

@@ -7,13 +7,6 @@ import { ArrowOutwardOutlined } from '@mui/icons-material'
 import { schemas } from '@polar-sh/client'
 import Button from '@polar-sh/ui/components/atoms/Button'
 import FormattedDateTime from '@polar-sh/ui/components/atoms/FormattedDateTime'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@polar-sh/ui/components/atoms/Select'
 import ShadowBox from '@polar-sh/ui/components/atoms/ShadowBox'
 import { Status } from '@polar-sh/ui/components/atoms/Status'
 import {
@@ -150,6 +143,7 @@ const MetricChartBox = forwardRef<HTMLDivElement, MetricChartBoxProps>(
           >
             {onMetricChange ? (
               <span>{selectedMetric?.display_name}</span>
+            ) : (
               // <Select value={metric} onValueChange={onMetricChange}>
               //   <SelectTrigger className="dark:hover:bg-polar-700 -ml-3 -mt-2 h-fit w-fit rounded-lg border-0 border-none bg-transparent px-3 py-2 shadow-none ring-0 transition-colors hover:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-0">
               //     <SelectValue placeholder="Select a metric" />
@@ -163,7 +157,6 @@ const MetricChartBox = forwardRef<HTMLDivElement, MetricChartBoxProps>(
               //       ))}
               //   </SelectContent>
               // </Select>
-            ) : (
               <h3 className={compact ? 'text-base' : 'text-lg'}>
                 {selectedMetric?.display_name}
               </h3>

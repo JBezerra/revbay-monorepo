@@ -68,12 +68,12 @@ export const CheckoutLinkPage = ({ checkoutLink }: CheckoutLinkPageProps) => {
           <div className="flex flex-row items-center gap-x-4">
             <CopyToClipboardInput
               value={checkoutLink.url}
-              buttonLabel="Copy"
+              buttonLabel="Copiar"
               className="bg-white"
               onCopy={() => {
                 toast({
-                  title: 'Copied To Clipboard',
-                  description: `Checkout Link was copied to clipboard`,
+                  title: 'Copiado para a área de transferência',
+                  description: `O link de checkout foi copiado para a área de transferência`,
                 })
               }}
             />
@@ -87,12 +87,12 @@ export const CheckoutLinkPage = ({ checkoutLink }: CheckoutLinkPageProps) => {
         <TabsContent value="embed">
           <CopyToClipboardInput
             value={checkoutEmbed}
-            buttonLabel="Copy"
+            buttonLabel="Copiar"
             className="bg-white"
             onCopy={() => {
               toast({
-                title: 'Copied To Clipboard',
-                description: `Checkout Embed was copied to clipboard`,
+                title: 'Copiado para a área de transferência',
+                description: `O link de checkout foi copiado para a área de transferência`,
               })
             }}
           />
@@ -108,7 +108,7 @@ export const CheckoutLinkPage = ({ checkoutLink }: CheckoutLinkPageProps) => {
               }}
             />
             <Label htmlFor="darkmode" className="grow text-xs">
-              Dark Mode
+              Modo Escuro
             </Label>
           </div>
         )}
