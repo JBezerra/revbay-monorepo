@@ -188,11 +188,11 @@ const CustomerChangePlanModal = ({
     <div className="flex flex-col overflow-y-auto">
       <InlineModalHeader hide={hide}>
         <div className="flex items-center justify-between gap-2">
-          <h2 className="text-xl">Change Plan</h2>
+          <h2 className="text-xl">Alterar Plano</h2>
         </div>
       </InlineModalHeader>
       <div className="flex flex-col gap-y-8 p-8">
-        <h3 className="font-medium">Current Plan</h3>
+        <h3 className="font-medium">Plano Atual</h3>
         <List size="small" className={themingPreset.polar.list}>
           <ProductPriceListItem
             product={subscription.product}
@@ -200,7 +200,7 @@ const CustomerChangePlanModal = ({
             themingPreset={themingPreset}
           />
         </List>
-        <h3 className="font-medium">Available Plans</h3>
+        <h3 className="font-medium">Planos Disponíveis</h3>
         <List size="small" className={themingPreset.polar.list}>
           {products
             .filter((product) => product.id !== subscription.product_id)
@@ -257,8 +257,9 @@ const CustomerChangePlanModal = ({
         </div>
         {needToAddPaymentMethod && (
           <p className="dark:text-polar-500 text-sm text-gray-500">
-            You need to add a payment method before updating your plan. Head to
-            the Customer Portal Settings to add a payment method.
+            Você precisa adicionar um método de pagamento antes de atualizar seu
+            plano. Vá para as Configurações do Portal do Cliente para adicionar
+            um método de pagamento.
           </p>
         )}
         <Button
@@ -268,7 +269,7 @@ const CustomerChangePlanModal = ({
           size="lg"
           className={themingPreset.polar.button}
         >
-          Change Plan
+          Alterar Plano
         </Button>
       </div>
     </div>

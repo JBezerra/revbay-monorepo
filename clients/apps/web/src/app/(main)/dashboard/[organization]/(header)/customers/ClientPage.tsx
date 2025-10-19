@@ -74,8 +74,8 @@ const CustomerHeader = ({
     const link = `${CONFIG.FRONTEND_BASE_URL}/${organization.slug}/portal?customer_session_token=${session.token}`
     await safeCopy(link)
     toast({
-      title: 'Copiado para a área de transferência',
-      description: `Link do Portal do Cliente foi copiado para a área de transferência`,
+      title: 'Copiado',
+      description: `Link do Portal do Cliente foi copiado com sucesso`,
     })
   }, [safeCopy, customer, organization])
 
@@ -144,7 +144,8 @@ const CustomerHeader = ({
             </ol>
 
             <p>
-              No entanto, suas informações ainda serão mantidas para pedidos e assinaturas históricos.
+              No entanto, suas informações ainda serão mantidas para pedidos e
+              assinaturas históricos.
             </p>
           </div>
         }

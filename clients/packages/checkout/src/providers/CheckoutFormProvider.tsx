@@ -142,7 +142,7 @@ export const CheckoutFormProvider = ({
       setLoading(true)
 
       if (!checkout.isPaymentFormRequired) {
-        setLoadingLabel('Processing order...')
+        setLoadingLabel('Processando pedido...')
         try {
           const checkoutConfirmed = await _confirm(data)
           return checkoutConfirmed
@@ -158,7 +158,7 @@ export const CheckoutFormProvider = ({
         throw new Error('Stripe elements not provided')
       }
 
-      setLoadingLabel('Processing payment')
+      setLoadingLabel('Processando pagamento')
 
       const { error: submitError } = await elements.submit()
       if (submitError) {
@@ -205,11 +205,11 @@ export const CheckoutFormProvider = ({
         setError('root', {
           message:
             error?.message ||
-            'Failed to create confirmation token, please try again later.',
+            'Falha ao criar token de confirmação, por favor tente novamente mais tarde.',
         })
         setLoading(false)
         throw new Error(
-          'Failed to create confirmation token, please try again later.',
+          'Falha ao criar token de confirmação, por favor tente novamente mais tarde.',
         )
       }
 
@@ -224,7 +224,9 @@ export const CheckoutFormProvider = ({
         throw e
       }
 
-      setLoadingLabel('Payment successful! Getting your products ready...')
+      setLoadingLabel(
+        'Pagamento realizado com sucesso! Preparando seus produtos...',
+      )
 
       const { intent_status, intent_client_secret } =
         updatedCheckout.paymentProcessorMetadata as Record<string, string>

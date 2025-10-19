@@ -67,7 +67,7 @@ const CustomerSubscriptionDetails = ({
       !isCanceled
     ) {
       return {
-        label: 'Change Plan',
+        label: 'Mudar Plano',
         onClick: () => {
           setShowChangePlanModal(true)
         },
@@ -81,7 +81,7 @@ const CustomerSubscriptionDetails = ({
       new Date(subscription.current_period_end) > new Date()
     ) {
       return {
-        label: 'Uncancel',
+        label: 'Desfazer Cancelamento',
         loading: uncancelSubscription.isPending,
         onClick: async () => {
           await uncancelSubscription.mutateAsync({ id: subscription.id })
@@ -111,7 +111,7 @@ const CustomerSubscriptionDetails = ({
       </div>
       <div className="flex flex-col gap-y-2 text-sm">
         <div className="flex flex-row items-center justify-between">
-          <span className="dark:text-polar-500 text-gray-500">Amount</span>
+          <span className="dark:text-polar-500 text-gray-500">Valor</span>
           {subscription.amount && subscription.currency ? (
             <AmountLabel
               amount={subscription.amount}
@@ -119,17 +119,19 @@ const CustomerSubscriptionDetails = ({
               interval={subscription.recurring_interval}
             />
           ) : (
-            'Free'
+            'Gratuito'
           )}
         </div>
         <div className="flex flex-row items-center justify-between">
-          <span className="dark:text-polar-500 text-gray-500">Status</span>
+          <span className="dark:text-polar-500 text-gray-500">
+            Status da Assinatura
+          </span>
           <SubscriptionStatusLabel subscription={subscription} />
         </div>
         {subscription.started_at && (
           <div className="flex flex-row items-center justify-between">
             <span className="dark:text-polar-500 text-gray-500">
-              Start Date
+              Data de Início
             </span>
             <span>
               {new Date(subscription.started_at).toLocaleDateString('en-US', {
@@ -144,8 +146,8 @@ const CustomerSubscriptionDetails = ({
           <div className="flex flex-row items-center justify-between">
             <span className="dark:text-polar-500 text-gray-500">
               {subscription.cancel_at_period_end
-                ? 'Expiry Date'
-                : 'Renewal Date'}
+                ? 'Data de Expiração'
+                : 'Data de Renovação'}
             </span>
             <span>
               {new Date(subscription.current_period_end).toLocaleDateString(
@@ -161,7 +163,7 @@ const CustomerSubscriptionDetails = ({
         )}
         {subscription.meters.length > 0 && (
           <div className="flex flex-col gap-y-4 py-2">
-            <span className="text-lg">Metered Usage</span>
+            <span className="text-lg">Uso</span>
             <div className="flex flex-col gap-y-2">
               {subscription.meters.map((subscriptionMeter) => (
                 <div
@@ -184,7 +186,7 @@ const CustomerSubscriptionDetails = ({
         )}
         {subscription.ended_at && (
           <div className="flex flex-row items-center justify-between">
-            <span className="dark:text-polar-500 text-gray-500">Expired</span>
+            <span className="dark:text-polar-500 text-gray-500">Expirado</span>
             <span>
               {new Date(subscription.ended_at).toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -216,7 +218,7 @@ const CustomerSubscriptionDetails = ({
           variant="secondary"
           onClick={showBenefitGrantsModal}
         >
-          View Subscription
+          Ver Assinatura
         </Button>
         <Link
           className="md:hidden"
@@ -227,7 +229,7 @@ const CustomerSubscriptionDetails = ({
             variant="secondary"
             className={themePreset.polar.buttonSecondary}
           >
-            View Subscription
+            Ver Assinatura
           </Button>
         </Link>
         <CustomerCancellationModal

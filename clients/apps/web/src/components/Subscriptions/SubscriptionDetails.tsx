@@ -10,14 +10,14 @@ import { SubscriptionStatus } from './SubscriptionStatus'
 const CANCELLATION_REASONS: {
   [key: string]: string
 } = {
-  unused: 'Unused',
-  too_expensive: 'Too Expensive',
-  missing_features: 'Missing Features',
-  switched_service: 'Switched Service',
-  customer_service: 'Customer Service',
-  low_quality: 'Low Quality',
-  too_complex: 'Too Complicated',
-  other: 'Other',
+  unused: 'Não Utilizado',
+  too_expensive: 'Muito Caro',
+  missing_features: 'Faltando Funcionalidades',
+  switched_service: 'Mudou de Serviço',
+  customer_service: 'Suporte ao Cliente',
+  low_quality: 'Qualidade Baixa',
+  too_complex: 'Muito Complexo',
+  other: 'Outro',
 }
 
 const getHumanCancellationReason = (key: string | null) => {
@@ -50,45 +50,45 @@ const SubscriptionDetails = ({ subscription }: SubscriptionDetailsProps) => {
     <>
       <div className="flex flex-col gap-2">
         <DetailRow
-          label="Subscription ID"
+          label="ID da Assinatura"
           value={subscription.id}
           valueClassName="font-mono text-sm"
         />
         <DetailRow
-          label="Status"
+          label="Status da Assinatura"
           value={<SubscriptionStatus subscription={subscription} />}
         />
         <DetailRow
-          label="Started Date"
+          label="Data de Início"
           value={<FormattedDateTime datetime={subscription.created_at} />}
         />
 
         {nextEventDatetime && (
           <DetailRow
-            label={subscription.ends_at ? 'Ending Date' : 'Renewal Date'}
+            label={subscription.ends_at ? 'Data de Fim' : 'Data de Renovação'}
             value={<FormattedDateTime datetime={nextEventDatetime} />}
           />
         )}
 
         {subscription.ended_at && (
           <DetailRow
-            label="Ended Date"
+            label="Data de Fim"
             value={<FormattedDateTime datetime={subscription.ended_at} />}
           />
         )}
 
         <DetailRow
-          label="Recurring Interval"
-          value={subscription.recurring_interval === 'month' ? 'Month' : 'Year'}
+          label="Intervalo de Renovação"
+          value={subscription.recurring_interval === 'month' ? 'Mês' : 'Ano'}
         />
 
         <DetailRow
-          label="Discount"
+          label="Desconto"
           value={subscription.discount ? subscription.discount.code : '—'}
         />
 
         <DetailRow
-          label="Amount"
+          label="Valor"
           value={
             subscription.amount
               ? formatCurrencyAndAmount(subscription.amount)
@@ -99,10 +99,10 @@ const SubscriptionDetails = ({ subscription }: SubscriptionDetailsProps) => {
 
       {cancellationDate && (
         <div className="flex flex-col gap-y-4">
-          <h3 className="text-lg">Cancellation Details</h3>
+          <h3 className="text-lg">Detalhes de Cancelamento</h3>
           <div className="flex flex-col gap-y-2">
             <DetailRow
-              label="Ends"
+              label="Data de Fim"
               value={cancellationDate.toLocaleDateString('en-US', {
                 day: 'numeric',
                 month: 'short',
@@ -111,7 +111,7 @@ const SubscriptionDetails = ({ subscription }: SubscriptionDetailsProps) => {
             />
 
             <DetailRow
-              label="Reason"
+              label="Motivo"
               value={
                 cancellationReason
                   ? getHumanCancellationReason(cancellationReason)

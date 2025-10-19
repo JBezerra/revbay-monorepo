@@ -59,10 +59,10 @@ const CheckoutProductSwitcher = ({
     price: ProductPrice | LegacyRecurringProductPrice,
   ) => {
     if (price.recurringInterval) {
-      return `Billed ${price.recurringInterval === 'month' ? 'monthly' : 'yearly'}`
+      return `Cobrança ${price.recurringInterval === 'month' ? 'mensal' : 'anual'}`
     }
 
-    return `One-time purchase`
+    return `Compra única`
   }
 
   return (

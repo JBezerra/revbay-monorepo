@@ -31,9 +31,9 @@ const ProductPriceLabel: React.FC<ProductPriceLabelProps> = ({ product }) => {
       />
     )
   } else if (staticPrice.amount_type === 'custom') {
-    return <div className="text-[min(1em,24px)]">Pay what you want</div>
+    return <div className="text-[min(1em,24px)]">Pague o que você quiser</div>
   } else {
-    return <div className="text-[min(1em,24px)]">Grátis</div>
+    return <div className="text-[min(1em,24px)]">Gratuito</div>
   }
 }
 

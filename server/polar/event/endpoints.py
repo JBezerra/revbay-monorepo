@@ -184,4 +184,5 @@ async def ingest(
     session: AsyncSession = Depends(get_db_session),
 ) -> EventsIngestResponse:
     """Ingest batch of events."""
+    print(session)
     return await event_service.ingest(session, auth_subject, ingest)

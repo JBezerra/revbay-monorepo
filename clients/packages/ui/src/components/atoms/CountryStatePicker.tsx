@@ -103,10 +103,10 @@ const CountryStatePicker = ({
       >
         <SelectTrigger className={className}>
           <SelectValue
-            placeholder={country === 'US' ? 'State' : 'Province'}
+            placeholder={country === 'US' ? 'Estado' : 'Província'}
             // Avoids issues due to browser automatic translation
             // https://github.com/shadcn-ui/ui/issues/852
-            translate="no"
+            // translate="no"
           />
         </SelectTrigger>
         <SelectContent className={contentClassName}>
@@ -130,7 +130,7 @@ const CountryStatePicker = ({
   return (
     <Input
       type="text"
-      placeholder="State / Province"
+      placeholder="Estado"
       value={value}
       onChange={(e) => onChange(e.target.value)}
     />

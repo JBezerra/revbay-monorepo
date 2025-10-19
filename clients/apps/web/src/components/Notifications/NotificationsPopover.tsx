@@ -123,7 +123,7 @@ export const List = ({
     <div className="h-full max-h-[800px] space-y-5 overflow-x-scroll">
       {notifications.length === 0 && (
         <div className="dark:text-polar-400 flex w-full flex-row items-center justify-center p-4 text-center text-sm text-black/60">
-          You don&apos;t have any notifications
+          Você não tem nenhuma notificação
         </div>
       )}
       {notifications.map((n) => {
@@ -171,12 +171,12 @@ const MaintainerAccountUnderReview = ({
       {{
         text: (
           <>
-            Your{' '}
+            Sua{' '}
             <InternalLink href="/finance/account">
-              <>payout account</>
+              <>conta de pagamento</>
             </InternalLink>{' '}
-            is under review. Transfers are paused until we complete the review
-            of your account.
+            está em revisão. Os pagamentos estão suspensos até que a revisão da
+            sua conta seja concluída.
           </>
         ),
         icon: <FaceOutlined fontSize="small" />,
@@ -195,11 +195,11 @@ const MaintainerAccountReviewed = ({
       {{
         text: (
           <>
-            Your{' '}
+            Sua{' '}
             <InternalLink href="/finance/account">
-              <>payout account</>
+              <>conta de pagamento</>
             </InternalLink>{' '}
-            has been reviewed successfully. Transfers are resumed.
+            foi revisada com sucesso. Os pagamentos foram retomados.
           </>
         ),
         icon: <FaceOutlined fontSize="small" />,
@@ -219,7 +219,7 @@ const MaintainerNewPaidSubscription = ({
       {{
         text: (
           <>
-            {payload.subscriber_name} is now subscribing to{' '}
+            {payload.subscriber_name} agora está se inscrevendo em{' '}
             <InternalLink
               href={`/dashboard/${payload.tier_organization_name}/sales/subscriptions`}
             >
@@ -250,13 +250,13 @@ const MaintainerNewProductSale = ({
       {{
         text: (
           <>
-            {payload.customer_name} just purchased{' '}
+            {payload.customer_name} comprou{' '}
             <InternalLink
               href={`/dashboard/${payload.organization_name}/sales`}
             >
               <>{payload.product_name}</>
             </InternalLink>{' '}
-            (${getCentsInDollarString(payload.product_price_amount)})
+            (${getCentsInDollarString(payload.product_price_amount)}).
           </>
         ),
         icon: <ShoppingBagOutlined fontSize="small" />,
@@ -276,11 +276,11 @@ const MaintainerCreateAccount = ({
       {{
         text: (
           <>
-            Create a{' '}
+            Crie uma{' '}
             <InternalLink href={payload.url}>
-              <>payout account</>
+              <>conta de pagamento</>
             </InternalLink>{' '}
-            now for {payload.organization_name} to receive funds.
+            agora para {payload.organization_name} receber fundos.
           </>
         ),
         icon: <InfoOutlined fontSize="small" />,

@@ -64,10 +64,10 @@ const ClientPage = ({
       <div className="flex w-full flex-col gap-y-6 md:max-w-sm">
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl text-black dark:text-white">
-            Verification code
+            Código de verificação
           </h2>
           <p className="dark:text-polar-500 text-gray-500">
-            Enter the verification code sent to your email address.
+            Digite o código de verificação enviado para seu endereço de email.
           </p>
         </div>
         <Form {...form}>
@@ -114,7 +114,7 @@ const ClientPage = ({
               loading={sessionRequest.isPending}
               disabled={sessionRequest.isPending}
             >
-              Access my purchases
+              Acessar minhas compras
             </Button>
           </form>
         </Form>

@@ -147,7 +147,7 @@ const DownloadInvoice = ({
         size={size}
         className={className}
       >
-        Download Invoice
+        Baixar Fatura
       </Button>
       <InlineModal
         isShown={isShown}
@@ -162,11 +162,11 @@ const DownloadInvoice = ({
                 control={control}
                 name="billing_name"
                 rules={{
-                  required: 'This field is required',
+                  required: 'Este campo é obrigatório',
                 }}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Billing name</FormLabel>
+                    <FormLabel>Nome de Faturamento</FormLabel>
                     <FormControl>
                       <Input {...field} value={field.value || ''} />
                     </FormControl>
@@ -175,20 +175,20 @@ const DownloadInvoice = ({
                 )}
               />
               <FormItem>
-                <FormLabel>Billing address</FormLabel>
+                <FormLabel>Endereço de Faturamento</FormLabel>
                 <FormControl>
                   <FormField
                     control={control}
                     name="billing_address.line1"
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => (
                       <>
                         <Input
                           type="text"
                           autoComplete="billing address-line1"
-                          placeholder="Line 1"
+                          placeholder="Rua"
                           {...field}
                           value={field.value || ''}
                         />
@@ -206,7 +206,7 @@ const DownloadInvoice = ({
                         <Input
                           type="text"
                           autoComplete="billing address-line2"
-                          placeholder="Line 2"
+                          placeholder="Complemento"
                           {...field}
                           value={field.value || ''}
                         />
@@ -221,14 +221,14 @@ const DownloadInvoice = ({
                       control={control}
                       name="billing_address.postal_code"
                       rules={{
-                        required: 'This field is required',
+                        required: 'Este campo é obrigatório',
                       }}
                       render={({ field }) => (
                         <div>
                           <Input
                             type="text"
                             autoComplete="billing postal-code"
-                            placeholder="Postal code"
+                            placeholder="CEP"
                             {...field}
                             value={field.value || ''}
                           />
@@ -242,14 +242,14 @@ const DownloadInvoice = ({
                       control={control}
                       name="billing_address.city"
                       rules={{
-                        required: 'This field is required',
+                        required: 'Este campo é obrigatório',
                       }}
                       render={({ field }) => (
                         <div>
                           <Input
                             type="text"
                             autoComplete="billing address-level2"
-                            placeholder="City"
+                            placeholder="Cidade"
                             {...field}
                             value={field.value || ''}
                           />
@@ -266,7 +266,7 @@ const DownloadInvoice = ({
                     rules={{
                       required:
                         country === 'US' || country === 'CA'
-                          ? 'This field is required'
+                          ? 'Este campo é obrigatório'
                           : false,
                     }}
                     render={({ field }) => (
@@ -287,7 +287,7 @@ const DownloadInvoice = ({
                     control={control}
                     name="billing_address.country"
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => (
                       <>
@@ -308,7 +308,7 @@ const DownloadInvoice = ({
                 disabled={loading}
                 className={className}
               >
-                Generate invoice
+                Gerar Fatura
               </Button>
               {errors.root && (
                 <p className="text-destructive-foreground text-sm">

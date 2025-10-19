@@ -57,10 +57,10 @@ export const MeterUpdateModal = ({
 
   return (
     <div className="flex flex-col gap-8 overflow-y-auto px-8 py-12">
-      <h2 className="text-xl">Edit Meter</h2>
+      <h2 className="text-xl">Editar Métrica</h2>
       <p className="dark:text-polar-500 text-gray-500">
-        Meters are aggregations of events. You can create a meter to track
-        events that match a filter.
+        Métricas são agregações de eventos. Você pode criar uma métrica para
+        rastrear eventos que correspondem a um filtro.
       </p>
       <div className="flex flex-col gap-y-6">
         <Form {...form}>
@@ -71,11 +71,11 @@ export const MeterUpdateModal = ({
             <MeterForm />
             {hasProcessedEvents && (
               <Well className="gap-y-2 rounded-2xl p-6">
-                <WellHeader>Updating Meter</WellHeader>
+                <WellHeader>Atualizar Métrica</WellHeader>
                 <WellContent>
                   <p className="dark:text-polar-500 text-sm text-gray-500">
-                    Once a meter has processed events, its filters or
-                    aggregation function cannot be changed.
+                    Uma vez que uma métrica processou eventos, seus filtros ou
+                    função de agregação não podem ser alterados.
                   </p>
                 </WellContent>
               </Well>
@@ -87,10 +87,10 @@ export const MeterUpdateModal = ({
                 loading={updateMeter.isPending}
                 disabled={hasProcessedEvents}
               >
-                Update Meter
+                Atualizar Métrica
               </Button>
               <Button variant="secondary" onClick={hide}>
-                Cancel
+                Cancelar
               </Button>
             </div>
           </form>

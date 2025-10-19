@@ -58,10 +58,10 @@ const ClientPage = ({
     >
       <div className="flex w-full flex-col gap-y-6 md:max-w-sm">
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl text-black dark:text-white">Sign in</h2>
+          <h2 className="text-2xl text-black dark:text-white">Logar</h2>
           <p className="dark:text-polar-400 text-gray-500">
-            Enter your email address to access your purchases. A verification
-            code will be sent to you.
+            Digite seu endereço de email para acessar suas compras. Um código de
+            verificação será enviado para você.
           </p>
         </div>
         <Form {...form}>
@@ -73,7 +73,7 @@ const ClientPage = ({
               control={control}
               name="email"
               rules={{
-                required: 'This field is required',
+                required: 'Este campo é obrigatório',
               }}
               render={({ field }) => {
                 return (
@@ -82,7 +82,7 @@ const ClientPage = ({
                       <Input
                         type="email"
                         required
-                        placeholder="Email address"
+                        placeholder="Endereço de email"
                         autoComplete="email"
                         className={themingPreset.polar.input}
                         {...field}
@@ -100,7 +100,7 @@ const ClientPage = ({
               disabled={sessionRequest.isPending}
               className={themingPreset.polar.button}
             >
-              Access my purchases
+              Acessar minhas compras
             </Button>
           </form>
         </Form>

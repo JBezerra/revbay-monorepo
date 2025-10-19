@@ -2,7 +2,7 @@ import LogoIcon from '@/components/Brand/LogoIcon'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Sign in link sent',
+  title: 'Link de login enviado',
 }
 
 export default function Page({
@@ -17,11 +17,11 @@ export default function Page({
       <div className="flex w-80 flex-col items-center">
         <LogoIcon size={60} className="mb-6 text-blue-500 dark:text-blue-400" />
         <div className="dark:text-polar-400 text-center text-gray-500">
-          Email with sign in link sent to{' '}
+          Email com link de login enviado para{' '}
           <span className="font-bold">{email}</span>.
         </div>
         <div className="dark:text-polar-400 text-center text-gray-500">
-          An account will be created unless one already exists.
+          Uma conta será criada a menos que uma já exista.
         </div>
       </div>
     </div>

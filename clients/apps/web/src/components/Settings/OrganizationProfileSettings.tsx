@@ -636,8 +636,8 @@ const OrganizationProfileSettings: React.FC<
                     value={organization.id}
                     onCopy={() => {
                       toast({
-                        title: 'Copiado Para a Área de Transferência',
-                        description: `ID da Organização foi copiado para a área de transferência`,
+                        title: 'Copiado',
+                        description: `ID da Organização foi copiado com sucesso`,
                       })
                     }}
                   />
@@ -652,8 +652,8 @@ const OrganizationProfileSettings: React.FC<
                     value={organization.slug}
                     onCopy={() => {
                       toast({
-                        title: 'Copiado Para a Área de Transferência',
-                        description: `Slug da Organização foi copiado para a área de transferência`,
+                        title: 'Copiado',
+                        description: `Slug da Organização foi copiado com sucesso`,
                       })
                     }}
                   />

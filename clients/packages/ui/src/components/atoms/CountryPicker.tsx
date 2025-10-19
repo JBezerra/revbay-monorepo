@@ -66,10 +66,10 @@ const CountryPicker = ({
     <Select onValueChange={onChange} value={value} autoComplete={autoComplete}>
       <SelectTrigger className={className}>
         <SelectValue
-          placeholder="Country"
+          placeholder="País"
           // Avoids issues due to browser automatic translation
           // https://github.com/shadcn-ui/ui/issues/852
-          translate="no"
+          // translate="no"
         />
       </SelectTrigger>
       <SelectContent className={contentClassName}>

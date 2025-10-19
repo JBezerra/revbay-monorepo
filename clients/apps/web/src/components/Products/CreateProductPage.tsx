@@ -62,6 +62,7 @@ export const CreateProductPage = ({ organization }: CreateProductPageProps) => {
         ),
       })
       if (error) {
+        console.log(error)
         if (error.detail) {
           setValidationErrors(error.detail, setError)
         }

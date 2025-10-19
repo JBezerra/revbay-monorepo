@@ -78,8 +78,8 @@ export const ProductPageContextView = ({
       router.push(
         getStatusRedirect(
           `/dashboard/${organization.slug}/products`,
-          'Product Updated',
-          `Product ${product.name} updated successfully`,
+          'Produto Atualizado',
+          `Produto ${product.name} atualizado com sucesso`,
         ),
       )
     },
@@ -116,7 +116,7 @@ export const ProductPageContextView = ({
             loading={updateProduct.isPending || updateBenefits.isPending}
             disabled={updateProduct.isPending || updateBenefits.isPending}
           >
-            Save Product
+            Salvar Produto
           </Button>
         </div>
       </div>

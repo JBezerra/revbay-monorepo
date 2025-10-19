@@ -1555,6 +1555,9 @@ class CheckoutService:
     async def _update_checkout_tax(
         self, session: AsyncSession, checkout: Checkout
     ) -> Checkout:
+        # TODO: Implement tax calculation for Brazil
+        return checkout
+
         if not (
             checkout.is_payment_form_required and checkout.product.is_tax_applicable
         ):

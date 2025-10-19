@@ -29,7 +29,7 @@ export const CustomerMeter = ({
         <div className="flex flex-row items-center gap-x-8">
           <div className="flex flex-col">
             <span className="dark:text-polar-500 text-sm text-gray-500">
-              Last 7 Days
+              Últimos 7 Dias
             </span>
             <h3 className="text-lg">
               <FormattedUnits value={total} />
@@ -37,7 +37,7 @@ export const CustomerMeter = ({
           </div>
           <div className="flex flex-col">
             <span className="dark:text-polar-500 text-sm text-gray-500">
-              Total
+              Total Consumido
             </span>
             <h3 className="text-lg">
               <FormattedUnits value={customerMeter.consumed_units} />
@@ -45,7 +45,7 @@ export const CustomerMeter = ({
           </div>
           <div className="flex flex-col">
             <span className="dark:text-polar-500 text-sm text-gray-500">
-              Credited
+              Créditos
             </span>
             <h3 className="text-lg">
               <FormattedUnits value={customerMeter.credited_units} />
@@ -53,7 +53,7 @@ export const CustomerMeter = ({
           </div>
           <div className="flex flex-col">
             <span className="dark:text-polar-500 text-sm text-gray-500">
-              Balance
+              Saldo
             </span>
             <h3 className="text-lg">
               <FormattedUnits value={customerMeter.balance} />
@@ -68,7 +68,7 @@ export const CustomerMeter = ({
           height={250}
           metric={{
             slug: 'quantity',
-            display_name: 'Quantity',
+            display_name: 'Quantidade',
             type: 'scalar',
           }}
         />

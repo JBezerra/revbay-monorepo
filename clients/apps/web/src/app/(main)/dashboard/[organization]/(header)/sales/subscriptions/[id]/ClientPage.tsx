@@ -104,7 +104,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
 
         {Object.keys(subscription.metadata).length > 0 && (
           <div className="flex flex-col gap-6 p-8">
-            <h3 className="text-lg">Metadata</h3>
+            <h3 className="text-lg">Metadados</h3>
             <div className="flex flex-col gap-2">
               {Object.entries(subscription.metadata).map(([key, value]) => (
                 <DetailRow
@@ -120,7 +120,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
 
         <div className="flex flex-row gap-4 p-8">
           <Button type="button" onClick={showUpdateModal}>
-            Update Subscription
+            Atualizar Assinatura
           </Button>
           {subscription.status !== 'canceled' && (
             <Button
@@ -128,7 +128,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
               variant="secondary"
               onClick={showCancellationModal}
             >
-              Cancel Subscription
+              Cancelar Assinatura
             </Button>
           )}
         </div>

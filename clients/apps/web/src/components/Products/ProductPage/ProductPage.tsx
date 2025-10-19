@@ -117,8 +117,7 @@ export const ProductPage = ({ organization, product }: ProductPageProps) => {
 
                       toast({
                         title: 'ID do Produto Copiado',
-                        description:
-                          'ID do Produto copiado para a área de transferência',
+                        description: 'ID do Produto copiado com sucesso',
                       })
                     }
                   }}

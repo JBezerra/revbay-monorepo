@@ -245,8 +245,8 @@ const AccessTokenItem = ({
             buttonLabel="Copiar"
             onCopy={() => {
               toast({
-                title: 'Copiado para a área de transferência',
-                description: `API Key foi copiada para a área de transferência`,
+                title: 'Copiado',
+                description: `API Key foi copiada com sucesso`,
               })
             }}
           />

@@ -103,7 +103,7 @@ const CheckoutPricing = ({
           ) : (
             formatCurrencyNumber(
               amount || 0,
-              productPrice.priceCurrency || 'usd',
+              productPrice.priceCurrency || 'brl',
               0,
             )
           )}
@@ -111,7 +111,7 @@ const CheckoutPricing = ({
 
         {meteredPrices.length > 0 && (
           <div className="text-sm">
-            <h2 className="mb-2 font-semibold">+ Additional Metered Usage</h2>
+            <h2 className="mb-2 font-semibold">+ Adicional por uso</h2>
             {meteredPrices.map((price) => (
               <div
                 key={price.id}

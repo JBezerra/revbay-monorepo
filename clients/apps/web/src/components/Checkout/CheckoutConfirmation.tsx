@@ -171,17 +171,17 @@ export const CheckoutConfirmation = ({
           name={organization.name}
         />
         <h1 className="text-2xl font-medium">
-          {status === 'confirmed' && 'We are processing your order'}
-          {status === 'succeeded' && 'Your order was successful!'}
-          {status === 'failed' &&
-            'A problem occurred while processing your order'}
+          {status === 'confirmed' && 'Estamos processando seu pedido'}
+          {status === 'succeeded' && 'Seu pedido foi realizado com sucesso'}
+          {status === 'failed' && 'Ocorreu um problema ao processar seu pedido'}
         </h1>
         <p className="dark:text-polar-500 text-gray-500">
           {status === 'confirmed' &&
-            'Please wait while we are listening for those webhooks.'}
+            'Aguarde enquanto estamos esperando os webhooks.'}
           {status === 'succeeded' &&
-            `You're now eligible for the benefits of ${product.name}.`}
-          {status === 'failed' && 'Please try again or contact support.'}
+            `Você agora está qualificado para os benefícios de ${product.name}.`}
+          {status === 'failed' &&
+            'Por favor tente novamente ou contate o suporte.'}
         </p>
         {status === 'confirmed' && (
           <div className="flex items-center justify-center">
@@ -206,15 +206,15 @@ export const CheckoutConfirmation = ({
               maxWaitingTimeMs={maxWaitingTimeMs}
             />
             <p className="dark:text-polar-500 text-center text-xs text-gray-500">
-              This order was processed by our online reseller & Merchant of
-              Record, Polar, who also handles order-related inquiries and
-              returns.
+              Este pedido foi processado por nossa plataforma online & Merchant
+              of Record, Revbay, que também lida com consultas e retornos
+              relacionados a pedidos.
             </p>
           </>
         )}
       </div>
       <div className="dark:text-polar-500 flex w-full flex-row items-center justify-center gap-x-3 text-sm text-gray-500">
-        <span>Powered by</span>
+        <span>Fornecido por</span>
         <LogoType className="h-5" />
       </div>
     </ShadowBox>

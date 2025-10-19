@@ -262,7 +262,7 @@ const BaseCheckoutForm = ({
                 control={control}
                 name="customerEmail"
                 rules={{
-                  required: 'This field is required',
+                  required: 'Este campo é obrigatório',
                 }}
                 render={({ field }) => (
                   <FormItem>
@@ -289,11 +289,11 @@ const BaseCheckoutForm = ({
                   control={control}
                   name="customerName"
                   rules={{
-                    required: 'This field is required',
+                    required: 'Este campo é obrigatório',
                   }}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Cardholder name</FormLabel>
+                      <FormLabel>Nome do titular do cartão</FormLabel>
                       <FormControl>
                         <Input
                           className={themePresetProps.polar.input}
@@ -325,7 +325,7 @@ const BaseCheckoutForm = ({
                             />
                           </FormControl>
                           <FormLabel>
-                            I&apos;m purchasing as a business
+                            Estou comprando como uma empresa
                           </FormLabel>
                         </div>
                         <FormMessage />
@@ -338,11 +338,11 @@ const BaseCheckoutForm = ({
                       control={control}
                       name="customerBillingName"
                       rules={{
-                        required: 'This field is required',
+                        required: 'Este campo é obrigatório',
                       }}
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Business name</FormLabel>
+                          <FormLabel>Nome da empresa</FormLabel>
                           <FormControl>
                             <Input
                               className={themePresetProps.polar.input}
@@ -359,7 +359,7 @@ const BaseCheckoutForm = ({
                   )}
 
                   <FormItem>
-                    <FormLabel>Billing address</FormLabel>
+                    <FormLabel>Endereço de faturamento</FormLabel>
                     {isDisplayedField(checkout.billingAddressFields.line1) && (
                       <FormControl>
                         <FormField
@@ -369,7 +369,7 @@ const BaseCheckoutForm = ({
                             required: isRequiredField(
                               checkout.billingAddressFields.line1,
                             )
-                              ? 'This field is required'
+                              ? 'Este campo é obrigatório'
                               : false,
                           }}
                           render={({ field }) => (
@@ -377,7 +377,7 @@ const BaseCheckoutForm = ({
                               <Input
                                 type="text"
                                 autoComplete="billing address-line1"
-                                placeholder="Line 1"
+                                placeholder="Rua"
                                 className={themePresetProps.polar.input}
                                 {...field}
                                 value={field.value || ''}
@@ -388,7 +388,7 @@ const BaseCheckoutForm = ({
                         />
                       </FormControl>
                     )}
-                    {isDisplayedField(checkout.billingAddressFields.line2) && (
+                    {/* {isDisplayedField(checkout.billingAddressFields.line2) && (
                       <FormControl>
                         <FormField
                           control={control}
@@ -397,7 +397,7 @@ const BaseCheckoutForm = ({
                             required: isRequiredField(
                               checkout.billingAddressFields.line2,
                             )
-                              ? 'This field is required'
+                              ? 'Este campo é obrigatório'
                               : false,
                           }}
                           render={({ field }) => (
@@ -415,7 +415,7 @@ const BaseCheckoutForm = ({
                           )}
                         />
                       </FormControl>
-                    )}
+                    )} */}
                     <div className="grid grid-cols-2 gap-x-2">
                       {isDisplayedField(
                         checkout.billingAddressFields.postalCode,
@@ -428,7 +428,7 @@ const BaseCheckoutForm = ({
                               required: isRequiredField(
                                 checkout.billingAddressFields.postalCode,
                               )
-                                ? 'This field is required'
+                                ? 'Este campo é obrigatório'
                                 : false,
                             }}
                             render={({ field }) => (
@@ -436,7 +436,7 @@ const BaseCheckoutForm = ({
                                 <Input
                                   type="text"
                                   autoComplete="billing postal-code"
-                                  placeholder="Postal code"
+                                  placeholder="CEP"
                                   className={themePresetProps.polar.input}
                                   {...field}
                                   value={field.value || ''}
@@ -456,7 +456,7 @@ const BaseCheckoutForm = ({
                               required: isRequiredField(
                                 checkout.billingAddressFields.city,
                               )
-                                ? 'This field is required'
+                                ? 'Este campo é obrigatório'
                                 : false,
                             }}
                             render={({ field }) => (
@@ -464,7 +464,7 @@ const BaseCheckoutForm = ({
                                 <Input
                                   type="text"
                                   autoComplete="billing address-level2"
-                                  placeholder="City"
+                                  placeholder="Cidade"
                                   className={themePresetProps.polar.input}
                                   {...field}
                                   value={field.value || ''}
@@ -485,7 +485,7 @@ const BaseCheckoutForm = ({
                             required: isRequiredField(
                               checkout.billingAddressFields.state,
                             )
-                              ? 'This field is required'
+                              ? 'Este campo é obrigatório'
                               : false,
                           }}
                           render={({ field }) => (
@@ -520,7 +520,7 @@ const BaseCheckoutForm = ({
                             required: isRequiredField(
                               checkout.billingAddressFields.country,
                             )
-                              ? 'This field is required'
+                              ? 'Este campo é obrigatório'
                               : false,
                           }}
                           render={({ field }) => (
@@ -557,9 +557,9 @@ const BaseCheckoutForm = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex flex-row items-center justify-between">
-                            <div>Tax ID</div>
+                            <div>CPF / CNPJ</div>
                             <div className="dark:text-polar-500 text-xs text-gray-500">
-                              Optional
+                              Opcional
                             </div>
                           </FormLabel>
                           <FormControl>
@@ -581,7 +581,7 @@ const BaseCheckoutForm = ({
                                     onClick={addTaxID}
                                     className={themePresetProps.polar.button}
                                   >
-                                    Apply
+                                    Aplicar
                                   </Button>
                                 )}
                                 {validTaxID && (
@@ -612,9 +612,9 @@ const BaseCheckoutForm = ({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex flex-row items-center justify-between">
-                        <div>Discount Code</div>
+                        <div>Código de desconto</div>
                         <div className="dark:text-polar-500 text-xs text-gray-500">
-                          Optional
+                          Opcional
                         </div>
                       </FormLabel>
                       <FormControl>
@@ -642,7 +642,7 @@ const BaseCheckoutForm = ({
                                 onClick={addDiscountCode}
                                 className={themePresetProps.polar.button}
                               >
-                                Apply
+                                Aplicar
                               </Button>
                             )}
                             {checkoutDiscounted && (
@@ -670,7 +670,9 @@ const BaseCheckoutForm = ({
                     control={control}
                     name={`customFieldData.${customField.slug}`}
                     rules={{
-                      required: required ? 'This field is required' : undefined,
+                      required: required
+                        ? 'Este campo é obrigatório'
+                        : undefined,
                     }}
                     render={({ field }) => (
                       <CustomFieldInput
@@ -721,7 +723,7 @@ const BaseCheckoutForm = ({
                       />
                     </DetailRow>
                     {meteredPrices.length > 0 && (
-                      <DetailRow title="Additional metered usage" emphasis />
+                      <DetailRow title="Adicional por uso" emphasis />
                     )}
                     {meteredPrices.map((meteredPrice) => (
                       <DetailRow
@@ -733,7 +735,7 @@ const BaseCheckoutForm = ({
                     ))}
                   </>
                 ) : (
-                  <span>Free</span>
+                  <span>Grátis</span>
                 )}
               </div>
             )}
@@ -747,10 +749,10 @@ const BaseCheckoutForm = ({
                 loading={loading}
               >
                 {!checkout.isPaymentFormRequired
-                  ? 'Submit'
+                  ? 'Enviar'
                   : interval
-                    ? 'Subscribe'
-                    : 'Pay'}
+                    ? 'Inscrever-se'
+                    : 'Pagar'}
               </Button>
               {loading && loadingLabel && (
                 <p className="dark:text-polar-500 text-sm text-gray-500">
@@ -759,7 +761,7 @@ const BaseCheckoutForm = ({
               )}
               {disabled && !loading && (
                 <p className="text-sm text-red-500 dark:text-red-500">
-                  Payments are currently unavailable
+                  Os pagamentos estão temporariamente indisponíveis
                 </p>
               )}
               {errors.root && (
@@ -771,8 +773,9 @@ const BaseCheckoutForm = ({
           </form>
         </Form>
         <p className="dark:text-polar-500 text-center text-xs text-gray-500">
-          This order is processed by our online reseller & Merchant of Record,
-          Polar, who also handles order-related inquiries and returns.
+          Este pedido é processado pela nossa plataforma online & Merchant of
+          Record, Revbay, que também lida com consultas e devoluções
+          relacionadas ao pedido.
         </p>
       </div>
       <a
@@ -780,7 +783,7 @@ const BaseCheckoutForm = ({
         className="dark:text-polar-600 flex w-full flex-row items-center justify-center gap-x-3 text-sm text-gray-400"
         target="_blank"
       >
-        <span>Powered by</span>
+        <span>Fornecido por</span>
         <PolarLogo className="h-5" />
       </a>
     </div>

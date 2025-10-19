@@ -71,9 +71,9 @@ PriceAmount = Annotated[
 PriceCurrency = Annotated[
     str,
     Field(
-        default="usd",
-        pattern="usd",
-        description="The currency. Currently, only `usd` is supported.",
+        default="brl",
+        pattern="brl",
+        description="The currency. Currently, only `brl` is supported.",
     ),
 ]
 ProductName = Annotated[

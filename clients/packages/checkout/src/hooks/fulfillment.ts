@@ -30,7 +30,7 @@ export const useCheckoutFulfillmentListener = (
       const checkResolution = () => {
         if (checkoutSuccessful && orderCreated && subscriptionCreated) {
           setFulfillmentLabel(
-            `Waiting confirmation from ${checkout.organization.name} `,
+            `Aguardando confirmação da ${checkout.organization.name} `,
           )
         }
         if (
@@ -47,7 +47,9 @@ export const useCheckoutFulfillmentListener = (
       const checkoutUpdatedListener = (data: { status: CheckoutStatus }) => {
         if (data.status === 'succeeded') {
           checkoutSuccessful = true
-          setFulfillmentLabel('Payment successful! Processing order...')
+          setFulfillmentLabel(
+            'Pagamento realizado com sucesso! Processando pedido...',
+          )
           checkoutEvents.off('checkout.updated', checkoutUpdatedListener)
           checkResolution()
         }

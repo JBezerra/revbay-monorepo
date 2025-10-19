@@ -1,10 +1,8 @@
 'use client'
 
-import { BenefitGrant } from '@/components/Benefit/BenefitGrant'
 import { useCustomerBenefitGrants } from '@/hooks/queries'
 import { useRetryPayment } from '@/hooks/useRetryPayment'
 import { Client, schemas } from '@polar-sh/client'
-import { List, ListItem } from '@polar-sh/ui/components/atoms/List'
 import { Status } from '@polar-sh/ui/components/atoms/Status'
 import { ThemingPresetProps } from '@polar-sh/ui/hooks/theming'
 import { formatCurrencyAndAmount } from '@polar-sh/ui/lib/money'
@@ -22,6 +20,13 @@ const statusColors = {
     'bg-purple-100 text-purple-500 dark:bg-purple-950 dark:text-purple-500',
   partially_refunded:
     'bg-purple-100 text-purple-500 dark:bg-purple-950 dark:text-purple-500',
+}
+
+const OrderStatusDisplayName: Record<schemas['OrderStatus'], string> = {
+  pending: 'Pagamento Pendente',
+  paid: 'Pago',
+  refunded: 'Reembolsado',
+  partially_refunded: 'Reembolsado Parcialmente',
 }
 
 const CustomerPortalOrder = ({
@@ -68,7 +73,7 @@ const CustomerPortalOrder = ({
 
         <div className="flex flex-col gap-8">
           <div className="flex flex-col">
-            <DetailRow label="Order ID" value={<span>{order.id}</span>} />
+            <DetailRow label="ID do Pedido" value={<span>{order.id}</span>} />
             <DetailRow
               label="Produto"
               value={<span>{order.product.name}</span>}
@@ -83,7 +88,7 @@ const CustomerPortalOrder = ({
               label="Status do Pedido"
               value={
                 <span className="capitalize">
-                  {order.status.split('_').join(' ')}
+                  {OrderStatusDisplayName[order.status]}
                 </span>
               }
             />
@@ -154,7 +159,7 @@ const CustomerPortalOrder = ({
           )}
         </div>
 
-        <div className="flex w-full flex-col gap-4">
+        {/* <div className="flex w-full flex-col gap-4">
           <h3 className="text-lg">Benefícios Concedidos</h3>
           {(benefitGrants?.items.length ?? 0) > 0 ? (
             <div className="flex flex-col gap-4">
@@ -176,7 +181,7 @@ const CustomerPortalOrder = ({
               </span>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   )

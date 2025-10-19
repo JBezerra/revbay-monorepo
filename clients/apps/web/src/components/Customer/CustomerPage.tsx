@@ -132,7 +132,7 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
                       href={`/dashboard/${organization.slug}/sales/subscriptions/${original.id}`}
                     >
                       <Button variant="secondary" size="sm">
-                        View
+                        Visualizar
                       </Button>
                     </Link>
                   </div>
@@ -220,21 +220,21 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
             </div>
             <h4 className="text-lg">Endereço de Cobrança</h4>
             <div className="flex flex-col">
-              <DetailRow
-                label="Rua"
-                value={customer.billing_address?.line1}
-              />
+              <DetailRow label="Rua" value={customer.billing_address?.line1} />
               <DetailRow
                 label="Complemento"
                 value={customer.billing_address?.line2}
               />
-              <DetailRow label="Cidade" value={customer.billing_address?.city} />
+              <DetailRow
+                label="Cidade"
+                value={customer.billing_address?.city}
+              />
               <DetailRow
                 label="Estado"
                 value={customer.billing_address?.state}
               />
               <DetailRow
-                  label="CEP"
+                label="CEP"
                 value={customer.billing_address?.postal_code}
               />
               <DetailRow
@@ -245,7 +245,7 @@ export const CustomerPage: React.FC<CustomerPageProps> = ({
           </ShadowBox>
           <ShadowBox className="flex flex-col gap-4">
             <div className="flex flex-row items-center justify-between gap-2">
-                <h3 className="text-lg">Metadados</h3>
+              <h3 className="text-lg">Metadados</h3>
               <Button
                 className="h-6 w-6"
                 size="icon"

@@ -72,8 +72,8 @@ export const CheckoutLinkPage = ({ checkoutLink }: CheckoutLinkPageProps) => {
               className="bg-white"
               onCopy={() => {
                 toast({
-                  title: 'Copiado para a área de transferência',
-                  description: `O link de checkout foi copiado para a área de transferência`,
+                  title: 'Copiado',
+                  description: `O link de checkout foi copiado com sucesso`,
                 })
               }}
             />
@@ -91,8 +91,8 @@ export const CheckoutLinkPage = ({ checkoutLink }: CheckoutLinkPageProps) => {
             className="bg-white"
             onCopy={() => {
               toast({
-                title: 'Copiado para a área de transferência',
-                description: `O link de checkout foi copiado para a área de transferência`,
+                title: 'Copiado',
+                description: `O link de checkout foi copiado com sucesso`,
               })
             }}
           />

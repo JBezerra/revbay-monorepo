@@ -139,7 +139,7 @@ export const CheckoutLinkList = ({
 
                       toast({
                         title: 'Link de Checkout Copiado',
-                        description: `Link de Checkout foi copiado para a área de transferência`,
+                        description: `Link de Checkout foi copiado com sucesso`,
                       })
                     }
                   }}

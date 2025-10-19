@@ -40,10 +40,10 @@ export const ProductCardEmbed = ({
   let priceLabel = null
   switch (price.amount_type) {
     case 'free':
-      priceLabel = 'Free'
+      priceLabel = 'Gratuito'
       break
     case 'custom':
-      priceLabel = 'Pay what you want'
+      priceLabel = 'Pague o que você quiser'
       break
     case 'fixed':
       priceLabel = formatCurrencyAndAmount(

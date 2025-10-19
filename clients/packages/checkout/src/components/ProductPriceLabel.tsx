@@ -27,9 +27,9 @@ const ProductPriceLabel: React.FC<ProductPriceLabelProps> = ({
       />
     )
   } else if (price.amountType === 'custom') {
-    return <div className="text-[min(1em,24px)]">Pay what you want</div>
+    return <div className="text-[min(1em,24px)]">Pague o que você quiser</div>
   } else if (price.amountType === 'free') {
-    return <div className="text-[min(1em,24px)]">Free</div>
+    return <div className="text-[min(1em,24px)]">Gratuito</div>
   } else if (price.amountType === 'metered_unit') {
     return (
       <div className="flex flex-row gap-1 text-[min(1em,24px)]">

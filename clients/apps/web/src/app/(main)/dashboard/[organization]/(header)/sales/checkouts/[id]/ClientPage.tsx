@@ -63,7 +63,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization, checkout }) => {
       <div className="flex flex-col gap-6">
         <div className="flex flex-row items-center justify-between gap-x-8">
           <div className="flex flex-row items-center justify-between gap-x-6">
-            <h3 className="text-lg">Payment Attempts</h3>
+            <h3 className="text-lg">Tentativas de Pagamento</h3>
           </div>
         </div>
 
@@ -72,7 +72,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization, checkout }) => {
           columns={[
             {
               accessorKey: 'created_at',
-              header: 'Created At',
+              header: 'Criado em',
               cell: ({
                 row: {
                   original: { created_at },
@@ -87,7 +87,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ organization, checkout }) => {
             },
             {
               accessorKey: 'method',
-              header: 'Method',
+              header: 'Método',
               cell: ({ row: { original } }) => (
                 <PaymentMethod payment={original} />
               ),

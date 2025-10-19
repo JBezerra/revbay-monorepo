@@ -33,10 +33,10 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 const OrderStatusDisplayName: Record<schemas['OrderStatus'], string> = {
-  pending: 'Pending payment',
-  paid: 'Paid',
-  refunded: 'Refunded',
-  partially_refunded: 'Partially Refunded',
+  pending: 'Pagamento Pendente',
+  paid: 'Pago',
+  refunded: 'Reembolsado',
+  partially_refunded: 'Reembolsado Parcialmente',
 }
 
 const OrderStatusDisplayColor: Record<schemas['OrderStatus'], string> = {
@@ -49,6 +49,17 @@ const OrderStatusDisplayColor: Record<schemas['OrderStatus'], string> = {
 interface ClientPageProps {
   organization: schemas['Organization']
   order: schemas['Order']
+}
+
+function getBillingReasonDisplayName(reason: schemas['OrderBillingReason']) {
+  return (
+    {
+      purchase: 'Compra',
+      subscription_create: 'Criação de Assinatura',
+      subscription_cycle: 'Ciclo de Assinatura',
+      subscription_update: 'Atualização de Assinatura',
+    }[reason] ?? 'Unknown'
+  )
 }
 
 const ClientPage: React.FC<ClientPageProps> = ({
@@ -82,7 +93,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       title={
         <div className="flex flex-col gap-4">
           <div className="flex flex-row items-center gap-4">
-            <h2 className="text-xl font-normal">Order</h2>
+            <h2 className="text-xl font-normal">Pedido</h2>
             <Status
               status={OrderStatusDisplayName[order.status]}
               className={OrderStatusDisplayColor[order.status]}
@@ -118,12 +129,12 @@ const ClientPage: React.FC<ClientPageProps> = ({
         <div className="flex flex-col gap-6 p-4 md:p-8">
           <div className="flex flex-col gap-4 md:gap-1">
             <DetailRow
-              label="Order ID"
+              label="ID"
               value={order.id}
               valueClassName="font-mono text-sm"
             />
             <DetailRow
-              label="Order Date"
+              label="Data"
               value={
                 <FormattedDateTime
                   dateStyle="medium"
@@ -145,8 +156,8 @@ const ClientPage: React.FC<ClientPageProps> = ({
               }
             />
             <DetailRow
-              label="Billing Reason"
-              value={order.billing_reason.split('_').join(' ')}
+              label="Motivo de Cobrança"
+              value={getBillingReasonDisplayName(order.billing_reason)}
               valueClassName="capitalize"
             />
 
@@ -167,7 +178,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
               value={formatCurrencyAndAmount(order.subtotal_amount)}
             />
             <DetailRow
-              label="Discount"
+              label="Desconto"
               value={
                 order.discount_amount
                   ? formatCurrencyAndAmount(-order.discount_amount)
@@ -175,38 +186,38 @@ const ClientPage: React.FC<ClientPageProps> = ({
               }
             />
             <DetailRow
-              label="Net amount"
+              label="Valor Líquido"
               value={formatCurrencyAndAmount(order.net_amount)}
             />
             <DetailRow
-              label="Tax"
+              label="Imposto"
               value={formatCurrencyAndAmount(order.tax_amount)}
             />
             <DetailRow
-              label="Total"
+              label="Total do Pedido"
               value={formatCurrencyAndAmount(order.total_amount)}
             />
             {order.billing_address ? (
               <>
                 <Separator className="dark:bg-polar-700 my-4 h-[1px] bg-gray-300" />
                 <DetailRow
-                  label="Country"
+                  label="País"
                   value={order.billing_address?.country}
                 />
+                <DetailRow label="Rua" value={order.billing_address?.line1} />
                 <DetailRow
-                  label="Address"
-                  value={order.billing_address?.line1}
-                />
-                <DetailRow
-                  label="Address 2"
+                  label="Complemento"
                   value={order.billing_address?.line2}
                 />
                 <DetailRow
-                  label="Postal Code"
+                  label="CEP"
                   value={order.billing_address?.postal_code}
                 />
-                <DetailRow label="City" value={order.billing_address?.city} />
-                <DetailRow label="State" value={order.billing_address?.state} />
+                <DetailRow label="Cidade" value={order.billing_address?.city} />
+                <DetailRow
+                  label="Estado"
+                  value={order.billing_address?.state}
+                />
               </>
             ) : (
               <></>
@@ -216,7 +227,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
 
         {(customFields?.items?.length ?? 0) > 0 && (
           <div className="flex flex-col gap-6 p-8">
-            <h3 className="text-lg">Custom Fields</h3>
+            <h3 className="text-lg">Campos Personalizados</h3>
             <div className="flex flex-col gap-2">
               {customFields?.items?.map((field) => (
                 <DetailRow
@@ -242,7 +253,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
 
         {Object.keys(order.metadata).length > 0 && (
           <div className="flex flex-col gap-6 p-8">
-            <h3 className="text-lg">Metadata</h3>
+            <h3 className="text-lg">Metadados</h3>
             <div className="flex flex-col gap-2">
               {Object.entries(order.metadata).map(([key, value]) => (
                 <DetailRow key={key} label={key} value={value} />
@@ -255,7 +266,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       <div className="flex flex-col gap-6">
         <div className="flex flex-row items-center justify-between gap-x-8">
           <div className="flex flex-row items-center justify-between gap-x-6">
-            <h3 className="text-lg">Payment Attempts</h3>
+            <h3 className="text-lg">Tentativas de Pagamento</h3>
           </div>
         </div>
 
@@ -264,7 +275,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
           columns={[
             {
               accessorKey: 'created_at',
-              header: 'Created At',
+              header: 'Criado em',
               cell: ({
                 row: {
                   original: { created_at },
@@ -279,14 +290,14 @@ const ClientPage: React.FC<ClientPageProps> = ({
             },
             {
               accessorKey: 'method',
-              header: 'Method',
+              header: 'Método',
               cell: ({ row: { original } }) => (
                 <PaymentMethod payment={original} />
               ),
             },
             {
               accessorKey: 'status',
-              header: 'Status',
+              header: 'Status do Pagamento',
               cell: ({ row: { original } }) => (
                 <PaymentStatus payment={original} />
               ),
@@ -300,10 +311,10 @@ const ClientPage: React.FC<ClientPageProps> = ({
         <div className="flex flex-col gap-6">
           <div className="flex flex-row items-center justify-between gap-x-8">
             <div className="flex flex-row items-center justify-between gap-x-6">
-              <h3 className="text-lg">Refunds</h3>
+              <h3 className="text-lg">Reembolsos</h3>
             </div>
             {canRefund && (
-              <Button onClick={showRefundModal}>Refund Order</Button>
+              <Button onClick={showRefundModal}>Reembolsar Pedido</Button>
             )}
           </div>
 
@@ -312,7 +323,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
             columns={[
               {
                 accessorKey: 'created_at',
-                header: 'Created At',
+                header: 'Criado em',
                 cell: ({ row }) => (
                   <FormattedDateTime
                     dateStyle="long"
@@ -322,7 +333,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
               },
               {
                 accessorKey: 'amount',
-                header: 'Amount',
+                header: 'Valor',
                 cell: ({ row }) =>
                   formatCurrencyAndAmount(
                     row.original.amount,
@@ -331,7 +342,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
               },
               {
                 accessorKey: 'status',
-                header: 'Status',
+                header: 'Status do Reembolso',
                 cell: ({ row }) => (
                   <Status
                     className={twMerge(
@@ -344,15 +355,15 @@ const ClientPage: React.FC<ClientPageProps> = ({
               },
               {
                 accessorKey: 'reason',
-                header: 'Reason',
+                header: 'Motivo',
                 cell: ({ row }) => RefundReasonDisplay[row.original.reason],
               },
               {
                 accessorKey: 'revoke_benefits',
-                header: 'Revoke Benefits',
+                header: 'Revogar Benefícios',
                 cell: ({ row }) => (
                   <Status
-                    status={row.original.revoke_benefits ? 'True' : 'False'}
+                    status={row.original.revoke_benefits ? 'Sim' : 'Não'}
                     className={twMerge(
                       'w-fit',
                       row.original.revoke_benefits
@@ -369,7 +380,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       )}
 
       <div className="flex flex-col gap-y-6 md:hidden">
-        <h3 className="text-lg">Customer</h3>
+        <h3 className="text-lg">Cliente</h3>
         <CustomerContextView
           organization={organization}
           customer={order.customer as schemas['Customer']}

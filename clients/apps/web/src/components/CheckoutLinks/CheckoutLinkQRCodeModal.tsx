@@ -50,7 +50,7 @@ export const CheckoutLinkQRCodeModal = ({
               })
             }}
           >
-            Download Image
+            Baixar Imagem
           </Button>
           <Button
             fullWidth
@@ -72,7 +72,7 @@ export const CheckoutLinkQRCodeModal = ({
               })
             }}
           >
-            Copy to Clipboard
+            Copiar
           </Button>
         </div>
       </div>

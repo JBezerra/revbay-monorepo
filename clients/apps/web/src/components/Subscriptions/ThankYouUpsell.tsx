@@ -22,11 +22,11 @@ const ThankYouUpsell = (props: {
       >
         <div className="flex w-full flex-col space-y-4 p-5 md:w-2/5 md:p-6">
           <h2 className="text-xl">
-            Welcome! You now have an account with Polar 🎉
+            Bem-vindo! Você agora tem uma conta com Polar 🎉
           </h2>
           <p className="dark:text-polar-400 text-sm font-normal text-gray-500">
-            Sign in anytime in the future by requesting a magic link to your
-            inbox.
+            Faça login a qualquer momento no futuro solicitando um link mágico
+            para sua inbox.
           </p>
 
           <ul>
@@ -37,7 +37,7 @@ const ThankYouUpsell = (props: {
                 className="text-blue-500"
               />
 
-              <div className="text-sm">Fund any issue</div>
+              <div className="text-sm">Registrar qualquer problema</div>
             </li>
 
             <li className="mt-3 flex flex-row items-center space-x-2">
@@ -47,7 +47,9 @@ const ThankYouUpsell = (props: {
                 className="text-blue-500"
               />
 
-              <div className="text-sm">Follow progress of funded issues</div>
+              <div className="text-sm">
+                Acompanhar o progresso de problemas registrados
+              </div>
             </li>
 
             <li className="mb-2 mt-3 flex flex-row items-center space-x-2">
@@ -56,7 +58,7 @@ const ThankYouUpsell = (props: {
                 width={18}
                 className="text-blue-500"
               />
-              <div className="text-sm">Save payment method on file</div>
+              <div className="text-sm">Salvar método de pagamento</div>
             </li>
 
             <li className="mb-2 mt-3 flex flex-row items-center space-x-2">
@@ -71,7 +73,7 @@ const ThankYouUpsell = (props: {
             loading={emailSigninLoading}
             onClick={onEmailSignin}
           >
-            Sign in with email
+            Fazer login com email
           </Button>
         </div>
         <div className="bg-grid-pattern dark:bg-grid-pattern-dark relative hidden w-3/5 overflow-hidden border-l border-blue-100 bg-blue-50 md:block dark:border-blue-500/20 dark:bg-blue-500/20">

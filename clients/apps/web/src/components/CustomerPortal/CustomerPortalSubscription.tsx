@@ -1,6 +1,5 @@
 'use client'
 
-import { BenefitGrant } from '@/components/Benefit/BenefitGrant'
 import {
   useCustomerBenefitGrants,
   useCustomerCancelSubscription,
@@ -10,7 +9,6 @@ import { Client, schemas } from '@polar-sh/client'
 import Button from '@polar-sh/ui/components/atoms/Button'
 import { DataTable } from '@polar-sh/ui/components/atoms/DataTable'
 import FormattedDateTime from '@polar-sh/ui/components/atoms/FormattedDateTime'
-import { List, ListItem } from '@polar-sh/ui/components/atoms/List'
 import { ThemingPresetProps } from '@polar-sh/ui/hooks/theming'
 import { formatCurrencyAndAmount } from '@polar-sh/ui/lib/money'
 import { useModal } from '../Modal/useModal'
@@ -74,7 +72,7 @@ const CustomerPortalSubscription = ({
                 interval={subscription.recurring_interval}
               />
             ) : (
-                'Gratuito'
+              'Gratuito'
             )
           }
         />
@@ -87,7 +85,7 @@ const CustomerPortalSubscription = ({
             label="Data de Início"
             value={
               <span>
-                  {new Date(subscription.started_at).toLocaleDateString('pt-BR', {
+                {new Date(subscription.started_at).toLocaleDateString('pt-BR', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
@@ -99,7 +97,9 @@ const CustomerPortalSubscription = ({
         {!subscription.ended_at && subscription.current_period_end && (
           <DetailRow
             label={
-              subscription.cancel_at_period_end ? 'Data de Expiração' : 'Data de Renovação'
+              subscription.cancel_at_period_end
+                ? 'Data de Expiração'
+                : 'Data de Renovação'
             }
             value={
               <span>
@@ -143,7 +143,7 @@ const CustomerPortalSubscription = ({
         </Button>
       )}
 
-      <div className="flex w-full flex-col gap-4">
+      {/* <div className="flex w-full flex-col gap-4">
         <h3 className="text-lg">Benefícios Concedidos</h3>
         {(benefitGrants?.items.length ?? 0) > 0 ? (
           <div className="flex flex-col gap-4">
@@ -165,7 +165,7 @@ const CustomerPortalSubscription = ({
             </span>
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="flex w-full flex-col gap-4">
         {hasInvoices && (

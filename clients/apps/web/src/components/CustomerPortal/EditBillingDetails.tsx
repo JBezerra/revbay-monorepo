@@ -269,7 +269,7 @@ const EditBillingDetails = ({
           name="tax_id"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>ID de Imposto</FormLabel>
+              <FormLabel>CPF / CNPJ</FormLabel>
               <FormControl>
                 <Input
                   type="text"

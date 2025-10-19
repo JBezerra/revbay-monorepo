@@ -11,6 +11,13 @@ const OrderStatusColors = {
     'bg-purple-100 text-purple-500 dark:bg-purple-950 dark:text-purple-500',
 } as const
 
+const OrderStatusDisplayName: Record<schemas['OrderStatus'], string> = {
+  pending: 'Pagamento Pendente',
+  paid: 'Pago',
+  refunded: 'Reembolsado',
+  partially_refunded: 'Reembolsado Parcialmente',
+}
+
 export const OrderStatus = ({
   status,
 }: {
@@ -18,7 +25,7 @@ export const OrderStatus = ({
 }) => {
   return (
     <Status
-      status={status.split('_').join(' ')}
+      status={OrderStatusDisplayName[status]}
       className={twMerge(OrderStatusColors[status], 'capitalize')}
     />
   )

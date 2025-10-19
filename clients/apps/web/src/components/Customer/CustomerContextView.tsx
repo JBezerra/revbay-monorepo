@@ -88,7 +88,7 @@ export const CustomerContextView = ({
               {(customer.name?.length ?? 0) > 0 ? customer.name : '—'}
               {customer.deleted_at && (
                 <Pill className="ml-2 text-xs" color="red">
-                  Deleted
+                  Deletado
                 </Pill>
               )}
             </p>
@@ -98,16 +98,16 @@ export const CustomerContextView = ({
           </div>
         </Link>
         <div className="flex flex-row justify-between gap-4">
-          <CustomerStatBox title="Cumulative Revenue">
+          <CustomerStatBox title="Receita Acumulada">
             <AmountLabel
               amount={
                 metrics.data?.periods[metrics.data.periods.length - 1]
                   .cumulative_revenue ?? 0
               }
-              currency="USD"
+              currency="BRL"
             />
           </CustomerStatBox>
-          <CustomerStatBox title="First Seen">
+          <CustomerStatBox title="Primeira Visita">
             <FormattedDateTime datetime={customer.created_at} />
           </CustomerStatBox>
         </div>
@@ -116,12 +116,12 @@ export const CustomerContextView = ({
             {customerSession ? (
               <CopyToClipboardInput
                 value={`${CONFIG.FRONTEND_BASE_URL}/${organization.slug}/portal?customer_session_token=${customerSession.token}`}
-                buttonLabel="Copy"
+                buttonLabel="Copiar"
                 className="bg-white"
                 onCopy={() => {
                   toast({
-                    title: 'Copiado para a área de transferência',
-                    description: `Link do Portal do Cliente foi copiado para a área de transferência`,
+                    title: 'Copiado',
+                    description: `O link do Portal do Cliente foi copiado com sucesso`,
                   })
                 }}
               />
@@ -141,7 +141,7 @@ export const CustomerContextView = ({
                 className="w-1/2 text-blue-500 dark:text-blue-400"
               >
                 <Button className="w-full" size="lg" variant="secondary">
-                  Enviar Email
+                  Enviar E-mail
                 </Button>
               </a>
               <Button
@@ -177,51 +177,51 @@ export const CustomerContextView = ({
         />
         <DetailRow
           labelClassName="flex-none basis-24"
-          label="Name"
+          label="Nome"
           value={customer.name}
         />
         <DetailRow
           labelClassName="flex-none basis-24"
-          label="Tax ID"
+          label="CPF / CNPJ"
           value={customer.tax_id}
         />
         <DetailRow
           labelClassName="flex-none basis-24"
-          label="Created At"
+          label="Criado em"
           value={<FormattedDateTime datetime={customer.created_at} />}
         />
       </ShadowBox>
       <ShadowBox className="dark:border-polar-800 flex flex-col gap-4 border-gray-200 bg-white p-6 md:shadow-sm lg:rounded-2xl">
-        <h4 className="text-lg">Billing Address</h4>
+        <h4 className="text-lg">Endereço de Cobrança</h4>
         <div className="flex flex-col gap-4 md:gap-0">
           <DetailRow
             labelClassName="flex-none basis-24"
-            label="Line 1"
+            label="Rua"
             value={customer.billing_address?.line1}
           />
           <DetailRow
             labelClassName="flex-none basis-24"
-            label="Line 2"
+            label="Complemento"
             value={customer.billing_address?.line2}
           />
           <DetailRow
             labelClassName="flex-none basis-24"
-            label="City"
+            label="Cidade"
             value={customer.billing_address?.city}
           />
           <DetailRow
             labelClassName="flex-none basis-24"
-            label="State"
+            label="Estado"
             value={customer.billing_address?.state}
           />
           <DetailRow
             labelClassName="flex-none basis-24"
-            label="Postal Code"
+            label="CEP"
             value={customer.billing_address?.postal_code}
           />
           <DetailRow
             labelClassName="flex-none basis-24"
-            label="Country"
+            label="País"
             value={customer.billing_address?.country}
           />
         </div>
@@ -229,7 +229,7 @@ export const CustomerContextView = ({
       {!customer.deleted_at && (
         <ShadowBox className="dark:border-polar-800 flex flex-col gap-4 border-gray-200 bg-white p-6 md:shadow-sm lg:rounded-2xl">
           <div className="flex flex-row items-center justify-between gap-2">
-            <h3 className="text-lg">Metadata</h3>
+            <h3 className="text-lg">Metadados</h3>
             <Button className="h-8 w-8" variant="secondary" onClick={showModal}>
               <AddOutlined />
             </Button>
