@@ -15,10 +15,10 @@ export function MagicLink({
     <Wrapper>
       <PolarHeader />
       <IntroWithHi>
-        Here is your magic link to sign in to Polar. Click the button below to
-        complete the login process.{' '}
+        Aqui está seu link mágico para entrar no Polar. Clique no botão abaixo para
+        completar o processo de login.{' '}
         <span className="font-bold">
-          This link is only valid for the next {token_lifetime_minutes} minutes
+          Este link é válido apenas pelos próximos {token_lifetime_minutes} minutos
         </span>
       </IntroWithHi>
       <Section className="text-center">
@@ -26,11 +26,11 @@ export function MagicLink({
           href={url}
           className="bg-brand rounded-full px-6 py-2 text-xl font-medium leading-4 text-white"
         >
-          Sign in
+          Entrar
         </Button>
       </Section>
       <Text className="text-gray-500">
-        If you didn't request this email, you can safely ignore it.
+        Se você não solicitou este email, pode ignorá-lo com segurança.
       </Text>
       <Footer />
     </Wrapper>

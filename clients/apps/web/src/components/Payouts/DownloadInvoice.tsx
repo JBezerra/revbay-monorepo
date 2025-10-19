@@ -62,11 +62,11 @@ export const InvoiceModal = ({
               control={control}
               name="billing_name"
               rules={{
-                required: 'This field is required',
+                required: 'Este campo é obrigatório',
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Billing name</FormLabel>
+                  <FormLabel>Nome de Faturamento</FormLabel>
                   <FormControl>
                     <Input {...field} value={field.value || ''} />
                   </FormControl>
@@ -75,20 +75,20 @@ export const InvoiceModal = ({
               )}
             />
             <FormItem>
-              <FormLabel>Billing address</FormLabel>
+              <FormLabel>Endereço de Faturamento</FormLabel>
               <FormControl>
                 <FormField
                   control={control}
                   name="billing_address.line1"
                   rules={{
-                    required: 'This field is required',
+                    required: 'Este campo é obrigatório',
                   }}
                   render={({ field }) => (
                     <>
                       <Input
                         type="text"
                         autoComplete="billing address-line1"
-                        placeholder="Line 1"
+                        placeholder="Rua"
                         {...field}
                         value={field.value || ''}
                       />
@@ -106,7 +106,7 @@ export const InvoiceModal = ({
                       <Input
                         type="text"
                         autoComplete="billing address-line2"
-                        placeholder="Line 2"
+                        placeholder="Complemento"
                         {...field}
                         value={field.value || ''}
                       />
@@ -121,14 +121,14 @@ export const InvoiceModal = ({
                     control={control}
                     name="billing_address.postal_code"
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => (
                       <div>
                         <Input
                           type="text"
                           autoComplete="billing postal-code"
-                          placeholder="Postal code"
+                          placeholder="CEP"
                           {...field}
                           value={field.value || ''}
                         />
@@ -142,14 +142,14 @@ export const InvoiceModal = ({
                     control={control}
                     name="billing_address.city"
                     rules={{
-                      required: 'This field is required',
+                      required: 'Este campo é obrigatório',
                     }}
                     render={({ field }) => (
                       <div>
                         <Input
                           type="text"
                           autoComplete="billing address-level2"
-                          placeholder="City"
+                          placeholder="Cidade"
                           {...field}
                           value={field.value || ''}
                         />
@@ -166,7 +166,7 @@ export const InvoiceModal = ({
                   rules={{
                     required:
                       country === 'US' || country === 'CA'
-                        ? 'This field is required'
+                        ? 'Este campo é obrigatório'
                         : false,
                   }}
                   render={({ field }) => (
@@ -187,7 +187,7 @@ export const InvoiceModal = ({
                   control={control}
                   name="billing_address.country"
                   rules={{
-                    required: 'This field is required',
+                    required: 'Este campo é obrigatório',
                   }}
                   render={({ field }) => (
                     <>
@@ -207,12 +207,12 @@ export const InvoiceModal = ({
               name="billing_additional_info"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Additional billing information</FormLabel>
+                  <FormLabel>Informações Adicionais de Faturamento</FormLabel>
                   <FormControl>
                     <Textarea {...field} value={field.value || ''} />
                   </FormControl>
                   <FormDescription>
-                    Displayed below your billing address
+                    Exibido abaixo do seu endereço de faturamento
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -222,11 +222,11 @@ export const InvoiceModal = ({
               control={control}
               name="invoice_number"
               rules={{
-                required: 'This field is required',
+                required: 'Este campo é obrigatório',
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Invoice number</FormLabel>
+                  <FormLabel>Número da Fatura</FormLabel>
                   <FormControl>
                     <Input {...field} value={field.value || ''} />
                   </FormControl>
@@ -239,20 +239,18 @@ export const InvoiceModal = ({
               name="billing_notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Notes</FormLabel>
+                  <FormLabel>Notas</FormLabel>
                   <FormControl>
                     <Textarea {...field} value={field.value || ''} />
                   </FormControl>
-                  <FormDescription>
-                    Displayed at the bottom of the invoice
-                  </FormDescription>
+                  <FormDescription>Exibido abaixo da fatura</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
             <Button type="submit" loading={loading} disabled={loading}>
-              Generate invoice
+              Gerar Fatura
             </Button>
             {errors.root && (
               <p className="text-destructive-foreground text-sm">
@@ -300,9 +298,7 @@ const DownloadInvoice = ({
     }
   }, [payout, handleDownloadInvoice, setSelectedPayout, openInvoiceModal])
 
-  return (
-    <DropdownMenuItem onClick={onDownload}>Download invoice</DropdownMenuItem>
-  )
+  return <DropdownMenuItem onClick={onDownload}>Baixar Fatura</DropdownMenuItem>
 }
 
 export default DownloadInvoice

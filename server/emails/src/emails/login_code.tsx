@@ -14,14 +14,15 @@ export function LoginCode({
   return (
     <Wrapper>
       <Preview>
-        Your code to sign in is {code}. It is valid for the next{' '}
-        {code_lifetime_minutes} minutes.
+        Seu código para entrar é {code}. É válido pelos próximos{' '}
+        {code_lifetime_minutes.toString()} minutos.
       </Preview>
       <PolarHeader />
       <IntroWithHi>
-        Here is your code to sign in to Polar.{' '}
+        Aqui está seu código para entrar na RevBay.{' '}
         <span className="font-bold">
-          This code is only valid for the next {code_lifetime_minutes} minutes.
+          Este código é válido apenas pelos próximos {code_lifetime_minutes}{' '}
+          minutos.
         </span>
       </IntroWithHi>
       <Section className="text-center">
@@ -30,7 +31,7 @@ export function LoginCode({
         </Text>
       </Section>
       <Text className="text-gray-500">
-        If you didn't request this email, you can safely ignore it.
+        Se você não solicitou este email, pode ignorá-lo com segurança.
       </Text>
       <Footer />
     </Wrapper>

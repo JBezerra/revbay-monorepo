@@ -19,11 +19,11 @@ export function NotificationNewSubscription({
 }) {
   return (
     <Wrapper>
-      <Preview>New {tier_name} subscriber</Preview>
+      <Preview>Novo assinante {tier_name}</Preview>
       <PolarHeader />
-      <IntroWithHi hiMsg="Congratulations!">
-        {subscriber_name} is now subscribing to <strong>{tier_name}</strong> for{' '}
-        {tier_price_amount ? formatted_price_amount : 'free'}/
+      <IntroWithHi hiMsg="Parabéns!">
+        {subscriber_name} agora está assinando <strong>{tier_name}</strong> por{' '}
+        {tier_price_amount ? formatted_price_amount : 'grátis'}/
         {tier_price_recurring_interval}.
       </IntroWithHi>
       <Footer />

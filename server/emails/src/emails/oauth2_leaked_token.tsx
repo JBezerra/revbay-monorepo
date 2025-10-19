@@ -19,34 +19,34 @@ export function OAuth2LeakedToken({
   return (
     <Wrapper>
       <Preview>
-        Important security notice: Your access or refresh token has been
-        publicly leaked
+        Aviso importante de segurança: Seu token de acesso ou refresh foi
+        vazado publicamente
       </Preview>
       <PolarHeader />
       <Section>
         <Text className="text-xl font-bold text-gray-900 dark:text-white">
-          Important security notice
+          Aviso importante de segurança
         </Text>
         <Text>
-          We've been notified that one of your access or refresh token has been
-          publicly leaked. For your security, we've automatically revoked this
-          access token and the associated refresh token.
+          Fomos notificados de que um de seus tokens de acesso ou refresh foi
+          vazado publicamente. Para sua segurança, revogamos automaticamente este
+          token de acesso e o token de refresh associado.
         </Text>
         <Text>
-          In the coming days, be extra careful about any suspicious activity on
-          your account and get in touch with us if you have any doubt.
+          Nos próximos dias, tenha muito cuidado com qualquer atividade suspeita em
+          sua conta e entre em contato conosco se tiver alguma dúvida.
         </Text>
       </Section>
-      <InfoBox title="Leak details" variant="warning">
+      <InfoBox title="Detalhes do vazamento" variant="warning">
         <ul className="list-disc space-y-1 pl-6">
-          <li>Notifier: {notifier}</li>
+          <li>Notificador: {notifier}</li>
           {url && <li>URL: {url}</li>}
-          <li>OAuth2 Client: {client_name}</li>
+          <li>Cliente OAuth2: {client_name}</li>
         </ul>
         <Text className="mb-0 mt-4 text-sm text-gray-600 dark:text-gray-400">
-          As a reminder, access and refresh tokens are super sensitive values
-          that shouldn't be shared publicly on the web or in a code repository.
-          Use dedicated features to safely store secrets, like{' '}
+          Como lembrete, tokens de acesso e refresh são valores super sensíveis
+          que não devem ser compartilhados publicamente na web ou em um repositório de código.
+          Use recursos dedicados para armazenar segredos com segurança, como{' '}
           <Link
             href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions"
             className="text-blue-600 underline dark:text-blue-400"
@@ -58,7 +58,7 @@ export function OAuth2LeakedToken({
       </InfoBox>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          You can read more about why you received this alert in our{' '}
+          Você pode ler mais sobre por que recebeu este alerta em nosso{' '}
           <Link
             href="https://docs.polar.sh/documentation/integration-guides/authenticating-with-polar#security"
             className="text-blue-600 underline dark:text-blue-400"

@@ -15,20 +15,20 @@ export function NotificationCreateAccount({
 }) {
   return (
     <Wrapper>
-      <Preview>Your Polar account is being reviewed</Preview>
+      <Preview>Sua conta RevBay está sendo revisada</Preview>
       <PolarHeader />
       <IntroWithHi>
-        Now that you got your first payment to {organization_name}, you should
-        create a payout account in order to receive your funds.
+        Agora que você recebeu seu primeiro pagamento da {organization_name}, você deve
+        criar uma conta de pagamento para receber seus fundos.
       </IntroWithHi>
       <BodyText>
-        We support Stripe and Open Collective. This operation only takes a few
-        minutes and allows you to receive your money immediately.
+        Suportamos Stripe e Open Collective. Esta operação leva apenas alguns
+        minutos e permite que você receba seu dinheiro imediatamente.
       </BodyText>
-      <Button href={url}>Create my payout account</Button>
+      <Button href={url}>Criar minha conta de pagamento</Button>
       <Text>
-        If you're having trouble with the button above, copy and paste the URL
-        below into your web browser.
+        Se você está tendo problemas com o botão acima, copie e cole a URL
+        abaixo no seu navegador.
       </Text>
       <Link href={url}>{url}</Link>
       <Footer />

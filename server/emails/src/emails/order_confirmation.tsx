@@ -31,28 +31,28 @@ export function OrderConfirmation({
 }: OrderConfirmationProps) {
   return (
     <Wrapper>
-      <Preview>Thank you for your order of {product.name}!</Preview>
+      <Preview>Obrigado pelo seu pedido de {product.name}!</Preview>
       <OrganizationHeader organization={organization} />
       <Section className="pt-12">
         <Heading
           as="h1"
           className="text-xl font-bold text-gray-900 dark:text-white"
         >
-          Thank you for your order!
+          Obrigado pelo seu pedido!
         </Heading>
         <BodyText>
-          Your order of <span className="font-bold">{product.name}</span> is now
-          processed.
+          Seu pedido de <span className="font-bold">{product.name}</span> foi
+          processado.
         </BodyText>
       </Section>
       <Section className="my-8 text-center">
-        <Button href={url}>Access my purchase</Button>
+        <Button href={url}>Acessar minha compra</Button>
       </Section>
       <Hr />
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser.
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador.
         </Text>
         <Text className="text-sm">
           <Link

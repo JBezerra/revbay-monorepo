@@ -16,20 +16,20 @@ export function OrganizationInvite({
 }) {
   return (
     <Wrapper>
-      <Preview>You've been added to {organization_name} on Polar</Preview>
+      <Preview>Você foi adicionado à {organization_name} na RevBay</Preview>
       <PolarHeader />
       <IntroWithHi>
-        {inviter_email} has added you to{' '}
-        <span className="font-bold">{organization_name}</span> on Polar.
+        {inviter_email} adicionou você à{' '}
+        <span className="font-bold">{organization_name}</span> na RevBay.
       </IntroWithHi>
       <Section>
         <Text>
-          As a member of {organization_name} you're now able to manage{' '}
-          {organization_name}'s products, customers, and subscriptions on Polar.
+          Como membro da {organization_name} você agora pode gerenciar
+          produtos, clientes e assinaturas da {organization_name} na RevBay.
         </Text>
       </Section>
       <Section className="text-center">
-        <Button href={invite_url}>Go to the Polar dashboard</Button>
+        <Button href={invite_url}>Ir para o painel da RevBay</Button>
       </Section>
       <Footer />
     </Wrapper>

@@ -24,27 +24,27 @@ export function SubscriptionUncanceled({
 }: SubscriptionUncanceledProps) {
   return (
     <Wrapper>
-      <Preview>Your subscription to {product.name} is now uncanceled</Preview>
+      <Preview>Sua assinatura de {product.name} não foi mais cancelada</Preview>
       <OrganizationHeader organization={organization} />
       <Section className="pt-10">
         <Heading
           as="h1"
           className="text-xl font-bold text-gray-900 dark:text-white"
         >
-          Your subscription is now uncanceled
+          Sua assinatura não foi mais cancelada
         </Heading>
         <BodyText>
-          Your subscription to <span className="font-bold">{product.name}</span>{' '}
-          is no longer canceled.
+          Sua assinatura de <span className="font-bold">{product.name}</span>{' '}
+          não foi mais cancelada.
         </BodyText>
       </Section>
       <Section className="my-8 text-center">
-        <Button href={url}>Manage my subscription</Button>
+        <Button href={url}>Gerenciar minha assinatura</Button>
       </Section>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser.
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador.
         </Text>
         <Text className="text-sm">
           <Link

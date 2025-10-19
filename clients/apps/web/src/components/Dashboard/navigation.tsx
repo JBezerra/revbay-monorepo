@@ -8,7 +8,7 @@ import {
   LinkOutlined,
   PeopleAltOutlined,
   ShoppingBagOutlined,
-  SpaceDashboardOutlined,
+  SpaceDashboard,
   Storefront,
   StreamOutlined,
   TrendingUp,
@@ -133,7 +133,7 @@ const generalRoutesList = (org?: schemas['Organization']): Route[] => [
   {
     id: 'home',
     title: 'Dashboard',
-    icon: <SpaceDashboardOutlined fontSize="inherit" />,
+    icon: <SpaceDashboard fontSize="inherit" />,
     link: `/dashboard/${org?.slug}`,
     checkIsActive: (currentRoute: string) =>
       currentRoute === `/dashboard/${org?.slug}`,

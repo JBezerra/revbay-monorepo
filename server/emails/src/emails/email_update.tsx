@@ -14,25 +14,26 @@ interface EmailUpdateProps {
 export function EmailUpdate({ token_lifetime_minutes, url }: EmailUpdateProps) {
   return (
     <Wrapper>
-      <Preview>Here is the verification link to update your email</Preview>
+      <Preview>
+        Aqui está o link de verificação para atualizar seu email
+      </Preview>
       <PolarHeader />
       <IntroWithHi>
-        Here is the verification link to update your email. Click the button
-        below to complete the update process.{' '}
+        Aqui está o link de verificação para atualizar seu email. Clique no
+        botão abaixo para completar o processo de atualização.{' '}
         <span className="font-bold">
-          This link is only valid for the next {token_lifetime_minutes} minutes.
+          Este link é válido apenas pelos próximos {token_lifetime_minutes}{' '}
+          minutos.
         </span>
       </IntroWithHi>
       <Section className="my-8 text-center">
-        <Button href={url} className="font-bold">
-          Update my email
-        </Button>
+        <Button href={url}>Atualizar meu email</Button>
       </Section>
       <Hr />
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser.
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador.
         </Text>
         <Text className="text-sm">
           <Link

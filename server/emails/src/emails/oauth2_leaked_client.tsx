@@ -21,48 +21,48 @@ export function OAuth2LeakedClient({
   return (
     <Wrapper>
       <Preview>
-        Important security notice: Your OAuth2{' '}
+        Aviso importante de segurança: Seu OAuth2{' '}
         {token_type === 'client_secret'
           ? 'Client Secret'
           : 'Client Registration Token'}{' '}
-        has been publicly leaked
+        foi vazado publicamente
       </Preview>
       <PolarHeader />
       <Section>
         <Text className="text-xl font-bold text-gray-900 dark:text-white">
-          Important security notice
+          Aviso importante de segurança
         </Text>
         {token_type === 'client_secret' ? (
           <Text>
-            We've been notified that your OAuth2 Client Secret has been publicly
-            leaked. For your security, we've automatically generated a new one.{' '}
+            Fomos notificados de que seu OAuth2 Client Secret foi vazado publicamente.
+            Para sua segurança, geramos automaticamente um novo.{' '}
             <span className="font-bold">
-              You'll need to update your existing integrations so they continue
-              working.
+              Você precisará atualizar suas integrações existentes para que continuem
+              funcionando.
             </span>
           </Text>
         ) : (
           <Text>
-            We've been notified that your OAuth2 Client Registration Token has
-            been publicly leaked. For your security, we've automatically
-            generated a new one.
+            Fomos notificados de que seu OAuth2 Client Registration Token foi
+            vazado publicamente. Para sua segurança, geramos automaticamente
+            um novo.
           </Text>
         )}
         <Text>
-          In the coming days, be extra careful about any suspicious activity on
-          your account and get in touch with us if you have any doubt.
+          Nos próximos dias, tenha muito cuidado com qualquer atividade suspeita em
+          sua conta e entre em contato conosco se tiver alguma dúvida.
         </Text>
       </Section>
-      <InfoBox title="Leak details" variant="warning">
+      <InfoBox title="Detalhes do vazamento" variant="warning">
         <ul className="list-disc space-y-1 pl-6">
-          <li>Notifier: {notifier}</li>
+          <li>Notificador: {notifier}</li>
           {url && <li>URL: {url}</li>}
-          <li>OAuth2 Client: {client_name}</li>
+          <li>Cliente OAuth2: {client_name}</li>
         </ul>
         <Text className="mb-0 mt-4 text-sm text-gray-600 dark:text-gray-400">
-          As a reminder, OAuth2 client secrets are super sensitive values that
-          shouldn't be shared publicly on the web or in a code repository. Use
-          dedicated features to safely store secrets, like{' '}
+          Como lembrete, segredos de cliente OAuth2 são valores super sensíveis que
+          não devem ser compartilhados publicamente na web ou em um repositório de código. Use
+          recursos dedicados para armazenar segredos com segurança, como{' '}
           <Link
             href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions"
             className="text-blue-600 underline dark:text-blue-400"
@@ -74,7 +74,7 @@ export function OAuth2LeakedClient({
       </InfoBox>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          You can read more about why you received this alert in our{' '}
+          Você pode ler mais sobre por que recebeu este alerta em nosso{' '}
           <Link
             href="https://docs.polar.sh/documentation/integration-guides/authenticating-with-polar#security"
             className="text-blue-600 underline dark:text-blue-400"

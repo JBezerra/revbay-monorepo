@@ -25,20 +25,20 @@ export function CustomerSessionCode({
   return (
     <Wrapper>
       <Preview>
-        Here is your code to access your {organization.name} purchases
+        Aqui está seu código para acessar suas compras da {organization.name}
       </Preview>
       <OrganizationHeader organization={organization} />
       <IntroWithHi>
-        Here is your code to access your {organization.name} purchases. Click
-        the button below to complete the login process.{' '}
+        Aqui está seu código para acessar suas compras da {organization.name}. Clique
+        no botão abaixo para completar o processo de login.{' '}
         <span className="font-bold">
-          This code is only valid for the next {code_lifetime_minutes} minutes.
+          Este código é válido apenas pelos próximos {code_lifetime_minutes} minutos.
         </span>
       </IntroWithHi>
       <OTPCode code={code} />
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          You should input this code at the following URL
+          Você deve inserir este código na seguinte URL
         </Text>
         <Text className="text-sm">
           <Link

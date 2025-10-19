@@ -11,32 +11,32 @@ export function NotificationAccountUnderReview({
 }) {
   return (
     <Wrapper>
-      <Preview>Your Polar account is being reviewed</Preview>
+      <Preview>Sua conta RevBay está sendo revisada</Preview>
       <PolarHeader />
-      <BodyText>Hi there,</BodyText>
+      <BodyText>Olá,</BodyText>
       <BodyText>
-        Sorry, we don't mean to scare you. Account reviews are completely normal
-        and part of our ongoing compliance efforts here at Polar.
+        Desculpe, não queremos assustá-lo. As revisões de conta são completamente normais
+        e fazem parte dos nossos esforços contínuos de conformidade aqui no RevBay.
       </BodyText>
       <BodyText>
-        Currently, your {account_type} account and organizations connected to it
-        is being reviewed as part of this automated process.
+        Atualmente, sua conta {account_type} e organizações conectadas a ela
+        estão sendo revisadas como parte deste processo automatizado.
       </BodyText>
       <BodyText>
-        We perform them ahead of the first payout and then automatically after
-        certain sales thresholds.
+        Realizamos essas revisões antes do primeiro pagamento e depois automaticamente após
+        certos limites de vendas.
       </BodyText>
-      <BodyText>You can read more about our account reviews here:</BodyText>
+      <BodyText>Você pode ler mais sobre nossas revisões de conta aqui:</BodyText>
       <Link href="https://dub.sh/polar-review">
         https://dub.sh/polar-review
       </Link>
       <BodyText>
-        So no cause to be concerned. Typically, our reviews are completed within
+        Então não há motivo para se preocupar. Normalmente, nossas revisões são concluídas em
         24-48h.
       </BodyText>
       <BodyText>
-        We'll reach out shortly in case we need any further information from you
-        for our review.
+        Entraremos em contato em breve caso precisemos de mais informações suas
+        para nossa revisão.
       </BodyText>
       <Footer />
     </Wrapper>

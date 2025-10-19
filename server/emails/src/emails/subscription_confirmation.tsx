@@ -24,27 +24,27 @@ export function SubscriptionConfirmation({
 }: SubscriptionConfirmationProps) {
   return (
     <Wrapper>
-      <Preview>Thank you for your subscription to {product.name}!</Preview>
+      <Preview>Obrigado pela sua assinatura de {product.name}!</Preview>
       <OrganizationHeader organization={organization} />
       <Section className="pt-10">
         <Heading
           as="h1"
           className="text-xl font-bold text-gray-900 dark:text-white"
         >
-          Thank you for your subscription!
+          Obrigado pela sua assinatura!
         </Heading>
         <BodyText>
-          Your subscription to <span className="font-bold">{product.name}</span>{' '}
-          is now active.
+          Sua assinatura de <span className="font-bold">{product.name}</span>{' '}
+          está ativa.
         </BodyText>
       </Section>
       <Section className="my-8 text-center">
-        <Button href={url}>Access my purchase</Button>
+        <Button href={url}>Acessar minha compra</Button>
       </Section>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser.
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador.
         </Text>
         <Text className="text-sm">
           <Link

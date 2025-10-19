@@ -15,10 +15,10 @@ export function NotificationNewSale({
 }) {
   return (
     <Wrapper>
-      <Preview>New {product_name} sale</Preview>
+      <Preview>Nova venda de {product_name}</Preview>
       <PolarHeader />
-      <IntroWithHi hiMsg="Congratulations!">
-        {customer_name} purchased <strong>{product_name}</strong> for{' '}
+      <IntroWithHi hiMsg="Parabéns!">
+        {customer_name} comprou <strong>{product_name}</strong> por{' '}
         {formatted_price_amount}.
       </IntroWithHi>
       <Footer />

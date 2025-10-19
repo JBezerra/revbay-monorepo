@@ -100,12 +100,12 @@ class Invoice(BaseModel):
     @property
     def tax_label(self) -> str:
         if self.tax_rate is None:
-            return "Tax"
+            return "Imposto"
 
         label = self.tax_rate["display_name"]
 
         if self.taxability_reason == TaxabilityReason.reverse_charge:
-            return f"{label} (0% Reverse Charge)"
+            return f"{label} (0% Crédito Invertido)"
 
         if self.tax_rate["country"] is not None:
             country = pycountry.countries.get(alpha_2=self.tax_rate["country"])
@@ -120,8 +120,8 @@ class Invoice(BaseModel):
     @property
     def heading_items(self) -> list[InvoiceHeadingItem]:
         return [
-            InvoiceHeadingItem(label="Invoice number", value=self.number),
-            InvoiceHeadingItem(label="Date of issue", value=self.date),
+            InvoiceHeadingItem(label="Número", value=self.number),
+            InvoiceHeadingItem(label="Data de Emissão", value=self.date),
             *(self.extra_heading_items or []),
         ]
 
@@ -200,7 +200,7 @@ class InvoiceGenerator(FPDF):
     def __init__(
         self,
         data: Invoice,
-        heading_title: str = "Invoice",
+        heading_title: str = "Fatura",
         add_sandbox_warning: bool = settings.ENV == Environment.sandbox,
     ) -> None:
         super().__init__()
@@ -238,7 +238,7 @@ class InvoiceGenerator(FPDF):
         # Invoice number on the left
         self.cell(self.epw / 2, 10, f"{self.data.number}", align=Align.L)
         # Page number on the right
-        self.cell(self.epw / 2, 10, f"Page {self.page_no()} of {{nb}}", align=Align.R)
+        self.cell(self.epw / 2, 10, f"Página {self.page_no()} de {{nb}}", align=Align.R)
 
     def generate(self) -> None:
         self.set_metadata()
@@ -306,7 +306,7 @@ class InvoiceGenerator(FPDF):
         self.set_xy(110, addresses_y_start)
         self.set_font(style="B")
         self.cell(
-            h=self.cell_height(), text="Bill to", new_x=XPos.LEFT, new_y=YPos.NEXT
+            h=self.cell_height(), text="Fatura para", new_x=XPos.LEFT, new_y=YPos.NEXT
         )
         self.set_font(style="B")
         self.multi_cell(
@@ -346,10 +346,10 @@ class InvoiceGenerator(FPDF):
         ) as table:
             # Header
             header = table.row()
-            header.cell("Description")
-            header.cell("Quantity")
-            header.cell("Unit Price")
-            header.cell("Amount")
+            header.cell("Descrição")
+            header.cell("Quantidade")
+            header.cell("Preço Unitário")
+            header.cell("Valor")
 
             # Body
             for item in self.data.items:
@@ -381,7 +381,7 @@ class InvoiceGenerator(FPDF):
             if self.data.discount_amount > 0:
                 self.set_font(style="B")
                 discount_row = totals_table.row()
-                discount_row.cell("Discount")
+                discount_row.cell("Desconto")
                 self.set_font(style="")
                 discount_row.cell(self.data.formatted_discount_amount)
 
@@ -412,8 +412,8 @@ class InvoiceGenerator(FPDF):
 
     def set_metadata(self) -> None:
         """Set metadata for the PDF document."""
-        self.set_title(f"Invoice {self.data.number}")
-        self.set_creator("Polar")
+        self.set_title(f"Fatura {self.data.number}")
+        self.set_creator("RevBay")
         self.set_author(settings.INVOICES_NAME)
         self.set_creation_date(utc_now())
 

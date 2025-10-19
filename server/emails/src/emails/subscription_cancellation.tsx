@@ -30,7 +30,7 @@ function BenefitsSection({ benefits }: { benefits: Array<{ description: string }
   }
   return (
     <>
-      <BodyText>Meanwhile, you will continue to have access to the following benefits:</BodyText>
+      <BodyText>Enquanto isso, você continuará tendo acesso aos seguintes benefícios:</BodyText>
       <ul className="list-disc space-y-1 pl-6">
         {benefits.map((benefit, index) => (
           <li key={index}>{benefit.description}</li>
@@ -54,34 +54,34 @@ export function SubscriptionCancellation({
 
   return (
     <Wrapper>
-      <Preview>Your subscription to {product.name} has been canceled</Preview>
+      <Preview>Sua assinatura de {product.name} foi cancelada</Preview>
       <OrganizationHeader organization={organization} />
       <Section className="pt-10">
         <Heading
           as="h1"
           className="text-xl font-bold text-gray-900 dark:text-white"
         >
-          Your subscription has been canceled
+          Sua assinatura foi cancelada
         </Heading>
         <BodyText>
-          We're sorry to see you go! Your subscription to{' '}
-          <span className="font-bold">{product.name}</span> will remain active
-          until <span className="font-bold">{endDate}</span>, after which it
-          will be canceled.
+          Lamentamos vê-lo partir! Sua assinatura de{' '}
+          <span className="font-bold">{product.name}</span> permanecerá ativa
+          até <span className="font-bold">{endDate}</span>, após o que será
+          cancelada.
         </BodyText>
         <BodyText>
-          If you change your mind, you can renew your subscription anytime
-          before the end date.
+          Se você mudar de ideia, pode renovar sua assinatura a qualquer momento
+          antes da data de término.
         </BodyText>
         <BenefitsSection benefits={product.benefits} />
       </Section>
       <Section className="my-8 text-center">
-        <Button href={url}>Manage my subscription</Button>
+        <Button href={url}>Gerenciar minha assinatura</Button>
       </Section>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser:
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador:
         </Text>
         <Text className="text-sm">
           <Link

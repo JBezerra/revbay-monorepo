@@ -24,30 +24,30 @@ export function SubscriptionRevoked({
 }: SubscriptionRevokedProps) {
   return (
     <Wrapper>
-      <Preview>Your subscription to {product.name} has now ended</Preview>
+      <Preview>Sua assinatura de {product.name} terminou</Preview>
       <OrganizationHeader organization={organization} />
       <Section className="pt-10">
         <Heading
           as="h1"
           className="text-xl font-bold text-gray-900 dark:text-white"
         >
-          Your subscription has now ended
+          Sua assinatura terminou
         </Heading>
         <BodyText>
-          Thank you being a subscriber of{' '}
+          Obrigado por ser assinante de{' '}
           <span className="font-bold">{product.name}</span>.
         </BodyText>
         <BodyText>
-          We hope to see you again in the future - you're always welcome back.
+          Esperamos vê-lo novamente no futuro - você sempre será bem-vindo de volta.
         </BodyText>
       </Section>
       <Section className="my-8 text-center">
-        <Button href={url}>View subscription</Button>
+        <Button href={url}>Ver assinatura</Button>
       </Section>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser.
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador.
         </Text>
         <Text className="text-sm">
           <Link

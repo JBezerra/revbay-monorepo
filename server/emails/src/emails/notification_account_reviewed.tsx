@@ -8,15 +8,15 @@ import Wrapper from '../components/Wrapper'
 export function NotificationAccountReviewed() {
   return (
     <Wrapper>
-      <Preview>Polar account review complete</Preview>
+      <Preview>Revisão da conta RevBay concluída</Preview>
       <PolarHeader />
-      <IntroWithHi hiMsg="Congratulations!">
-        We are pleased to inform you that the review of your Polar account has
-        been successfully completed.
+      <IntroWithHi hiMsg="Parabéns!">
+        Temos o prazer de informar que a revisão da sua conta RevBay foi
+        concluída com sucesso.
       </IntroWithHi>
       <BodyText>
-        We appreciate your patience throughout this process and are excited to
-        grow together!
+        Agradecemos sua paciência durante este processo e estamos animados para
+        crescer juntos!
       </BodyText>
       <Footer />
     </Wrapper>

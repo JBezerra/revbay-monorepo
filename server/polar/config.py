@@ -215,19 +215,19 @@ class Settings(BaseSettings):
     # Invoices
     S3_CUSTOMER_INVOICES_BUCKET_NAME: str = "polar-customer-invoices"
     S3_PAYOUT_INVOICES_BUCKET_NAME: str = "polar-payout-invoices"
-    INVOICES_NAME: str = "Polar Software, Inc."
+    INVOICES_NAME: str = "RevBay Software, Inc."
     INVOICES_ADDRESS: Address = Address(
-        line1="548 Market St",
-        line2="PMB 61301",
-        postal_code="94104",
-        city="San Francisco",
-        state="CA",
-        country=CountryAlpha2("US"),
+        line1="Rua das Flores, 123",
+        line2="Sala 101",
+        postal_code="04001-000",
+        city="São Paulo",
+        state="SP",
+        country=CountryAlpha2("BR"),
     )
     INVOICES_ADDITIONAL_INFO: str | None = (
-        "[support@polar.sh](mailto:support@polar.sh)\n"
+        "[support@revbay.com.br](mailto:support@revbay.com.br)\n"
     )
-    PAYOUT_INVOICES_PREFIX: str = "POLAR-"
+    PAYOUT_INVOICES_PREFIX: str = "REVBAY-"
 
     # Application behaviours
     API_PAGINATION_MAX_LIMIT: int = 100

@@ -32,38 +32,38 @@ export function SubscriptionPastDue({
 }: SubscriptionPastDueProps) {
   return (
     <Wrapper>
-      <Preview>Your {product.name} subscription payment is past due</Preview>
+      <Preview>O pagamento da sua assinatura {product.name} está em atraso</Preview>
       <OrganizationHeader organization={organization} />
       <Section className="pt-10">
         <Heading
           as="h1"
           className="text-xl font-bold text-gray-900 dark:text-white"
         >
-          Your subscription payment is past due
+          O pagamento da sua assinatura está em atraso
         </Heading>
         <BodyText>
-          We were unable to process your payment for your{' '}
-          <span className="font-bold">{product.name}</span> subscription. Your
-          subscription is now past due and access to benefits has been temporarily
-          suspended.
+          Não conseguimos processar seu pagamento para sua assinatura{' '}
+          <span className="font-bold">{product.name}</span>. Sua
+          assinatura agora está em atraso e o acesso aos benefícios foi temporariamente
+          suspenso.
         </BodyText>
         <BodyText>
-          To restore access to your subscription benefits, please update your
-          payment method and complete the payment.
+          Para restaurar o acesso aos benefícios da sua assinatura, atualize seu
+          método de pagamento e complete o pagamento.
         </BodyText>
       </Section>
       {payment_url && (
         <Section className="my-8 text-center">
-          <Button href={payment_url}>Complete Payment</Button>
+          <Button href={payment_url}>Completar Pagamento</Button>
         </Section>
       )}
       <Section className="my-8 text-center">
-        <Button href={url}>Manage my subscription</Button>
+        <Button href={url}>Gerenciar minha assinatura</Button>
       </Section>
       <Section className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
         <Text className="text-sm text-gray-600 dark:text-gray-400">
-          If you're having trouble with the button above, copy and paste the URL
-          below into your web browser:
+          Se você está tendo problemas com o botão acima, copie e cole a URL
+          abaixo no seu navegador:
         </Text>
         <Text className="text-sm">
           <Link
