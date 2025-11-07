@@ -1,6 +1,5 @@
 'use client'
 
-import { useCustomerBenefitGrants } from '@/hooks/queries'
 import { useRetryPayment } from '@/hooks/useRetryPayment'
 import { Client, schemas } from '@polar-sh/client'
 import { Status } from '@polar-sh/ui/components/atoms/Status'
@@ -30,7 +29,6 @@ const OrderStatusDisplayName: Record<schemas['OrderStatus'], string> = {
 }
 
 const CustomerPortalOrder = ({
-  api,
   order,
   customerSessionToken,
   themingPreset,
@@ -40,11 +38,11 @@ const CustomerPortalOrder = ({
   customerSessionToken: string
   themingPreset: ThemingPresetProps
 }) => {
-  const { data: benefitGrants } = useCustomerBenefitGrants(api, {
-    order_id: order.id,
-    limit: 100,
-    sorting: ['type'],
-  })
+  // const { data: benefitGrants } = useCustomerBenefitGrants(api, {
+  //   order_id: order.id,
+  //   limit: 100,
+  //   sorting: ['type'],
+  // })
 
   const { retryPayment, isRetrying, isLoading } =
     useRetryPayment(customerSessionToken)

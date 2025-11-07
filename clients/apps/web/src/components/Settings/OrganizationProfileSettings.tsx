@@ -25,7 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@polar-sh/ui/components/atoms/Select'
-import TextArea from '@polar-sh/ui/components/atoms/TextArea'
 import { Checkbox } from '@polar-sh/ui/components/ui/checkbox'
 import {
   Form,
@@ -178,22 +177,22 @@ const OrganizationSocialLinks = () => {
   )
 }
 
-const CompactTextArea = ({
-  field,
-  placeholder,
-  rows = 3,
-}: {
-  field: any
-  placeholder: string
-  rows?: number
-}) => (
-  <TextArea
-    {...field}
-    rows={rows}
-    placeholder={placeholder}
-    className="resize-none"
-  />
-)
+// const CompactTextArea = ({
+//   field,
+//   placeholder,
+//   rows = 3,
+// }: {
+//   field: any
+//   placeholder: string
+//   rows?: number
+// }) => (
+//   <TextArea
+//     {...field}
+//     rows={rows}
+//     placeholder={placeholder}
+//     className="resize-none"
+//   />
+// )
 
 export const OrganizationDetailsForm: React.FC<
   OrganizationDetailsFormProps

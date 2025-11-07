@@ -118,7 +118,7 @@ export const CustomerPortalOrders = ({
                       size="sm"
                       className={twMerge(themingPreset.polar.buttonSecondary)}
                     >
-                        Ver Pedido
+                      Ver Pedido
                     </Button>
                   </Link>
                 </span>

@@ -1,7 +1,6 @@
 'use client'
 
 import {
-  useCustomerBenefitGrants,
   useCustomerCancelSubscription,
   useCustomerOrders,
 } from '@/hooks/queries'
@@ -35,11 +34,11 @@ const CustomerPortalSubscription = ({
     isShown: cancelModalIsShown,
   } = useModal()
 
-  const { data: benefitGrants } = useCustomerBenefitGrants(api, {
-    subscription_id: subscription.id,
-    limit: 100,
-    sorting: ['type'],
-  })
+  // const { data: benefitGrants } = useCustomerBenefitGrants(api, {
+  //   subscription_id: subscription.id,
+  //   limit: 100,
+  //   sorting: ['type'],
+  // })
 
   const { data: orders, refetch: refetchOrders } = useCustomerOrders(api, {
     subscription_id: subscription.id,

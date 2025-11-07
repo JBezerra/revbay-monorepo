@@ -33,7 +33,7 @@ import {
 export const DashboardSidebar = ({
   type = 'organization',
   organization,
-  organizations,
+  // organizations,
 }: {
   type?: 'organization' | 'account'
   organization: schemas['Organization']
@@ -44,9 +44,9 @@ export const DashboardSidebar = ({
 
   const isCollapsed = state === 'collapsed'
 
-  const navigateToOrganization = (org: schemas['Organization']) => {
-    router.push(`/dashboard/${org.slug}`)
-  }
+  // const navigateToOrganization = (org: schemas['Organization']) => {
+  //   router.push(`/dashboard/${org.slug}`)
+  // }
 
   return (
     <Sidebar variant="inset" collapsible="icon">
