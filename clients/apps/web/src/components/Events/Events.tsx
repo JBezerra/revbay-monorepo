@@ -7,7 +7,6 @@ import { twMerge } from 'tailwind-merge'
 
 const EventRow = ({
   event,
-  organization,
 }: {
   event: schemas['Event']
   organization: schemas['Organization']
