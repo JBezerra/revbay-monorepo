@@ -37,12 +37,12 @@ export const BrandingMenu = ({
     [],
   )
 
-  const handleCopyLogoToClipboard = useCallback(() => {
-    navigator.clipboard.writeText(
-      logoVariant === 'icon' ? PolarIconSVGString : PolarLogoSVGString,
-    )
-    setBrandingMenuOpen(false)
-  }, [logoVariant])
+  // const handleCopyLogoToClipboard = useCallback(() => {
+  //   navigator.clipboard.writeText(
+  //     logoVariant === 'icon' ? PolarIconSVGString : PolarLogoSVGString,
+  //   )
+  //   setBrandingMenuOpen(false)
+  // }, [logoVariant])
 
   return (
     <div className={twMerge('relative flex flex-row items-center', className)}>
