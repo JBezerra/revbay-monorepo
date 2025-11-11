@@ -4,9 +4,10 @@ import { NextResponse } from 'next/server'
 import { createServerSideAPI } from './utils/client'
 
 const POLAR_AUTH_COOKIE_KEY =
-  process.env.POLAR_AUTH_COOKIE_KEY || 'polar_session'
+  process.env.POLAR_AUTH_COOKIE_KEY || 'tropicpay_session'
 
 const AUTHENTICATED_ROUTES = [
+  new RegExp('^/$'),
   new RegExp('^/start(/.*)?'),
   new RegExp('^/dashboard(/.*)?'),
   new RegExp('^/finance(/.*)?'),
@@ -59,6 +60,15 @@ export async function middleware(request: NextRequest) {
   }
 
   const headers = user ? { 'x-polar-user': JSON.stringify(user) } : undefined
+
+  if (user && request.nextUrl.pathname === '/') {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
+  }
+
+  if (user && request.nextUrl.pathname === '/login') {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
+  }
+
   return NextResponse.next({ headers })
 }
 

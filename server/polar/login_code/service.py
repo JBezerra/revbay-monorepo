@@ -61,7 +61,7 @@ class LoginCodeService:
         delta = login_code.expires_at - utc_now()
         code_lifetime_minutes = int(ceil(delta.seconds / 60))
 
-        subject = "Sign in to Polar"
+        subject = "Faça Login na TropicPay"
         body = render_email_template(
             "login_code",
             {

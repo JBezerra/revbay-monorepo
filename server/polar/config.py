@@ -81,7 +81,7 @@ class Settings(BaseSettings):
 
     # User session
     USER_SESSION_TTL: timedelta = timedelta(days=31)
-    USER_SESSION_COOKIE_KEY: str = "polar_session"
+    USER_SESSION_COOKIE_KEY: str = "tropicpay_session"
     USER_SESSION_COOKIE_DOMAIN: str = "127.0.0.1"
 
     # Customer session
@@ -133,8 +133,8 @@ class Settings(BaseSettings):
     )
     EMAIL_SENDER: EmailSender = EmailSender.logger
     RESEND_API_KEY: str = ""
-    EMAIL_FROM_NAME: str = "Polar"
-    EMAIL_FROM_EMAIL_ADDRESS: str = "noreply@notifications.polar.sh"
+    EMAIL_FROM_NAME: str = "TropicPay"
+    EMAIL_FROM_EMAIL_ADDRESS: str = "noreply@tropicpay.com"
 
     # Github App
     GITHUB_CLIENT_ID: str = ""

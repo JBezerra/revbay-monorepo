@@ -2,11 +2,9 @@
 
 import { usePostHog, type EventName } from '@/hooks/posthog'
 import { schemas } from '@polar-sh/client'
-import LabeledSeparator from '@polar-sh/ui/components/atoms/LabeledSeparator'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import LoginCodeForm from '../Auth/LoginCodeForm'
-import GoogleLoginButton from './GoogleLoginButton'
 
 const Login = ({
   returnTo,
@@ -79,22 +77,22 @@ const Login = ({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="flex w-full flex-col gap-y-4">
-        <GoogleLoginButton {...loginProps} />
-        <LabeledSeparator label="Ou" />
+        {/* <GoogleLoginButton {...loginProps} /> */}
+        {/* <LabeledSeparator label="Ou" /> */}
         <LoginCodeForm {...loginProps} />
       </div>
       <div className="dark:text-polar-500 mt-6 text-center text-xs text-gray-400">
         Ao usar a TropicPay, você concorda com nossos{' '}
         <a
           className="dark:text-polar-300 text-gray-600"
-          href="https://polar.sh/legal/terms"
+          // href="https://polar.sh/legal/terms"
         >
           Termos de Serviço
         </a>{' '}
         e{' '}
         <a
           className="dark:text-polar-300 text-gray-600"
-          href="https://polar.sh/legal/privacy"
+          // href="https://polar.sh/legal/privacy"
         >
           Política de Privacidade
         </a>

@@ -14,7 +14,7 @@ const Logo = ({
       width={size}
       height={size}
       viewBox="140 160 730 725"
-      fill="white"
+      fill="black"
       className={className}
     >
       <g transform="matrix(0.1, 0, 0, -0.1, 20.244778, 1027.291382)">
@@ -36,7 +36,7 @@ const Header = ({ featuredOrganization }: HeaderProps) => (
   <Section className="pt-[10px]">
     <Row>
       <Column className="w-[80%]">
-        <Logo className="text-black" />
+        <Logo size={60} />
       </Column>
     </Row>
   </Section>

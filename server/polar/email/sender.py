@@ -15,8 +15,8 @@ log: Logger = structlog.get_logger()
 
 DEFAULT_FROM_NAME = settings.EMAIL_FROM_NAME
 DEFAULT_FROM_EMAIL_ADDRESS = settings.EMAIL_FROM_EMAIL_ADDRESS
-DEFAULT_REPLY_TO_NAME = "Polar Support"
-DEFAULT_REPLY_TO_EMAIL_ADDRESS = "support@polar.sh"
+DEFAULT_REPLY_TO_NAME = "TropicPay Support"
+DEFAULT_REPLY_TO_EMAIL_ADDRESS = "support@tropicpay.com"
 
 
 def to_ascii_email(email: str) -> str:

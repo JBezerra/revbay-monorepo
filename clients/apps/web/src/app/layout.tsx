@@ -85,12 +85,12 @@ export default async function RootLayout({
           crossOrigin={''}
         />
         <link
-          href="/favicon.png"
+          href="/favicon.ico"
           rel="icon"
           media="(prefers-color-scheme: dark)"
         ></link>
         <link
-          href="/favicon-dark.png"
+          href="/favicon.ico"
           rel="icon"
           media="(prefers-color-scheme: light)"
         ></link>

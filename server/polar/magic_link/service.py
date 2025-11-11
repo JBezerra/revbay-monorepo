@@ -74,7 +74,7 @@ class MagicLinkService(ResourceService[MagicLink, MagicLinkCreate, MagicLinkUpda
         token_lifetime_minutes = int(ceil(delta.seconds / 60))
 
         url_params = {"token": token, **extra_url_params}
-        subject = "Sign in to Polar"
+        subject = "Faça Login na TropicPay"
         body = render_email_template(
             "magic_link",
             {
