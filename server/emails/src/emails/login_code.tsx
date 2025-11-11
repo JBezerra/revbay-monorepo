@@ -19,7 +19,7 @@ export function LoginCode({
       </Preview>
       <PolarHeader />
       <IntroWithHi>
-        Aqui está seu código para entrar na RevBay.{' '}
+        Aqui está seu código para entrar na TropicPay.{' '}
         <span className="font-bold">
           Este código é válido apenas pelos próximos {code_lifetime_minutes}{' '}
           minutos.

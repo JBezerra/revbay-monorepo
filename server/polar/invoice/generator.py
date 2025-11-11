@@ -413,7 +413,7 @@ class InvoiceGenerator(FPDF):
     def set_metadata(self) -> None:
         """Set metadata for the PDF document."""
         self.set_title(f"Fatura {self.data.number}")
-        self.set_creator("RevBay")
+        self.set_creator("TropicPay")
         self.set_author(settings.INVOICES_NAME)
         self.set_creation_date(utc_now())
 

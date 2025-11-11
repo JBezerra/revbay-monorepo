@@ -7,7 +7,7 @@ export default function Error({ error }: { error: Error }) {
     <html>
       <body className="bg-blue-100">
         <div className="flex grow flex-col items-center justify-center space-y-4 p-16">
-          <h2 className="text-xl">Something went wrong!</h2>
+          <h2 className="text-xl">Algo deu errado!</h2>
 
           <Button
             fullWidth={false}
@@ -15,13 +15,13 @@ export default function Error({ error }: { error: Error }) {
               window.location.href = '/'
             }}
           >
-            <span>Go back to Polar</span>
+            <span>Voltar para TropicPay</span>
           </Button>
 
           <p className="pt-24 text-gray-400"></p>
 
           <pre className="whitespace-break-spaces text-sm text-gray-400">
-            Error digest: {'digest' in error ? <>{error.digest}</> : 'oh oh'}
+            Digest do erro: {'digest' in error ? <>{error.digest}</> : 'ops'}
           </pre>
         </div>
       </body>

@@ -3,7 +3,7 @@ import { BrandingMenu } from '@/components/Layout/Public/BrandingMenu'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Log in to Polar',
+  title: 'Entrar no TropicPay',
 }
 
 export default async function Page({
@@ -20,10 +20,10 @@ export default async function Page({
           <BrandingMenu logoVariant="icon" size={60} />
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl text-black dark:text-white">
-              Welcome to Polar
+              Bem-vindo a TropicPay
             </h2>
             <h2 className="dark:text-polar-400 text-lg text-gray-500">
-              The modern way to sell your SaaS and digital products
+              A maneira moderna de vender seus produtos SaaS e digitais
             </h2>
           </div>
         </div>

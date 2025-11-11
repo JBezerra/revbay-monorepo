@@ -21,7 +21,7 @@ export const AuthModal = ({
   const copy = isSignup ? (
     <p className="dark:text-polar-500 text-xl text-gray-500">
       Junte-se a milhares de desenvolvedores e startups que monetizam seus
-      produtos com a RevBay.
+      produtos com a TropicPay.
     </p>
   ) : null
 

@@ -169,7 +169,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
             {product.name}
             {product.is_archived && (
               <Status
-                status="Archived"
+                status="Arquivado"
                 className="bg-red-100 text-xs text-red-500 dark:bg-red-950"
               />
             )}
@@ -258,7 +258,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
         </div>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <MiniMetricChartBox
-          title='Pedidos'
+            title="Pedidos"
             value={metricsData?.totals.orders}
             metric={metricsData?.metrics.orders}
           />

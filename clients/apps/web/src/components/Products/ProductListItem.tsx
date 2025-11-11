@@ -114,7 +114,7 @@ export const ProductListItem = ({
             <TooltipTrigger>
               <Status
                 className="bg-red-100 text-red-500 dark:bg-red-950"
-                status="Archived"
+                status="Arquivado"
               />
             </TooltipTrigger>
             <TooltipContent align="center" side="left">

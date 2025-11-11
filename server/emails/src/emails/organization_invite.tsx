@@ -16,20 +16,20 @@ export function OrganizationInvite({
 }) {
   return (
     <Wrapper>
-      <Preview>Você foi adicionado à {organization_name} na RevBay</Preview>
+      <Preview>Você foi adicionado à {organization_name} na TropicPay</Preview>
       <PolarHeader />
       <IntroWithHi>
         {inviter_email} adicionou você à{' '}
-        <span className="font-bold">{organization_name}</span> na RevBay.
+        <span className="font-bold">{organization_name}</span> na TropicPay.
       </IntroWithHi>
       <Section>
         <Text>
           Como membro da {organization_name} você agora pode gerenciar
-          produtos, clientes e assinaturas da {organization_name} na RevBay.
+          produtos, clientes e assinaturas da {organization_name} na TropicPay.
         </Text>
       </Section>
       <Section className="text-center">
-        <Button href={invite_url}>Ir para o painel da RevBay</Button>
+        <Button href={invite_url}>Ir para o painel da TropicPay</Button>
       </Section>
       <Footer />
     </Wrapper>

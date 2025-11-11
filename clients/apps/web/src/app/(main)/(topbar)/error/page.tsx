@@ -12,10 +12,10 @@ export default function Page({
       <div id="polar-bg-gradient"></div>
       <div className="flex w-80 flex-col items-center gap-6 text-center">
         <LogoType70 className="h-10" />
-        <h1 className="text-3xl">Oh no!</h1>
+        <h1 className="text-3xl">Ops!</h1>
         <p>{message}</p>
         <Button asChild>
-          <Link href={return_to}>Go back</Link>
+          <Link href={return_to}>Voltar</Link>
         </Button>
       </div>
     </div>

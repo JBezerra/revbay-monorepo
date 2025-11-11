@@ -52,8 +52,8 @@ const CreateCustomFieldModalContent = ({
         return
       }
       toast({
-        title: 'Custom Field Created',
-        description: `Custom field ${customField.name} was created successfully`,
+        title: 'Campo Personalizado Criado',
+        description: `Campo personalizado ${customField.name} foi criado com sucesso`,
       })
       onCustomFieldCreated(customField)
     },
@@ -63,11 +63,11 @@ const CreateCustomFieldModalContent = ({
   return (
     <div className="flex flex-col gap-y-6 overflow-y-auto px-8 py-10">
       <div>
-        <h2 className="text-lg">Create Custom Field</h2>
+        <h2 className="text-lg">Criar Campo Personalizado</h2>
         <p className="dark:text-polar-500 mt-2 text-sm text-gray-500">
-          Custom Fields allow you to ask additional information from your
-          customers at checkout, and will be available for use in all products
-          of your organization.
+          Campos Personalizados permitem que você solicite informações
+          adicionais dos seus clientes no checkout e estarão disponíveis para
+          uso em todos os produtos da sua organização.
         </p>
       </div>
       <div className="flex flex-col gap-y-6">
@@ -89,14 +89,14 @@ const CreateCustomFieldModalContent = ({
                 loading={createCustomField.isPending}
                 disabled={createCustomField.isPending}
               >
-                Create
+                Criar
               </Button>
               <Button
                 variant="ghost"
                 className="self-start"
                 onClick={hideModal}
               >
-                Cancel
+                Cancelar
               </Button>
             </div>
           </form>

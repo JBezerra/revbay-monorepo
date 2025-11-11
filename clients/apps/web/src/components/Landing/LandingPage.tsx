@@ -41,8 +41,9 @@ export const PageContent = () => {
           <div className="flex flex-col items-center gap-y-2">
             <h2 className="text-6xl">”</h2>
             <h2 className="text-2xl !leading-relaxed md:text-4xl">
-              The speed at which Polar is executing on the financial
-              infrastructure primitives the new world needs is very impressive
+              A velocidade com que o TropicPay está executando as primitivas de
+              infraestrutura financeira que o novo mundo precisa é muito
+              impressionante
             </h2>
           </div>
           <div className="flex flex-col items-center gap-y-4">

@@ -59,7 +59,7 @@ const EmailUpdateForm: React.FC<EmailUpdateformProps> = ({
                     <Input
                       type="email"
                       required
-                      placeholder="New email"
+                      placeholder="Novo email"
                       autoComplete="off"
                       data-1p-ignore
                       {...field}
@@ -71,7 +71,7 @@ const EmailUpdateForm: React.FC<EmailUpdateformProps> = ({
                       loading={loading}
                       disabled={loading}
                     >
-                      Update
+                      Atualizar
                     </Button>
                   </div>
                 </FormControl>

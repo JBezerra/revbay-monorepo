@@ -48,7 +48,7 @@ const CustomFieldTextProperties = () => {
         render={({ field }) => {
           return (
             <FormItem>
-              <FormLabel>Min length</FormLabel>
+              <FormLabel>Comprimento mínimo</FormLabel>
               <FormControl>
                 <Input {...field} type="number" min="0" />
               </FormControl>
@@ -69,7 +69,7 @@ const CustomFieldTextProperties = () => {
         render={({ field }) => {
           return (
             <FormItem>
-              <FormLabel>Max length</FormLabel>
+              <FormLabel>Comprimento máximo</FormLabel>
               <FormControl>
                 <Input {...field} type="number" min="0" />
               </FormControl>
@@ -96,7 +96,7 @@ const CustomFieldComparableProperties = () => {
         render={({ field }) => {
           return (
             <FormItem>
-              <FormLabel>Greater than or equal</FormLabel>
+              <FormLabel>Maior ou igual a</FormLabel>
               <FormControl>
                 <Input {...field} type="number" />
               </FormControl>
@@ -111,7 +111,7 @@ const CustomFieldComparableProperties = () => {
         render={({ field }) => {
           return (
             <FormItem>
-              <FormLabel>Less than or equal</FormLabel>
+              <FormLabel>Menor ou igual a</FormLabel>
               <FormControl>
                 <Input {...field} type="number" />
               </FormControl>
@@ -139,7 +139,7 @@ const CustomFieldSelectProperties = () => {
   })
   return (
     <FormItem>
-      <FormLabel>Select options</FormLabel>
+      <FormLabel>Opções de seleção</FormLabel>
       <div className="flex flex-col gap-2">
         {fields.map((field, index) => (
           <div key={field.id} className="flex flex-row items-center gap-2">
@@ -152,7 +152,7 @@ const CustomFieldSelectProperties = () => {
                     <Input
                       {...field}
                       value={field.value || ''}
-                      placeholder="Value"
+                      placeholder="Valor"
                     />
                   </FormControl>
                   <FormMessage />
@@ -168,7 +168,7 @@ const CustomFieldSelectProperties = () => {
                     <Input
                       {...field}
                       value={field.value || ''}
-                      placeholder="Label"
+                      placeholder="Rótulo"
                     />
                   </FormControl>
                   <FormMessage />
@@ -220,13 +220,13 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
         <FormField
           control={control}
           name="type"
-          rules={{ required: 'This field is required' }}
+          rules={{ required: 'Este campo é obrigatório' }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Type</FormLabel>
+              <FormLabel>Tipo</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select a type" />
+                  <SelectValue placeholder="Selecione um tipo" />
                 </SelectTrigger>
                 <SelectContent>
                   {Object.values(enums.customFieldTypeValues).map((type) => (
@@ -247,9 +247,9 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
         rules={{
           minLength: {
             value: 1,
-            message: 'This field must not be empty',
+            message: 'Este campo não pode estar vazio',
           },
-          required: 'This field is required',
+          required: 'Este campo é obrigatório',
         }}
         render={({ field }) => {
           return (
@@ -260,9 +260,9 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
               </FormControl>
               <FormMessage />
               <FormDescription>
-                Will be used as a key when storing the value. Must be unique
-                across your organization. It can only contain ASCII letters,
-                numbers and hyphens.
+                Será usado como chave ao armazenar o valor. Deve ser único em
+                toda a sua organização. Pode conter apenas letras ASCII, números
+                e hífens.
               </FormDescription>
             </FormItem>
           )
@@ -275,14 +275,14 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
         rules={{
           minLength: {
             value: 1,
-            message: 'This field must not be empty',
+            message: 'Este campo não pode estar vazio',
           },
-          required: 'This field is required',
+          required: 'Este campo é obrigatório',
         }}
         render={({ field }) => {
           return (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Nome</FormLabel>
               <FormControl>
                 <Input {...field} value={field.value || ''} />
               </FormControl>
@@ -298,7 +298,7 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
           className="dark:border-polar-700 rounded-xl border border-gray-200 px-4"
         >
           <AccordionTrigger className="hover:no-underline">
-            Form input options
+            Opções de entrada do formulário
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-y-6">
             {type === 'text' && (
@@ -314,7 +314,7 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
                           onCheckedChange={field.onChange}
                         />
                       </FormControl>
-                      <FormLabel>Textarea</FormLabel>
+                      <FormLabel>Área de texto</FormLabel>
                       <FormMessage />
                     </FormItem>
                   )
@@ -327,20 +327,19 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
               rules={{
                 minLength: {
                   value: 1,
-                  message: 'This field must not be empty',
+                  message: 'Este campo não pode estar vazio',
                 },
               }}
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Label</FormLabel>
+                    <FormLabel>Rótulo</FormLabel>
                     <FormControl>
                       <Input {...field} value={field.value || ''} />
                     </FormControl>
                     <FormMessage />
                     <FormDescription>
-                      Fallback to field name if not provided. Markdown
-                      supported.
+                      Usa o nome do campo se não fornecido. Markdown suportado.
                     </FormDescription>
                   </FormItem>
                 )
@@ -352,19 +351,19 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
               rules={{
                 minLength: {
                   value: 1,
-                  message: 'This field must not be empty',
+                  message: 'Este campo não pode estar vazio',
                 },
               }}
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Help text</FormLabel>
+                    <FormLabel>Texto de ajuda</FormLabel>
                     <FormControl>
                       <Input {...field} value={field.value || ''} />
                     </FormControl>
                     <FormMessage />
                     <FormDescription>
-                      Used on the checkout form. Markdown supported.
+                      Usado no formulário de checkout. Markdown suportado.
                     </FormDescription>
                   </FormItem>
                 )
@@ -376,7 +375,7 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
               rules={{
                 minLength: {
                   value: 1,
-                  message: 'This field must not be empty',
+                  message: 'Este campo não pode estar vazio',
                 },
               }}
               render={({ field }) => {
@@ -388,7 +387,7 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
                     </FormControl>
                     <FormMessage />
                     <FormDescription>
-                      Used on the checkout form.
+                      Usado no formulário de checkout.
                     </FormDescription>
                   </FormItem>
                 )
@@ -402,7 +401,7 @@ const CustomFieldForm: React.FC<CustomFieldFormBaseProps> = ({ update }) => {
             className="dark:border-polar-700 rounded-xl border border-gray-200 px-4"
           >
             <AccordionTrigger className="hover:no-underline">
-              Validation constraints
+              Restrições de validação
             </AccordionTrigger>
 
             <AccordionContent className="flex flex-col gap-y-6">

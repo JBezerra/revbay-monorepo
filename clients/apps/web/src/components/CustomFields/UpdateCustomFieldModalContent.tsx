@@ -51,8 +51,8 @@ const UpdateCustomFieldModalContent = ({
         return
       }
       toast({
-        title: 'Custom Field Updated',
-        description: `Custom field ${customField.name} was updated successfully`,
+        title: 'Campo Personalizado Atualizado',
+        description: `Campo personalizado ${customField.name} foi atualizado com sucesso`,
       })
       onCustomFieldUpdated(customField)
     },
@@ -62,9 +62,9 @@ const UpdateCustomFieldModalContent = ({
   return (
     <div className="flex flex-col gap-y-6 overflow-y-auto px-8 py-10">
       <div>
-        <h2 className="text-lg">Update Custom Field</h2>
+        <h2 className="text-lg">Atualizar Campo Personalizado</h2>
         <p className="dark:text-polar-500 mt-2 text-sm text-gray-500">
-          Type cannot be changed.
+          O tipo não pode ser alterado.
         </p>
       </div>
       <div className="flex flex-col gap-y-6">
@@ -86,14 +86,14 @@ const UpdateCustomFieldModalContent = ({
                 loading={updateCustomField.isPending}
                 disabled={updateCustomField.isPending}
               >
-                Update
+                Atualizar
               </Button>
               <Button
                 variant="ghost"
                 className="self-start"
                 onClick={hideModal}
               >
-                Cancel
+                Cancelar
               </Button>
             </div>
           </form>

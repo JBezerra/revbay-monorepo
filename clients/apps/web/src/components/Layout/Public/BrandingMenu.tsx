@@ -5,12 +5,8 @@ import LogoType from '@/components/Brand/LogoType'
 import { useOutsideClick } from '@/utils/useOutsideClick'
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@polar-sh/ui/components/ui/dropdown-menu'
-import { ArrowDown, Clipboard } from 'lucide-react'
 import Link from 'next/link'
 import { MouseEventHandler, useCallback, useRef, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -69,7 +65,7 @@ export const BrandingMenu = ({
             )}
           </Link>
         </DropdownMenuTrigger>
-        <DropdownMenuContent ref={brandingMenuRef} align="start">
+        {/* <DropdownMenuContent ref={brandingMenuRef} align="start">
           <DropdownMenuLabel>Platform</DropdownMenuLabel>
           <DropdownMenuItem
             className="flex flex-row gap-x-3"
@@ -87,7 +83,7 @@ export const BrandingMenu = ({
               Download Branding Assets
             </Link>
           </DropdownMenuItem>
-        </DropdownMenuContent>
+        </DropdownMenuContent> */}
       </DropdownMenu>
     </div>
   )

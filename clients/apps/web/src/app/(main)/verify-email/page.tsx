@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Email Update confirmation',
+  title: 'Confirmação de atualização de email',
 }
 
 export default function Page({
@@ -41,11 +41,12 @@ export default function Page({
       <div className="flex w-80 flex-col items-center gap-4">
         <LogoIcon size={60} className="mb-6 text-blue-500 dark:text-blue-400" />
         <div className="dark:text-polar-400 text-center text-gray-500">
-          To complete the email update process, please click the button below:
+          Para completar o processo de atualização de email, por favor clique no
+          botão abaixo:
         </div>
         <input type="hidden" name="token" value={token} />
         <Button fullWidth size="lg" type="submit">
-          Update the email
+          Atualizar o email
         </Button>
       </div>
     </form>

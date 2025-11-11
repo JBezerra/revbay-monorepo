@@ -26,7 +26,7 @@ export default function ClientPage({
         <Section id="developers">
           <SectionDescription
             title="Desenvolvedores"
-            description="Gerencie API Keys para autenticar com a API da RevBay"
+            description="Gerencie API Keys para autenticar com a API da TropicPay"
           />
           <OrganizationAccessTokensSettings organization={org} />
         </Section>

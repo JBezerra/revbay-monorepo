@@ -1,4 +1,29 @@
-import { Column, Img, Link, Row, Section } from '@react-email/components'
+import { Column, Row, Section } from '@react-email/components'
+
+const Logo = ({
+  className,
+  size = 29,
+}: {
+  className?: string
+  size?: number
+}) => {
+  return (
+    <svg
+      version="1.0"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="140 160 730 725"
+      fill="white"
+      className={className}
+    >
+      <g transform="matrix(0.1, 0, 0, -0.1, 20.244778, 1027.291382)">
+        <path d="M 4858.28 8638.49 C 3440.43 8379.39 2003.38 7153.46 1571.54 5831.57 C 1221.27 4759.18 1602.73 3480.47 2535.97 2604.8 C 3414.04 1784.32 4615.98 1455.64 5755.54 1729.14 C 6736.76 1966.64 7533.26 2609.6 8001.08 3540.44 C 8360.94 4262.57 8480.9 5143.03 8324.96 5925.13 C 8173.81 6690.44 7761.17 7434.16 7199.79 7959.55 C 6789.55 8343.41 6403.29 8549.73 5935.47 8640.89 C 5709.96 8681.68 5093.39 8681.68 4858.28 8638.49 Z M 5937.87 8050.72 C 6444.08 7889.98 6775.15 7566.11 6863.92 7143.87 C 6899.9 6963.94 6878.31 6625.66 6813.54 6397.75 C 6619.21 5711.61 6036.23 4994.29 5242.14 4466.49 C 4699.94 4104.23 3944.23 3852.33 3416.44 3852.33 C 3214.91 3852.33 2852.65 3933.89 2672.72 4017.86 C 2497.59 4099.43 2257.68 4312.95 2166.51 4471.29 C 1938.6 4859.94 1957.79 5414.13 2221.69 5982.71 C 2432.81 6443.33 2946.21 7045.5 3430.83 7400.57 C 3937.04 7772.43 4486.43 8012.33 5035.82 8098.7 C 5268.53 8134.69 5748.34 8110.7 5937.87 8050.72 Z M 7360.53 5469.31 C 7437.3 5416.53 7485.28 5308.57 7485.28 5186.22 C 7485.28 5051.87 7451.69 4963.1 7370.12 4879.13 C 7238.17 4737.59 7007.86 4828.75 6969.48 5037.47 C 6909.5 5349.35 7151.81 5615.65 7360.53 5469.31 Z M 6436.88 4140.22 C 6568.83 4037.05 6573.63 3842.73 6453.67 3653.2 C 6372.1 3523.65 6204.17 3432.49 6096.21 3456.48 C 5846.71 3511.66 5808.32 3794.75 6017.04 4025.06 C 6163.38 4185.8 6321.72 4228.98 6436.88 4140.22 Z" />
+        <path d="M 4980.64 7556.51 C 4594.39 7479.74 4155.35 7287.81 3785.89 7028.71 C 3533.99 6853.58 3070.97 6390.55 2919.83 6160.24 C 2684.71 5807.58 2564.76 5464.51 2564.76 5145.43 C 2562.36 4819.15 2689.51 4608.04 2970.21 4471.29 C 3128.54 4392.12 3133.34 4392.12 3466.82 4394.52 C 3728.32 4396.92 3843.47 4406.51 3987.42 4447.3 C 4541.6 4598.44 5069.4 4907.92 5542.02 5358.95 C 6031.43 5821.97 6290.54 6270.6 6326.52 6712.03 C 6360.11 7134.27 6165.78 7429.36 5777.13 7551.71 C 5604.4 7604.49 5230.14 7606.89 4980.64 7556.51 Z" />
+      </g>
+    </svg>
+  )
+}
 
 interface HeaderProps {
   featuredOrganization?: {
@@ -11,37 +36,7 @@ const Header = ({ featuredOrganization }: HeaderProps) => (
   <Section className="pt-[10px]">
     <Row>
       <Column className="w-[80%]">
-        <Img
-          alt="Polar Logo"
-          height="42"
-          src="https://polar-public-assets.s3.us-east-2.amazonaws.com/emails/polar-logo-blue.png"
-        />
-      </Column>
-      <Column align="right">
-        <Row align="right">
-          <Column>
-            <Link href="https://x.com/polar_sh">
-              <Img
-                alt="X"
-                className="mx-[4px]"
-                height="36"
-                src="https://polar-public-assets.s3.us-east-2.amazonaws.com/emails/x-logo.png"
-                width="36"
-              />
-            </Link>
-          </Column>
-          <Column>
-            <Link href="https://discord.gg/Pnhfz3UThd">
-              <Img
-                alt="Discord"
-                className="mx-[4px]"
-                height="36"
-                src="https://polar-public-assets.s3.us-east-2.amazonaws.com/emails/discord-logo.png"
-                width="36"
-              />
-            </Link>
-          </Column>
-        </Row>
+        <Logo className="text-black" />
       </Column>
     </Row>
   </Section>

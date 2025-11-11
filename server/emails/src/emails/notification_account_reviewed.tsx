@@ -8,10 +8,10 @@ import Wrapper from '../components/Wrapper'
 export function NotificationAccountReviewed() {
   return (
     <Wrapper>
-      <Preview>Revisão da conta RevBay concluída</Preview>
+      <Preview>Revisão da conta TropicPay concluída</Preview>
       <PolarHeader />
       <IntroWithHi hiMsg="Parabéns!">
-        Temos o prazer de informar que a revisão da sua conta RevBay foi
+        Temos o prazer de informar que a revisão da sua conta TropicPay foi
         concluída com sucesso.
       </IntroWithHi>
       <BodyText>

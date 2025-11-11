@@ -160,7 +160,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'name',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Name" />
+        <DataTableColumnHeader column={column} title="Nome" />
       ),
       cell: ({ getValue }) => {
         return <>{getValue()}</>
@@ -170,7 +170,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'code',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Code" />
+        <DataTableColumnHeader column={column} title="Código" />
       ),
       cell: ({ getValue }) => {
         const code = getValue() as string | null
@@ -182,8 +182,8 @@ const ClientPage: React.FC<ClientPageProps> = ({
                 text={code}
                 onCopy={() => {
                   toast({
-                    title: 'Copied To Clipboard',
-                    description: `Discount Code was copied to clipboard`,
+                    title: 'Copiado para a área de transferência',
+                    description: `Código de desconto foi copiado para a área de transferência`,
                   })
                 }}
               />
@@ -198,7 +198,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'amount',
       enableSorting: false,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Amount" />
+        <DataTableColumnHeader column={column} title="Valor" />
       ),
       cell: ({ row: { original: discount } }) => {
         return <>{getDiscountDisplay(discount)}</>
@@ -208,7 +208,7 @@ const ClientPage: React.FC<ClientPageProps> = ({
       accessorKey: 'redemptions_count',
       enableSorting: true,
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Redemptions" />
+        <DataTableColumnHeader column={column} title="Resgates" />
       ),
       cell: ({ getValue, row: { original: discount } }) => {
         const redemptions = getValue() as number

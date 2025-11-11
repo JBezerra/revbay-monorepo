@@ -52,7 +52,7 @@ export default function ConfirmationButton({
   const handleInitialClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    
+
     if (requireConfirmation && !disabled) {
       setShowConfirmation(true)
     } else {
@@ -115,7 +115,7 @@ export default function ConfirmationButton({
         </div>
         <span>{warningMessage}</span>
       </div>
-      
+
       {/* Confirmation Buttons */}
       <div className="flex gap-2 sm:flex-shrink-0">
         <Button
@@ -137,7 +137,7 @@ export default function ConfirmationButton({
           size={size}
           className="flex-1 sm:flex-initial"
         >
-          Cancel
+          Cancelar
         </Button>
       </div>
     </div>

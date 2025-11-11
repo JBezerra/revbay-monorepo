@@ -11,12 +11,12 @@ export function NotificationAccountUnderReview({
 }) {
   return (
     <Wrapper>
-      <Preview>Sua conta RevBay está sendo revisada</Preview>
+      <Preview>Sua conta TropicPay está sendo revisada</Preview>
       <PolarHeader />
       <BodyText>Olá,</BodyText>
       <BodyText>
         Desculpe, não queremos assustá-lo. As revisões de conta são completamente normais
-        e fazem parte dos nossos esforços contínuos de conformidade aqui no RevBay.
+        e fazem parte dos nossos esforços contínuos de conformidade aqui no TropicPay.
       </BodyText>
       <BodyText>
         Atualmente, sua conta {account_type} e organizações conectadas a ela

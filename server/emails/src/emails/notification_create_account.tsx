@@ -15,7 +15,7 @@ export function NotificationCreateAccount({
 }) {
   return (
     <Wrapper>
-      <Preview>Sua conta RevBay está sendo revisada</Preview>
+      <Preview>Sua conta TropicPay está sendo revisada</Preview>
       <PolarHeader />
       <IntroWithHi>
         Agora que você recebeu seu primeiro pagamento da {organization_name}, você deve

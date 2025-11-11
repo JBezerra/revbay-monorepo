@@ -420,17 +420,17 @@ export const OrganizationDetailsForm: React.FC<
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Como você vai integrar o Polar em sua empresa? *
+                Como você vai integrar o TropicPay em sua empresa? *
               </label>
               <p className="mb-2 text-xs text-gray-600">
-                Nos diga: onde os clientes verão o Polar, quais funcionalidades
-                you&apos;ll use, and how it fits your workflow
+                Nos diga: onde os clientes verão o TropicPay, quais funcionalidades
+                você usará e como se encaixa no seu fluxo de trabalho
               </p>
               <FormField
                 control={control}
                 name="details.intended_use"
                 rules={{
-                  required: 'Por favor, descreva como você vai usar o Polar',
+                  required: 'Por favor, descreva como você vai usar o TropicPay',
                   minLength: {
                     value: 30,
                     message: 'Por favor, forneça pelo menos 30 caracteres',

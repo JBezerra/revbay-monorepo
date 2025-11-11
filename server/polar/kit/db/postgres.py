@@ -30,11 +30,6 @@ def create_async_engine(
     if command_timeout is not None:
         connect_args["command_timeout"] = command_timeout
 
-    # Add SSL for RDS connections
-    # Check if this is an RDS endpoint (not localhost)
-    if "rds.amazonaws.com" in dsn or "amazonaws.com" in dsn:
-        connect_args["ssl"] = "require"
-
     return _create_async_engine(
         dsn,
         echo=debug,

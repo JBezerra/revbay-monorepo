@@ -84,7 +84,7 @@ const Login = ({
         <LoginCodeForm {...loginProps} />
       </div>
       <div className="dark:text-polar-500 mt-6 text-center text-xs text-gray-400">
-        Ao usar a RevBay, você concorda com nossos{' '}
+        Ao usar a TropicPay, você concorda com nossos{' '}
         <a
           className="dark:text-polar-300 text-gray-600"
           href="https://polar.sh/legal/terms"

@@ -129,8 +129,8 @@ export const OrganizationStep = ({
     router.push(
       getStatusRedirect(
         `/dashboard/${organization.slug}/onboarding/product${queryParams}`,
-        'Organization created',
-        'You can now create your first product',
+        'Organização criada',
+        'Agora você pode criar seu primeiro produto',
       ),
     )
   }
@@ -208,7 +208,7 @@ export const OrganizationStep = ({
                     control={control}
                     name="terms"
                     rules={{
-                      required: 'You must accept the terms to continue',
+                      required: 'Você deve aceitar os termos para continuar',
                     }}
                     render={({ field }) => {
                       return (
@@ -230,7 +230,7 @@ export const OrganizationStep = ({
                               >
                                 {/* Todo: Fazer termos de serviço e outros documentos */}
                                 Eu entendo as restrições abaixo e concordo com
-                                os termos da RevBay
+                                os termos da TropicPay
                               </label>
                               <ul className="dark:text-polar-300 ml-1 mt-3 list-inside list-disc space-y-1.5 text-gray-600">
                                 <li>
