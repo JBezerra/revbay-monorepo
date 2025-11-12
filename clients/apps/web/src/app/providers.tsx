@@ -73,28 +73,15 @@ export function PolarPostHogProvider({
 
 export function PolarThemeProvider({
   children,
-  forceTheme,
 }: {
   children: React.ReactElement
-  forceTheme?: 'light' | 'dark'
 }) {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const theme = searchParams.get('theme')
-
-  const PAGES_WITH_FORCED_DARK_THEME: string[] = ['/midday/portal']
-  const forcedTheme = PAGES_WITH_FORCED_DARK_THEME.some((path) =>
-    pathname.includes(path),
-  )
-    ? 'dark'
-    : forceTheme
-
   return (
     <ThemeProvider
-      defaultTheme="system"
-      enableSystem
+      defaultTheme="dark"
+      enableSystem={false}
       attribute="class"
-      forcedTheme={theme ?? forcedTheme}
+      forcedTheme="dark"
     >
       {children}
     </ThemeProvider>
